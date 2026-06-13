@@ -1,0 +1,208 @@
+ai_invoice_extraction_pipeline/
+├── README.md
+├── requirements.txt
+├── .gitignore
+├── .env.example
+├── configs/
+│   └── config.yaml
+
+├── sample_pdf/
+│   ├── scan/
+
+├── docs/
+│   ├── architecture.md
+│   └── use_case.md
+├── src/
+│   ├── main.py
+│   ├── pipeline.py
+│   ├── classifiers/
+│   │   └── document_router.py
+
+│   ├── extractors/
+│   │   ├── extractor.py
+
+│   ├── transform/
+│   │   ├── normalizer.py
+│   │   └── validators.py
+│   ├── models/
+│   │   └── schema.py
+│   └── storage/
+│       ├── sqlite_writer.py
+│       └── json_writer.py
+
+└── output/zugferd/file.csv (one csv file (schemaMerge) for all zugferd or other sample pdf file)
+/file.json (one json file (schemaMerge) for all zugferd or other sample pdf file)
+/file.sql(one sql file (schemaMerge) for all zugferd or other sample pdf file)
+
+├── logs/
+│   └── logs.txt
+
+
+
+
+AI tesseract+ollama
+
+open PowerShell - > cd "C:\Users\SohamChoudhary\Documents\OllamaModels"
+
+[System.Environment]::SetEnvironmentVariable(
+  "OLLAMA_MODELS",
+  "C:\Users\SohamChoudhary\Documents\OllamaModels",
+  "User"
+)
+
+ollama pull qwen2.5vl:7b
+
+5. Verify - > $env:OLLAMA_MODELS
+ollama list
+
+
+
+docker+kubernetes
+Step 3 — Install kubectl inside WSL2
+All commands from here run inside WSL2. Open a WSL terminal and keep it open.
+bash# Download and install kubectl
+curl -LO "https://dl.k8s.io/release/$(curl -Ls https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x kubectl
+sudo mv kubectl /usr/local/bin/
+
+# Verify
+kubectl version --client
+
+Step 4 — Install k3d inside WSL2
+bash# One-line official install
+curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
+
+# Verify
+k3d version
+
+Step 5 — Create the k3d cluster
+bashk3d cluster create invoice-cluster \
+  --api-port 6550 \
+  --agents 1
+
+# Verify both nodes are Ready
+kubectl get nodes
+You will see a server node and an agent node, both status Ready. This is already more production-like than minikube — it has a control plane node and a worker node, matching AKS architecture.
+
+Step 6 — Navigate to your project in WSL2
+cd "/mnt/c/Users/SohamChoudhary/OneDrive - Encory/Documents/DataEngineerKnowledgeBase/Hita
+
+Step 9 — Build the image named v2-ai-invoice-extraction
+bashdocker build -t v2-ai-invoice-extraction:latest .
+Takes 5–10 minutes first time. Verify:
+bashdocker images | grep v2-ai-invoice-extraction
+
+Step 10 — Load images into k3d
+k3d runs its own internal registry. You must explicitly import images.
+bash# Load your pipeline image
+k3d image import v2-ai-invoice-extraction:latest -c invoice-cluster
+
+
+
+# Remove the failed attempt
+docker rmi ollama/ollama:latest
+
+# Pull a specific smaller variant
+docker pull ollama/ollama:0.3.12
+
+# Import with increased timeout
+k3d image import ollama/ollama:0.3.12 -c invoice-cluster
+
+
+Issue 2 — Namespace not found
+You never applied the manifests yet. The namespace invoice-pipeline does not exist. Run everything in order:
+bash# Step 1 — create namespace first
+kubectl apply -f k8s/namespace.yaml
+
+# Step 2 — verify it exists
+kubectl get namespaces | grep invoice
+
+# Step 3 — create storage
+kubectl apply -f k8s/pvc.yaml
+
+# Step 4 — deploy Ollama
+kubectl apply -f k8s/ollama.yaml
+
+# Step 5 — deploy cronjob
+kubectl apply -f k8s/cronjob.yaml
+
+# Step 6 — verify everything
+kubectl -n invoice-pipeline get all
+
+
+Wait for 1/1 Running
+Keep watching:
+bashkubectl -n invoice-pipeline get pods -w
+You are waiting for this:
+NAME                      READY   STATUS    RESTARTS   AGE
+ollama-55678649ff-lkpwq   1/1     Running   0          2m
+1/1 means the readiness probe passed — Ollama is fully up and accepting requests.
+
+Once you see 1/1 — verify Ollama responds
+bash# Get the pod name
+kubectl -n invoice-pipeline get pods
+
+# Hit the Ollama API from inside the pod
+kubectl -n invoice-pipeline exec -it ollama-55678649ff-lkpwq -- \
+  curl http://localhost:11434/api/tags
+You should get a JSON response like {"models":[]} — empty models list is fine, it means Ollama is running, no models pulled yet.
+
+Then pull the model
+bashkubectl -n invoice-pipeline exec -it ollama-55678649ff-lkpwq -- \
+  ollama pull llama3.2:3b
+
+
+Curl is not installed inside the Ollama container. Use a different approach:
+bash# Option 1 — wget (usually available)
+kubectl -n invoice-pipeline exec -it ollama-55678649ff-lkpwq -- \
+  wget -qO- http://localhost:11434/api/tags
+
+# Option 2 — use the ollama CLI directly
+kubectl -n invoice-pipeline exec -it ollama-55678649ff-lkpwq -- \
+  ollama list
+
+
+If ollama list returns an empty table (no models), Ollama is running fine — just no models pulled yet.
+Then pull the model:
+bashkubectl -n invoice-pipeline exec -it ollama-55678649ff-lkpwq -- \
+  ollama pull llama3.2:3b
+
+
+Step 1 — Update the model in cronjob.yaml
+Open k8s/cronjob.yaml and change:
+yaml- name: OLLAMA_MODEL
+  value: "llama3.2:3b"
+to:
+yaml- name: OLLAMA_MODEL
+  value: "qwen2.5:7b"
+Apply the change:
+bashkubectl apply -f k8s/cronjob.yaml
+
+Step 2 — Load your pipeline image into k3d
+bashk3d image import v2-ai-invoice-extraction:latest -c invoice-cluster
+Verify it landed:
+bashdocker exec -it k3d-invoice-cluster-server-0 crictl images | grep v2-ai
+
+Step 3 — Copy your PDFs into the input volume
+bashkubectl -n invoice-pipeline run loader --image=busybox --restart=Never \
+  --overrides='{"spec":{"volumes":[{"name":"v","persistentVolumeClaim":{"claimName":"invoice-input-pvc"}}],"containers":[{"name":"loader","image":"busybox","command":["sleep","600"],"volumeMounts":[{"name":"v","mountPath":"/data"}]}]}}'
+
+# Wait for it
+kubectl -n invoice-pipeline get pod loader
+
+# Copy PDFs
+kubectl -n invoice-pipeline cp sample_pdf/scan/invoice_v2_01.pdf loader:/data/invoice_v2_01.pdf
+kubectl -n invoice-pipeline cp sample_pdf/scan/invoice_v2_02.pdf loader:/data/invoice_v2_02.pdf
+kubectl -n invoice-pipeline cp sample_pdf/scan/invoice_v2_03.pdf loader:/data/invoice_v2_03.pdf
+
+# Clean up loader pod
+kubectl -n invoice-pipeline delete pod loader
+
+Step 4 — Trigger a test run
+bashkubectl -n invoice-pipeline create job test-run-01 --from=cronjob/invoice-extraction
+
+# Watch it
+kubectl -n invoice-pipeline get pods -w
+
+# Follow logs live once pod is Running
+kubectl -n invoice-pipeline logs -l job-name=test-run-01 -f

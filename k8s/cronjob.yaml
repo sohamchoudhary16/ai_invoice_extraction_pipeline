@@ -1,0 +1,51 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: invoice-extraction
+  namespace: invoice-pipeline
+spec:
+  schedule: "0 5 * * 1"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 2
+      activeDeadlineSeconds: 14400
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: pipeline
+              image: v2-ai-invoice-extraction:latest
+              imagePullPolicy: Never
+              env:
+                - name: TESSERACT_PATH
+                  value: "/usr/bin/tesseract"
+                - name: OLLAMA_BASE_URL
+                  value: "http://ollama.invoice-pipeline.svc.cluster.local:11434"
+                - name: OLLAMA_MODEL
+                  value: "qwen2.5vl:7b"
+                - name: OLLAMA_TIMEOUT
+                  value: "1800"
+                - name: CONFIDENCE_THRESHOLD
+                  value: "80"
+              volumeMounts:
+                - name: input-vol
+                  mountPath: /app/sample_pdf/scan
+                - name: output-vol
+                  mountPath: /app/output
+              resources:
+                requests:
+                  memory: "2Gi"
+                  cpu: "1"
+                limits:
+                  memory: "4Gi"
+                  cpu: "2"
+          volumes:
+            - name: input-vol
+              persistentVolumeClaim:
+                claimName: invoice-input-pvc
+            - name: output-vol
+              persistentVolumeClaim:
+                claimName: invoice-output-pvc

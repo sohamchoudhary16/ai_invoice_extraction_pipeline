@@ -1,0 +1,19 @@
+name: inv_ext_env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+    - pymupdf==1.24.5
+    - pytesseract==0.3.13
+    - Pillow==10.4.0
+    - pypdf==4.3.1
+    - requests==2.32.3
+    - lxml==5.2.2
+    - pandas==2.2.2
+    - numpy==1.26.4
+    - python-dotenv==1.0.1
+    - pyyaml==6.0.1
+    - tqdm==4.66.4

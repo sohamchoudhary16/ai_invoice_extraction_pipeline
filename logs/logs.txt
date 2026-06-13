@@ -1,0 +1,878 @@
+2026-06-07 01:16:08,394  INFO      ============================================================
+2026-06-07 01:16:08,394  INFO        Invoice Extraction Pipeline  —  starting
+2026-06-07 01:16:08,395  INFO      ============================================================
+2026-06-07 01:16:08,395  INFO        Model     : qwen2.5vl:7b
+2026-06-07 01:16:08,396  INFO        Threshold : 80%
+2026-06-07 01:16:08,396  INFO        Input dir : sample_pdf/scan
+2026-06-07 01:16:08,397  WARNING   Tesseract not found at 'C:\Program Files\Tesseract-OCR\tesseract.exe'. Set TESSERACT_PATH in .env or update configs/config.yaml.
+2026-06-07 01:16:08,397  INFO      [Main] Found 3 PDF(s) in 'sample_pdf/scan'
+2026-06-07 01:16:08,401  INFO      
+============================================================
+2026-06-07 01:16:08,402  INFO      [Pipeline] Starting: invoice_01.pdf
+2026-06-07 01:16:08,426  INFO      [Classifier] sample_pdf/scan\invoice_01.pdf → scanned (0/1 digital pages)
+2026-06-07 01:16:08,426  INFO      [Pipeline] Classification: scanned, 1 page(s)
+2026-06-07 01:16:08,426  INFO      [Pipeline] Scanned PDF — using OCR + LLM pipeline
+2026-06-07 01:16:08,874  INFO        [OCR] Page 1 ...
+2026-06-07 01:16:12,287  INFO        [OCR] Page 1: avg_conf=86.7%, low_conf_words=23
+2026-06-07 01:16:12,287  INFO        [LLM] Page 1: sending 23 words to Ollama...
+2026-06-07 01:18:22,634  INFO      HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-06-07 01:22:44,177  INFO      [Pipeline] Normalizing extracted fields...
+2026-06-07 01:22:44,201  INFO      [Pipeline] Validating records...
+2026-06-07 01:22:44,207  WARNING     [Validator] invoice_01.pdf — 1 validation error(s): ['MISSING_REQUIRED_FIELD: InvGrandTotal']
+2026-06-07 01:22:44,213  INFO      [Pipeline] Done: 1 record(s), 0 valid, 1 with warnings
+2026-06-07 01:22:44,225  INFO      
+============================================================
+2026-06-07 01:22:44,229  INFO      [Pipeline] Starting: invoice_02.pdf
+2026-06-07 01:22:44,290  INFO      [Classifier] sample_pdf/scan\invoice_02.pdf → scanned (0/1 digital pages)
+2026-06-07 01:22:44,294  INFO      [Pipeline] Classification: scanned, 1 page(s)
+2026-06-07 01:22:44,303  INFO      [Pipeline] Scanned PDF — using OCR + LLM pipeline
+2026-06-07 01:22:45,375  INFO        [OCR] Page 1 ...
+2026-06-07 01:22:48,300  INFO        [OCR] Page 1: avg_conf=86.7%, low_conf_words=31
+2026-06-07 01:22:48,301  INFO        [LLM] Page 1: sending 31 words to Ollama...
+2026-06-07 01:25:35,231  INFO      HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-06-07 01:31:53,492  INFO      ============================================================
+2026-06-07 01:31:53,492  INFO        Invoice Extraction Pipeline  —  starting
+2026-06-07 01:31:53,492  INFO      ============================================================
+2026-06-07 01:31:53,492  INFO        Model     : qwen2.5vl:7b
+2026-06-07 01:31:53,492  INFO        Threshold : 80%
+2026-06-07 01:31:53,492  INFO        Input dir : sample_pdf/scan
+2026-06-07 01:31:53,492  INFO      [Main] Found 3 PDF(s) in 'sample_pdf/scan'
+2026-06-07 01:31:53,492  INFO      
+============================================================
+2026-06-07 01:31:53,492  INFO      [Pipeline] Starting: invoice_01.pdf
+2026-06-07 01:31:53,492  INFO      [Classifier] sample_pdf/scan\invoice_01.pdf → scanned (0/1 digital pages)
+2026-06-07 01:31:53,492  INFO      [Pipeline] Classification: scanned, 1 page(s)
+2026-06-07 01:31:53,492  INFO      [Pipeline] Scanned PDF — using OCR + LLM pipeline
+2026-06-07 01:31:54,027  INFO        [OCR] Page 1 ...
+2026-06-07 01:31:55,891  INFO        [OCR] Page 1: avg_conf=86.7%, low_conf_words=23
+2026-06-07 01:31:55,891  INFO        [LLM] Page 1: sending 23 words to Ollama...
+2026-06-07 01:31:58,825  INFO      HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-06-07 01:58:48,245  INFO      ============================================================
+2026-06-07 01:58:48,246  INFO        Invoice Extraction Pipeline  —  starting
+2026-06-07 01:58:48,246  INFO      ============================================================
+2026-06-07 01:58:48,247  INFO        Model     : qwen2.5vl:7b
+2026-06-07 01:58:48,247  INFO        Threshold : 80%
+2026-06-07 01:58:48,248  INFO        Input dir : sample_pdf/scan
+2026-06-07 01:58:48,249  INFO      [Main] Found 3 PDF(s) in 'sample_pdf/scan'
+2026-06-07 01:58:48,252  INFO      
+============================================================
+2026-06-07 01:58:48,253  INFO      [Pipeline] Starting: invoice_01.pdf
+2026-06-07 01:58:48,258  INFO      [Classifier] sample_pdf/scan\invoice_01.pdf → scanned (0/1 digital pages)
+2026-06-07 01:58:48,258  INFO      [Pipeline] Classification: scanned, 1 page(s)
+2026-06-07 01:58:48,259  INFO      [Pipeline] Scanned PDF — using OCR + LLM pipeline
+2026-06-07 01:58:48,784  INFO        [OCR] Page 1 ...
+2026-06-07 01:58:50,632  INFO        [OCR] Page 1: avg_conf=86.7%, low_conf_words=23
+2026-06-07 01:58:50,632  INFO        [LLM] Page 1: sending 23 words to Ollama...
+2026-06-07 02:00:29,466  INFO      HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-06-07 02:04:48,373  INFO      [Pipeline] Normalizing extracted fields...
+2026-06-07 02:04:48,380  INFO      [Pipeline] Validating records...
+2026-06-07 02:04:48,385  WARNING     [Validator] invoice_01.pdf — 1 validation error(s): ['MISSING_REQUIRED_FIELD: InvGrandTotal']
+2026-06-07 02:04:48,395  INFO      [Pipeline] Done: 1 record(s), 0 valid, 1 with warnings
+2026-06-07 02:04:48,404  INFO      
+============================================================
+2026-06-07 02:04:48,407  INFO      [Pipeline] Starting: invoice_02.pdf
+2026-06-07 02:04:48,421  INFO      [Classifier] sample_pdf/scan\invoice_02.pdf → scanned (0/1 digital pages)
+2026-06-07 02:04:48,425  INFO      [Pipeline] Classification: scanned, 1 page(s)
+2026-06-07 02:04:48,428  INFO      [Pipeline] Scanned PDF — using OCR + LLM pipeline
+2026-06-07 02:04:49,553  INFO        [OCR] Page 1 ...
+2026-06-07 02:04:52,499  INFO        [OCR] Page 1: avg_conf=86.7%, low_conf_words=31
+2026-06-07 02:04:52,500  INFO        [LLM] Page 1: sending 31 words to Ollama...
+2026-06-07 02:07:37,497  INFO      HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-06-07 02:14:31,608  WARNING     [LLM] JSON parse failed: Expecting property name enclosed in double quotes: line 6 column 3 (char 88)
+2026-06-07 02:14:31,627  INFO      [Pipeline] Normalizing extracted fields...
+2026-06-07 02:14:31,634  INFO      [Pipeline] Validating records...
+2026-06-07 02:14:31,638  WARNING     [Validator] invoice_02.pdf — 4 validation error(s): ['MISSING_REQUIRED_FIELD: InvoiceId', 'MISSING_REQUIRED_FIELD: IssueDate', 'MISSING_REQUIRED_FIELD: SellerName', 'MISSING_REQUIRED_FIELD: InvGrandTotal']
+2026-06-07 02:14:31,642  INFO      [Pipeline] Done: 1 record(s), 0 valid, 1 with warnings
+2026-06-07 02:14:31,649  INFO      
+============================================================
+2026-06-07 02:14:31,658  INFO      [Pipeline] Starting: invoice_03.pdf
+2026-06-07 02:14:31,691  INFO      [Classifier] sample_pdf/scan\invoice_03.pdf → scanned (0/1 digital pages)
+2026-06-07 02:14:31,697  INFO      [Pipeline] Classification: scanned, 1 page(s)
+2026-06-07 02:14:31,700  INFO      [Pipeline] Scanned PDF — using OCR + LLM pipeline
+2026-06-07 02:14:32,992  INFO        [OCR] Page 1 ...
+2026-06-07 02:14:35,913  INFO        [OCR] Page 1: avg_conf=88.5%, low_conf_words=26
+2026-06-07 02:14:35,913  INFO        [LLM] Page 1: sending 26 words to Ollama...
+2026-06-07 02:17:04,457  INFO      HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-06-07 02:23:20,699  INFO      [Pipeline] Normalizing extracted fields...
+2026-06-07 02:23:20,706  INFO      [Pipeline] Validating records...
+2026-06-07 02:23:20,712  WARNING     [Validator] invoice_03.pdf — 1 validation error(s): ['MISSING_REQUIRED_FIELD: InvGrandTotal']
+2026-06-07 02:23:20,713  INFO      [Pipeline] Done: 1 record(s), 0 valid, 1 with warnings
+2026-06-07 02:23:20,730  INFO      
+[Main] Total records extracted: 3
+2026-06-07 02:23:20,749  INFO      [JSON Writer] Written 3 record(s) → output\processed\file.json
+2026-06-07 02:23:20,853  INFO      [CSV Writer] Written 3 record(s) → output\processed\file.csv
+2026-06-07 02:23:20,898  INFO      [SQLite Writer] Inserted 3 record(s) → output/extractions.db
+2026-06-07 02:23:20,920  INFO      [SQLite Writer] SQL dump → output\processed\file.sql
+2026-06-07 02:23:20,924  INFO      
+[Main] ✅ Pipeline complete.
+2026-06-07 02:23:20,926  INFO        JSON  → output\processed\file.json
+2026-06-07 02:23:20,929  INFO        CSV   → output\processed\file.csv
+2026-06-07 02:23:20,931  INFO        SQL   → output\processed\file.sql
+2026-06-07 02:23:20,936  INFO        DB    → output/extractions.db
+2026-06-07 02:23:20,940  INFO        Logs  → logs/logs.txt
+2026-06-07 12:13:40,741  INFO      ============================================================
+2026-06-07 12:13:40,745  INFO        Invoice Extraction Pipeline  —  starting
+2026-06-07 12:13:40,745  INFO      ============================================================
+2026-06-07 12:13:40,750  INFO        Model     : qwen2.5vl:7b
+2026-06-07 12:13:40,750  INFO        Threshold : 80%
+2026-06-07 12:13:40,750  INFO        Input dir : sample_pdf/scan
+2026-06-07 12:13:40,754  INFO      [Main] Found 3 PDF(s) in 'sample_pdf/scan'
+2026-06-07 12:13:40,770  INFO      
+============================================================
+2026-06-07 12:13:40,770  INFO      [Pipeline] Starting: invoice_v2_01.pdf
+2026-06-07 12:13:40,861  INFO      [Classifier] sample_pdf/scan\invoice_v2_01.pdf → scanned (0/1 digital pages)
+2026-06-07 12:13:40,861  INFO      [Pipeline] Classification: scanned, 1 page(s)
+2026-06-07 12:13:40,861  INFO      [Pipeline] Scanned PDF — using OCR + LLM pipeline
+2026-06-07 12:13:41,562  INFO        [OCR] Page 1 ...
+2026-06-07 12:13:49,218  INFO        [OCR] Page 1: avg_conf=89.3%, low_conf_words=16
+2026-06-07 12:13:49,218  INFO        [LLM] Page 1: sending 16 words to Ollama...
+2026-06-07 12:15:07,656  INFO      HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-06-07 12:17:19,360  INFO      [Pipeline] Normalizing extracted fields...
+2026-06-07 12:17:19,368  INFO      [Pipeline] Validating records...
+2026-06-07 12:17:19,370  WARNING     [Validator] invoice_v2_01.pdf — 1 validation error(s): ['MISSING_REQUIRED_FIELD: InvGrandTotal']
+2026-06-07 12:17:19,372  INFO      [Pipeline] Done: 1 record(s), 0 valid, 1 with warnings
+2026-06-07 12:17:19,376  INFO      
+============================================================
+2026-06-07 12:17:19,378  INFO      [Pipeline] Starting: invoice_v2_02.pdf
+2026-06-07 12:17:19,420  INFO      [Classifier] sample_pdf/scan\invoice_v2_02.pdf → scanned (0/1 digital pages)
+2026-06-07 12:17:19,422  INFO      [Pipeline] Classification: scanned, 1 page(s)
+2026-06-07 12:17:19,422  INFO      [Pipeline] Scanned PDF — using OCR + LLM pipeline
+2026-06-07 12:17:20,366  INFO        [OCR] Page 1 ...
+2026-06-07 12:17:23,012  INFO        [OCR] Page 1: avg_conf=89.3%, low_conf_words=21
+2026-06-07 12:17:23,012  INFO        [LLM] Page 1: sending 21 words to Ollama...
+2026-06-07 12:19:29,039  INFO      HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-06-07 12:22:20,696  INFO      [Pipeline] Normalizing extracted fields...
+2026-06-07 12:22:20,698  INFO      [Pipeline] Validating records...
+2026-06-07 12:22:20,702  WARNING     [Validator] invoice_v2_02.pdf — 1 validation error(s): ['MISSING_REQUIRED_FIELD: InvGrandTotal']
+2026-06-07 12:22:20,705  INFO      [Pipeline] Done: 1 record(s), 0 valid, 1 with warnings
+2026-06-07 12:22:20,710  INFO      
+============================================================
+2026-06-07 12:22:20,713  INFO      [Pipeline] Starting: invoice_v2_03.pdf
+2026-06-07 12:22:20,727  INFO      [Classifier] sample_pdf/scan\invoice_v2_03.pdf → scanned (0/1 digital pages)
+2026-06-07 12:22:20,733  INFO      [Pipeline] Classification: scanned, 1 page(s)
+2026-06-07 12:22:20,739  INFO      [Pipeline] Scanned PDF — using OCR + LLM pipeline
+2026-06-07 12:22:22,229  INFO        [OCR] Page 1 ...
+2026-06-07 12:22:25,494  INFO        [OCR] Page 1: avg_conf=86.5%, low_conf_words=36
+2026-06-07 12:22:25,494  INFO        [LLM] Page 1: sending 36 words to Ollama...
+2026-06-07 12:25:23,366  INFO      HTTP Request: POST http://localhost:11434/api/generate "HTTP/1.1 200 OK"
+2026-06-07 12:29:33,804  WARNING     [LLM] JSON parse failed: Expecting ',' delimiter: line 82 column 67 (char 1795)
+2026-06-07 12:29:33,810  INFO      [Pipeline] Normalizing extracted fields...
+2026-06-07 12:29:33,811  INFO      [Pipeline] Validating records...
+2026-06-07 12:29:33,813  WARNING     [Validator] invoice_v2_03.pdf — 4 validation error(s): ['MISSING_REQUIRED_FIELD: InvoiceId', 'MISSING_REQUIRED_FIELD: IssueDate', 'MISSING_REQUIRED_FIELD: SellerName', 'MISSING_REQUIRED_FIELD: InvGrandTotal']
+2026-06-07 12:29:33,815  INFO      [Pipeline] Done: 1 record(s), 0 valid, 1 with warnings
+2026-06-07 12:29:33,819  INFO      
+[Main] Total records extracted: 3
+2026-06-07 12:29:33,824  INFO      [JSON Writer] Written 3 record(s) → output\processed\file.json
+2026-06-07 12:29:33,899  INFO      [CSV Writer] Written 3 record(s) → output\processed\file.csv
+2026-06-07 12:29:33,915  INFO      [SQLite Writer] Inserted 3 record(s) → output/extractions.db
+2026-06-07 12:29:33,927  INFO      [SQLite Writer] SQL dump → output\processed\file.sql
+2026-06-07 12:29:33,929  INFO      
+[Main] ✅ Pipeline complete.
+2026-06-07 12:29:33,931  INFO        JSON  → output\processed\file.json
+2026-06-07 12:29:33,931  INFO        CSV   → output\processed\file.csv
+2026-06-07 12:29:33,935  INFO        SQL   → output\processed\file.sql
+2026-06-07 12:29:33,938  INFO        DB    → output/extractions.db
+2026-06-07 12:29:33,939  INFO        Logs  → logs/logs.txt
+{"ts": "2026-06-07T12:55:15.015869+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "qwen2.5vl:7b", "threshold": 80, "input_dir": "sample_pdf/scan"}
+Tesseract NOT found at 'C:/Program Files/Tesseract-OCR/tesseract.exe'. Set TESSERACT_PATH in .env or run `where tesseract` to confirm path.
+Found 3 PDF(s) in 'sample_pdf/scan'
+{"ts": "2026-06-07T12:55:15.026855+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_01.pdf"}
+{"ts": "2026-06-07T12:55:15.057622+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_01.pdf", "pages": 1, "bytes": 359365}
+{"ts": "2026-06-07T12:55:15.057622+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T12:55:18.310050+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 208, "avg_conf": 88.3, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T12:55:18.311103+00:00", "logger": "src.ocr.confidence", "level": "warning", "event": "ocr_corruption_hints", "page": 1, "hints": ["pattern='[A-Z]{2}[0-9IiOo]{2}[0-9IiOo ]{10,}' matches=['DE89 3704 0044 0532 0130 00 ']"]}
+{"ts": "2026-06-07T12:55:18.313051+00:00", "logger": "src.preprocessing.language_detector", "level": "warning", "event": "lang_detect_unavailable", "reason": "langdetect not installed"}
+{"ts": "2026-06-07T12:57:20.417968+00:00", "logger": "src.extraction.model_client_ollama", "level": "warning", "event": "llm_retry", "model": "qwen2.5vl:7b", "attempt": 1, "error": "TIMEOUT after 120s", "next_in": 5}
+{"ts": "2026-06-07T13:01:45.157725+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "qwen2.5vl:7b", "threshold": 80, "input_dir": "sample_pdf/scan"}
+Tesseract set: C:/Users/SohamChoudhary/OneDrive - Encory/Documents/tesseract/tesseract.exe
+Found 3 PDF(s) in 'sample_pdf/scan'
+{"ts": "2026-06-07T13:01:45.174216+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_01.pdf"}
+{"ts": "2026-06-07T13:01:45.176229+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_01.pdf", "pages": 1, "bytes": 359365}
+{"ts": "2026-06-07T13:01:45.182714+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T13:01:49.538679+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 208, "avg_conf": 88.3, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T13:01:49.538679+00:00", "logger": "src.ocr.confidence", "level": "warning", "event": "ocr_corruption_hints", "page": 1, "hints": ["pattern='[A-Z]{2}[0-9IiOo]{2}[0-9IiOo ]{10,}' matches=['DE89 3704 0044 0532 0130 00 ']"]}
+{"ts": "2026-06-07T13:01:49.538679+00:00", "logger": "src.preprocessing.language_detector", "level": "warning", "event": "lang_detect_unavailable", "reason": "langdetect not installed"}
+{"ts": "2026-06-07T13:03:51.622281+00:00", "logger": "src.extraction.model_client_ollama", "level": "warning", "event": "llm_retry", "model": "qwen2.5vl:7b", "attempt": 1, "error": "TIMEOUT after 120s", "next_in": 5}
+{"ts": "2026-06-07T13:05:58.700966+00:00", "logger": "src.extraction.model_client_ollama", "level": "warning", "event": "llm_retry", "model": "qwen2.5vl:7b", "attempt": 2, "error": "TIMEOUT after 120s", "next_in": 5}
+{"ts": "2026-06-07T13:08:05.747264+00:00", "logger": "src.extraction.model_client_ollama", "level": "warning", "event": "llm_retry", "model": "qwen2.5vl:7b", "attempt": 3, "error": "TIMEOUT after 120s", "next_in": 5}
+{"ts": "2026-06-07T13:08:05.748968+00:00", "logger": "src.extraction.model_client_ollama", "level": "error", "event": "llm_failed", "model": "qwen2.5vl:7b", "attempts": 3, "error": "TIMEOUT after 120s"}
+{"ts": "2026-06-07T13:08:05.754751+00:00", "logger": "src.guardrails.output_filter", "level": "warning", "event": "llm_json_parse_failed", "error": "Expecting value: line 1 column 1 (char 0)"}
+[Validator] invoice_v2_01.pdf — 5 error(s)
+{"ts": "2026-06-07T13:08:05.773200+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.382, "tier": "invalid", "action": "reject", "breakdown": {"ocr": 0.8826, "field_confidence": 0.0, "validation": 0.5, "completeness": 0.0, "guardrails": 0.8}}
+[ReviewQueue] Queued: invoice_v2_01.pdf — reasons: ['confidence_action=reject', 'validation_errors=5', 'guardrail_issues=1']
+{"ts": "2026-06-07T13:08:05.790734+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v2_01.pdf", "action": "reject", "valid": false, "review": true}
+{"ts": "2026-06-07T13:08:05.798802+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_02.pdf"}
+{"ts": "2026-06-07T13:08:05.872771+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_02.pdf", "pages": 1, "bytes": 382604}
+{"ts": "2026-06-07T13:08:05.899124+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T13:08:17.681693+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 494, "avg_conf": 52.7, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T13:08:17.689270+00:00", "logger": "src.preprocessing.language_detector", "level": "warning", "event": "lang_detect_unavailable", "reason": "langdetect not installed"}
+{"ts": "2026-06-07T13:10:19.750588+00:00", "logger": "src.extraction.model_client_ollama", "level": "warning", "event": "llm_retry", "model": "qwen2.5vl:7b", "attempt": 1, "error": "TIMEOUT after 120s", "next_in": 5}
+{"ts": "2026-06-07T13:12:26.792461+00:00", "logger": "src.extraction.model_client_ollama", "level": "warning", "event": "llm_retry", "model": "qwen2.5vl:7b", "attempt": 2, "error": "TIMEOUT after 120s", "next_in": 5}
+{"ts": "2026-06-07T13:14:33.810435+00:00", "logger": "src.extraction.model_client_ollama", "level": "warning", "event": "llm_retry", "model": "qwen2.5vl:7b", "attempt": 3, "error": "TIMEOUT after 120s", "next_in": 5}
+{"ts": "2026-06-07T13:14:33.812514+00:00", "logger": "src.extraction.model_client_ollama", "level": "error", "event": "llm_failed", "model": "qwen2.5vl:7b", "attempts": 3, "error": "TIMEOUT after 120s"}
+{"ts": "2026-06-07T13:14:33.815401+00:00", "logger": "src.guardrails.output_filter", "level": "warning", "event": "llm_json_parse_failed", "error": "Expecting value: line 1 column 1 (char 0)"}
+[Validator] invoice_v2_02.pdf — 5 error(s)
+{"ts": "2026-06-07T13:14:33.830674+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.31, "tier": "invalid", "action": "reject", "breakdown": {"ocr": 0.5272, "field_confidence": 0.0, "validation": 0.5, "completeness": 0.0, "guardrails": 0.8}}
+[ReviewQueue] Queued: invoice_v2_02.pdf — reasons: ['confidence_action=reject', 'validation_errors=5', 'guardrail_issues=1']
+{"ts": "2026-06-07T13:14:33.900549+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v2_02.pdf", "action": "reject", "valid": false, "review": true}
+{"ts": "2026-06-07T13:14:33.908952+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_03.pdf"}
+{"ts": "2026-06-07T13:14:33.980546+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_03.pdf", "pages": 1, "bytes": 396373}
+{"ts": "2026-06-07T13:14:34.012400+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_03.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T13:14:42.481741+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 271, "avg_conf": 82.8, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T13:14:42.481741+00:00", "logger": "src.ocr.confidence", "level": "warning", "event": "ocr_corruption_hints", "page": 1, "hints": ["pattern='[A-Z]{2}[0-9IiOo]{2}[0-9IiOo ]{10,}' matches=['DE44 1004 0000 0177 7680 08 ']"]}
+{"ts": "2026-06-07T13:14:42.499000+00:00", "logger": "src.preprocessing.language_detector", "level": "warning", "event": "lang_detect_unavailable", "reason": "langdetect not installed"}
+{"ts": "2026-06-07T13:16:44.552142+00:00", "logger": "src.extraction.model_client_ollama", "level": "warning", "event": "llm_retry", "model": "qwen2.5vl:7b", "attempt": 1, "error": "TIMEOUT after 120s", "next_in": 5}
+{"ts": "2026-06-07T13:18:51.607715+00:00", "logger": "src.extraction.model_client_ollama", "level": "warning", "event": "llm_retry", "model": "qwen2.5vl:7b", "attempt": 2, "error": "TIMEOUT after 120s", "next_in": 5}
+{"ts": "2026-06-07T13:57:19.791085+00:00", "logger": "src.extraction.model_client_ollama", "level": "warning", "event": "llm_retry", "model": "qwen2.5vl:7b", "attempt": 3, "error": "TIMEOUT after 120s", "next_in": 5}
+{"ts": "2026-06-07T13:57:19.794016+00:00", "logger": "src.extraction.model_client_ollama", "level": "error", "event": "llm_failed", "model": "qwen2.5vl:7b", "attempts": 3, "error": "TIMEOUT after 120s"}
+{"ts": "2026-06-07T13:57:19.795551+00:00", "logger": "src.guardrails.output_filter", "level": "warning", "event": "llm_json_parse_failed", "error": "Expecting value: line 1 column 1 (char 0)"}
+[Validator] invoice_v2_03.pdf — 5 error(s)
+{"ts": "2026-06-07T13:57:19.802115+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.371, "tier": "invalid", "action": "reject", "breakdown": {"ocr": 0.8281999999999999, "field_confidence": 0.0, "validation": 0.5, "completeness": 0.0, "guardrails": 0.8}}
+[ReviewQueue] Queued: invoice_v2_03.pdf — reasons: ['confidence_action=reject', 'validation_errors=5', 'guardrail_issues=1']
+{"ts": "2026-06-07T13:57:19.814843+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v2_03.pdf", "action": "reject", "valid": false, "review": true}
+{"ts": "2026-06-07T13:57:19.818867+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "total": 3}
+[JSON Writer] Written 3 record(s) → output\processed\file.json
+[CSV] Written 3 row(s) → output\processed\file.csv
+{"ts": "2026-06-07T16:37:19.168098+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "llama3.2:3b", "threshold": 80, "input_dir": "sample_pdf/scan"}
+Tesseract set: C:/Users/SohamChoudhary/OneDrive - Encory/Documents/tesseract/tesseract.exe
+Found 3 PDF(s) in 'sample_pdf/scan'
+{"ts": "2026-06-07T16:37:19.188404+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_01.pdf"}
+{"ts": "2026-06-07T16:37:19.223654+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_01.pdf", "pages": 1, "bytes": 359365}
+{"ts": "2026-06-07T16:37:19.229668+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T16:37:24.117565+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 208, "avg_conf": 88.3, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T16:37:24.130717+00:00", "logger": "src.ocr.confidence", "level": "warning", "event": "ocr_corruption_hints", "page": 1, "hints": ["pattern='[A-Z]{2}[0-9IiOo]{2}[0-9IiOo ]{10,}' matches=['DE89 3704 0044 0532 0130 00 ']"]}
+{"ts": "2026-06-07T16:40:26.534071+00:00", "logger": "src.extraction.model_client_ollama", "level": "warning", "event": "llm_retry", "model": "llama3.2:3b", "attempt": 1, "error": "TIMEOUT after 180s", "next_in": 5}
+{"ts": "2026-06-07T16:43:33.596375+00:00", "logger": "src.extraction.model_client_ollama", "level": "warning", "event": "llm_retry", "model": "llama3.2:3b", "attempt": 2, "error": "TIMEOUT after 180s", "next_in": 5}
+{"ts": "2026-06-07T16:46:40.664526+00:00", "logger": "src.extraction.model_client_ollama", "level": "warning", "event": "llm_retry", "model": "llama3.2:3b", "attempt": 3, "error": "TIMEOUT after 180s", "next_in": 5}
+{"ts": "2026-06-07T16:46:40.668719+00:00", "logger": "src.extraction.model_client_ollama", "level": "error", "event": "llm_failed", "model": "llama3.2:3b", "attempts": 3, "error": "TIMEOUT after 180s"}
+{"ts": "2026-06-07T16:46:40.673277+00:00", "logger": "src.guardrails.output_filter", "level": "warning", "event": "llm_json_parse_failed", "error": "Expecting value: line 1 column 1 (char 0)"}
+[Validator] invoice_v2_01.pdf — 5 error(s)
+{"ts": "2026-06-07T16:46:40.687064+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.382, "tier": "invalid", "action": "reject", "breakdown": {"ocr": 0.8826, "field_confidence": 0.0, "validation": 0.5, "completeness": 0.0, "guardrails": 0.8}}
+[ReviewQueue] Queued: invoice_v2_01.pdf — reasons: ['confidence_action=reject', 'validation_errors=5', 'guardrail_issues=1']
+{"ts": "2026-06-07T16:46:40.703557+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v2_01.pdf", "action": "reject", "valid": false, "review": true}
+{"ts": "2026-06-07T16:46:40.711645+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_02.pdf"}
+{"ts": "2026-06-07T16:46:40.765997+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_02.pdf", "pages": 1, "bytes": 382604}
+{"ts": "2026-06-07T16:46:40.789875+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T16:46:48.298464+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 494, "avg_conf": 52.7, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T16:50:53.833056+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "llama3.2:3b", "threshold": 80, "input_dir": "sample_pdf/scan"}
+Tesseract set: C:/Users/SohamChoudhary/OneDrive - Encory/Documents/tesseract/tesseract.exe
+Found 3 PDF(s) in 'sample_pdf/scan'
+{"ts": "2026-06-07T16:50:53.842918+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_01.pdf"}
+{"ts": "2026-06-07T16:50:53.843918+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_01.pdf", "pages": 1, "bytes": 359365}
+{"ts": "2026-06-07T16:50:53.846901+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T16:50:58.031780+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 208, "avg_conf": 88.3, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T16:50:58.034139+00:00", "logger": "src.ocr.confidence", "level": "warning", "event": "ocr_corruption_hints", "page": 1, "hints": ["pattern='[A-Z]{2}[0-9IiOo]{2}[0-9IiOo ]{10,}' matches=['DE89 3704 0044 0532 0130 00 ']"]}
+{"ts": "2026-06-07T16:58:43.204997+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 464.52, "chars": 7013}
+{"ts": "2026-06-07T16:58:43.207899+00:00", "logger": "src.guardrails.output_filter", "level": "warning", "event": "llm_unknown_fields", "fields": ["line_items"]}
+{"ts": "2026-06-07T16:58:43.210085+00:00", "logger": "src.guardrails.output_filter", "level": "warning", "event": "output_filter_issues", "count": 2, "issues": ["MISSING_EVIDENCE: InvoiceId has value 'None' but no source_text", "UNKNOWN_FIELDS: ['line_items']"]}
+[Validator] invoice_v2_01.pdf — 1 error(s)
+{"ts": "2026-06-07T16:58:43.219355+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.882, "tier": "high", "action": "auto_accept", "breakdown": {"ocr": 0.8826, "field_confidence": 1.0, "validation": 0.9, "completeness": 0.8, "guardrails": 0.6}}
+[ReviewQueue] Queued: invoice_v2_01.pdf — reasons: ['validation_errors=1', 'guardrail_issues=2']
+{"ts": "2026-06-07T16:58:43.242520+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v2_01.pdf", "action": "auto_accept", "valid": false, "review": true}
+{"ts": "2026-06-07T16:58:43.249424+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_02.pdf"}
+{"ts": "2026-06-07T16:58:43.255608+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_02.pdf", "pages": 1, "bytes": 382604}
+{"ts": "2026-06-07T16:58:43.263140+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T16:58:49.207929+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 494, "avg_conf": 52.7, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T17:05:14.809749+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 385.59, "chars": 5490}
+{"ts": "2026-06-07T17:05:14.822553+00:00", "logger": "src.guardrails.output_filter", "level": "warning", "event": "llm_unknown_fields", "fields": ["line_items"]}
+{"ts": "2026-06-07T17:05:14.828580+00:00", "logger": "src.guardrails.output_filter", "level": "warning", "event": "output_filter_issues", "count": 3, "issues": ["MISSING_EVIDENCE: SellerVatId has value 'None' but no source_text", "MISSING_EVIDENCE: Iban has value 'None' but no source_text", "UNKNOWN_FIELDS: ['line_items']"]}
+[Validator] invoice_v2_02.pdf — 5 error(s)
+{"ts": "2026-06-07T17:05:14.862783+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.517, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.5272, "field_confidence": 0.8209302325581395, "validation": 0.5, "completeness": 0.0, "guardrails": 0.3999999999999999}}
+[ReviewQueue] Queued: invoice_v2_02.pdf — reasons: ['confidence_action=human_review', 'validation_errors=5', 'guardrail_issues=3']
+{"ts": "2026-06-07T17:05:14.907546+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v2_02.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-07T17:05:14.921335+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_03.pdf"}
+{"ts": "2026-06-07T17:05:15.027584+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_03.pdf", "pages": 1, "bytes": 396373}
+{"ts": "2026-06-07T17:05:15.074887+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_03.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T17:05:23.032018+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 271, "avg_conf": 82.8, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T17:05:23.032018+00:00", "logger": "src.ocr.confidence", "level": "warning", "event": "ocr_corruption_hints", "page": 1, "hints": ["pattern='[A-Z]{2}[0-9IiOo]{2}[0-9IiOo ]{10,}' matches=['DE44 1004 0000 0177 7680 08 ']"]}
+{"ts": "2026-06-07T17:15:49.267615+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "llama3.2:3b", "threshold": 80, "input_dir": "sample_pdf/scan", "timeout": 1800}
+{"ts": "2026-06-07T17:15:49.280623+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_01.pdf"}
+{"ts": "2026-06-07T17:15:49.282625+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_01.pdf", "pages": 1, "bytes": 359365}
+{"ts": "2026-06-07T17:15:49.287800+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T17:15:53.737573+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 208, "avg_conf": 88.3, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T17:15:53.738575+00:00", "logger": "src.ocr.confidence", "level": "warning", "event": "ocr_corruption_hints", "page": 1, "hints": ["pattern='[A-Z]{2}[0-9IiOo]{2}[0-9IiOo ]{10,}' matches=['DE89 3704 0044 0532 0130 00 ']"]}
+{"ts": "2026-06-07T17:18:02.246831+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 128.18, "chars": 2101}
+{"ts": "2026-06-07T17:18:02.261160+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.677, "tier": "medium", "action": "partial_review", "breakdown": {"ocr": 0.8826, "field_confidence": 0.0, "validation": 1.0, "completeness": 1.0, "guardrails": 1.0}}
+{"ts": "2026-06-07T17:18:02.264157+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v2_01.pdf", "action": "partial_review", "valid": true, "review": false}
+{"ts": "2026-06-07T17:18:02.267156+00:00", "logger": "__main__", "level": "info", "event": "doc_record_collected", "file": "invoice_v2_01.pdf", "invoice_id": "INV-2024-00421", "grand_total": 38413.2, "seller": "Nordvista Software GmbH", "action": "partial_review"}
+{"ts": "2026-06-07T17:18:02.273919+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_02.pdf"}
+{"ts": "2026-06-07T17:18:02.281932+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_02.pdf", "pages": 1, "bytes": 382604}
+{"ts": "2026-06-07T17:18:02.292521+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T17:19:03.536848+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "llama3.2:3b", "threshold": 80, "input_dir": "sample_pdf/scan", "timeout": 1800}
+{"ts": "2026-06-07T17:19:03.551939+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_01.pdf"}
+{"ts": "2026-06-07T17:19:03.553556+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_01.pdf", "pages": 1, "bytes": 359365}
+{"ts": "2026-06-07T17:19:03.562854+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T17:19:07.523176+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 208, "avg_conf": 88.3, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T17:19:07.523990+00:00", "logger": "src.ocr.confidence", "level": "warning", "event": "ocr_corruption_hints", "page": 1, "hints": ["pattern='[A-Z]{2}[0-9IiOo]{2}[0-9IiOo ]{10,}' matches=['DE89 3704 0044 0532 0130 00 ']"]}
+{"ts": "2026-06-07T17:21:02.595989+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 114.73, "chars": 2101}
+{"ts": "2026-06-07T17:21:02.610310+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.677, "tier": "medium", "action": "partial_review", "breakdown": {"ocr": 0.8826, "field_confidence": 0.0, "validation": 1.0, "completeness": 1.0, "guardrails": 1.0}}
+{"ts": "2026-06-07T17:21:02.614367+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v2_01.pdf", "action": "partial_review", "valid": true, "review": false}
+{"ts": "2026-06-07T17:21:02.617963+00:00", "logger": "__main__", "level": "info", "event": "doc_record_collected", "file": "invoice_v2_01.pdf", "invoice_id": "INV-2024-00421", "grand_total": 38413.2, "seller": "Nordvista Software GmbH", "action": "partial_review"}
+{"ts": "2026-06-07T17:21:02.626175+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_02.pdf"}
+{"ts": "2026-06-07T17:21:02.634086+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_02.pdf", "pages": 1, "bytes": 382604}
+{"ts": "2026-06-07T17:21:02.647326+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T17:21:09.158686+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 494, "avg_conf": 52.7, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T17:23:09.254900+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 120.09, "chars": 1520}
+[Validator] invoice_v2_02.pdf — 5 error(s)
+{"ts": "2026-06-07T17:23:09.267336+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.33, "tier": "invalid", "action": "reject", "breakdown": {"ocr": 0.5272, "field_confidence": 0.0, "validation": 0.5, "completeness": 0.0, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v2_02.pdf — reasons: ['confidence_action=reject', 'validation_errors=5']
+{"ts": "2026-06-07T17:23:09.279336+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v2_02.pdf", "action": "reject", "valid": false, "review": true}
+{"ts": "2026-06-07T17:23:09.283337+00:00", "logger": "__main__", "level": "info", "event": "doc_record_collected", "file": "invoice_v2_02.pdf", "invoice_id": null, "grand_total": null, "seller": null, "action": "reject"}
+{"ts": "2026-06-07T17:23:09.289336+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_03.pdf"}
+{"ts": "2026-06-07T17:23:09.298345+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_03.pdf", "pages": 1, "bytes": 396373}
+{"ts": "2026-06-07T17:23:09.309604+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_03.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T17:23:13.974444+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 271, "avg_conf": 82.8, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T17:23:13.975475+00:00", "logger": "src.ocr.confidence", "level": "warning", "event": "ocr_corruption_hints", "page": 1, "hints": ["pattern='[A-Z]{2}[0-9IiOo]{2}[0-9IiOo ]{10,}' matches=['DE44 1004 0000 0177 7680 08 ']"]}
+{"ts": "2026-06-07T17:25:22.789837+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 128.8, "chars": 1683}
+{"ts": "2026-06-07T17:25:22.793630+00:00", "logger": "src.guardrails.output_filter", "level": "warning", "event": "llm_json_parse_failed", "error": "Expecting ',' delimiter: line 28 column 24 (char 835)"}
+[Validator] invoice_v2_03.pdf — 5 error(s)
+{"ts": "2026-06-07T17:25:22.804310+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.371, "tier": "invalid", "action": "reject", "breakdown": {"ocr": 0.8281999999999999, "field_confidence": 0.0, "validation": 0.5, "completeness": 0.0, "guardrails": 0.8}}
+[ReviewQueue] Queued: invoice_v2_03.pdf — reasons: ['confidence_action=reject', 'validation_errors=5', 'guardrail_issues=1']
+{"ts": "2026-06-07T17:25:22.817270+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v2_03.pdf", "action": "reject", "valid": false, "review": true}
+{"ts": "2026-06-07T17:25:22.820001+00:00", "logger": "__main__", "level": "info", "event": "doc_record_collected", "file": "invoice_v2_03.pdf", "invoice_id": null, "grand_total": null, "seller": null, "action": "reject"}
+{"ts": "2026-06-07T17:25:22.832200+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "total_pdfs": 3, "records_collected": 3, "failed": []}
+[JSON Writer] Written 3 record(s) → output\processed\file.json
+[SQLite Writer] Inserted 3 record(s) → output/extractions.db
+[SQLite Writer] SQL dump → output\processed\file.sql
+{"ts": "2026-06-07T17:25:22.931006+00:00", "logger": "__main__", "level": "info", "event": "outputs_written", "json": "output\\processed\\file.json", "csv": "output\\processed\\file.csv", "summary": "output\\run_summary.json", "records": 3}
+{"ts": "2026-06-07T17:38:22.827354+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "llama3.2:3b", "threshold": 80, "input_dir": "sample_pdf/scan", "timeout": 1800}
+{"ts": "2026-06-07T17:38:22.839026+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_01.pdf"}
+{"ts": "2026-06-07T17:38:22.841021+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_01.pdf", "pages": 1, "bytes": 359365}
+{"ts": "2026-06-07T17:38:22.845609+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T17:38:23.467893+00:00", "logger": "src.pipeline", "level": "error", "event": "pipeline_error", "traceback": "Traceback (most recent call last):\n  File \"c:\\Users\\SohamChoudhary\\OneDrive - Encory\\Documents\\DataEngineerKnowledgeBase\\Hitachi\\ai_invoice_extraction_pipeline\\src\\pipeline.py\", line 92, in run_pipeline\n    page_res = extract_scanned_page(pdf_path, page_index, cfg)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"c:\\Users\\SohamChoudhary\\OneDrive - Encory\\Documents\\DataEngineerKnowledgeBase\\Hitachi\\ai_invoice_extraction_pipeline\\src\\extraction\\extractor.py\", line 119, in extract_scanned_page\n    img = preprocess_image(img, dpi=cfg[\"dpi\"])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"c:\\Users\\SohamChoudhary\\OneDrive - Encory\\Documents\\DataEngineerKnowledgeBase\\Hitachi\\ai_invoice_extraction_pipeline\\src\\preprocessing\\image_cleanup.py\", line 34, in preprocess_image\n    img = _suppress_colour_overlays(img)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"c:\\Users\\SohamChoudhary\\OneDrive - Encory\\Documents\\DataEngineerKnowledgeBase\\Hitachi\\ai_invoice_extraction_pipeline\\src\\preprocessing\\image_cleanup.py\", line 85, in _suppress_colour_overlays\n    mask = ImageMath.eval(\n           ^^^^^^^^^^^^^^\nAttributeError: module 'PIL.ImageMath' has no attribute 'eval'\n", "file": "invoice_v2_01.pdf", "error": "module 'PIL.ImageMath' has no attribute 'eval'"}
+{"ts": "2026-06-07T17:38:23.474088+00:00", "logger": "__main__", "level": "error", "event": "doc_failed", "file": "invoice_v2_01.pdf", "error": "module 'PIL.ImageMath' has no attribute 'eval'"}
+{"ts": "2026-06-07T17:38:23.474088+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_02.pdf"}
+{"ts": "2026-06-07T17:38:23.474088+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_02.pdf", "pages": 1, "bytes": 382604}
+{"ts": "2026-06-07T17:38:23.474088+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T17:38:24.122242+00:00", "logger": "src.pipeline", "level": "error", "event": "pipeline_error", "traceback": "Traceback (most recent call last):\n  File \"c:\\Users\\SohamChoudhary\\OneDrive - Encory\\Documents\\DataEngineerKnowledgeBase\\Hitachi\\ai_invoice_extraction_pipeline\\src\\pipeline.py\", line 92, in run_pipeline\n    page_res = extract_scanned_page(pdf_path, page_index, cfg)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"c:\\Users\\SohamChoudhary\\OneDrive - Encory\\Documents\\DataEngineerKnowledgeBase\\Hitachi\\ai_invoice_extraction_pipeline\\src\\extraction\\extractor.py\", line 119, in extract_scanned_page\n    img = preprocess_image(img, dpi=cfg[\"dpi\"])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"c:\\Users\\SohamChoudhary\\OneDrive - Encory\\Documents\\DataEngineerKnowledgeBase\\Hitachi\\ai_invoice_extraction_pipeline\\src\\preprocessing\\image_cleanup.py\", line 34, in preprocess_image\n    img = _suppress_colour_overlays(img)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"c:\\Users\\SohamChoudhary\\OneDrive - Encory\\Documents\\DataEngineerKnowledgeBase\\Hitachi\\ai_invoice_extraction_pipeline\\src\\preprocessing\\image_cleanup.py\", line 85, in _suppress_colour_overlays\n    mask = ImageMath.eval(\n           ^^^^^^^^^^^^^^\nAttributeError: module 'PIL.ImageMath' has no attribute 'eval'\n", "file": "invoice_v2_02.pdf", "error": "module 'PIL.ImageMath' has no attribute 'eval'"}
+{"ts": "2026-06-07T17:38:24.127241+00:00", "logger": "__main__", "level": "error", "event": "doc_failed", "file": "invoice_v2_02.pdf", "error": "module 'PIL.ImageMath' has no attribute 'eval'"}
+{"ts": "2026-06-07T17:38:24.129330+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_03.pdf"}
+{"ts": "2026-06-07T17:38:24.130320+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_03.pdf", "pages": 1, "bytes": 396373}
+{"ts": "2026-06-07T17:38:24.134321+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_03.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T17:38:24.774095+00:00", "logger": "src.pipeline", "level": "error", "event": "pipeline_error", "traceback": "Traceback (most recent call last):\n  File \"c:\\Users\\SohamChoudhary\\OneDrive - Encory\\Documents\\DataEngineerKnowledgeBase\\Hitachi\\ai_invoice_extraction_pipeline\\src\\pipeline.py\", line 92, in run_pipeline\n    page_res = extract_scanned_page(pdf_path, page_index, cfg)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"c:\\Users\\SohamChoudhary\\OneDrive - Encory\\Documents\\DataEngineerKnowledgeBase\\Hitachi\\ai_invoice_extraction_pipeline\\src\\extraction\\extractor.py\", line 119, in extract_scanned_page\n    img = preprocess_image(img, dpi=cfg[\"dpi\"])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"c:\\Users\\SohamChoudhary\\OneDrive - Encory\\Documents\\DataEngineerKnowledgeBase\\Hitachi\\ai_invoice_extraction_pipeline\\src\\preprocessing\\image_cleanup.py\", line 34, in preprocess_image\n    img = _suppress_colour_overlays(img)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"c:\\Users\\SohamChoudhary\\OneDrive - Encory\\Documents\\DataEngineerKnowledgeBase\\Hitachi\\ai_invoice_extraction_pipeline\\src\\preprocessing\\image_cleanup.py\", line 85, in _suppress_colour_overlays\n    mask = ImageMath.eval(\n           ^^^^^^^^^^^^^^\nAttributeError: module 'PIL.ImageMath' has no attribute 'eval'\n", "file": "invoice_v2_03.pdf", "error": "module 'PIL.ImageMath' has no attribute 'eval'"}
+{"ts": "2026-06-07T17:38:24.776262+00:00", "logger": "__main__", "level": "error", "event": "doc_failed", "file": "invoice_v2_03.pdf", "error": "module 'PIL.ImageMath' has no attribute 'eval'"}
+{"ts": "2026-06-07T17:38:24.776262+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "total_pdfs": 3, "records_collected": 0, "failed": ["invoice_v2_01.pdf", "invoice_v2_02.pdf", "invoice_v2_03.pdf"]}
+[JSON Writer] Written 0 record(s) → output\processed\file.json
+{"ts": "2026-06-07T17:38:24.791264+00:00", "logger": "__main__", "level": "warning", "event": "no_records_extracted", "hint": "All documents failed or returned empty records. Check logs for doc_failed / doc_no_record entries."}
+{"ts": "2026-06-07T17:38:24.800993+00:00", "logger": "__main__", "level": "info", "event": "outputs_written", "json": "output\\processed\\file.json", "csv": "output\\processed\\file.csv", "summary": "output\\run_summary.json", "records": 0}
+{"ts": "2026-06-07T18:25:23.356528+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "llama3.2:3b", "threshold": 80, "input_dir": "sample_pdf/scan", "timeout": 1800}
+{"ts": "2026-06-07T18:25:23.364368+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_01.pdf"}
+{"ts": "2026-06-07T18:25:23.397615+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_01.pdf", "pages": 1, "bytes": 359365}
+{"ts": "2026-06-07T18:25:23.397615+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T18:25:31.094545+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 250, "avg_conf": 66.6, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T18:25:31.094545+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 66.56, "words": 250}
+{"ts": "2026-06-07T18:25:31.364892+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 66.56, "text_chars": 1444, "low_conf_words": 100}
+{"ts": "2026-06-07T18:27:15.466924+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "llama3.2:3b", "threshold": 80, "input_dir": "sample_pdf/scan", "timeout": 1800}
+{"ts": "2026-06-07T18:27:15.556054+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_01.pdf"}
+{"ts": "2026-06-07T18:27:15.570305+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_01.pdf", "pages": 1, "bytes": 359365}
+{"ts": "2026-06-07T18:27:15.592511+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T18:27:30.576650+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 250, "avg_conf": 66.6, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T18:27:30.578655+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 66.56, "words": 250}
+{"ts": "2026-06-07T18:27:31.183735+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 66.56, "text_chars": 1444, "low_conf_words": 100}
+{"ts": "2026-06-07T18:29:23.687766+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 112.5, "chars": 2160}
+[Validator] invoice_v2_01.pdf — 1 error(s)
+{"ts": "2026-06-07T18:29:23.703048+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.578, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6656, "field_confidence": 0.0, "validation": 0.9, "completeness": 0.8, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v2_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=1']
+{"ts": "2026-06-07T18:29:23.721520+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v2_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-07T18:29:23.726928+00:00", "logger": "__main__", "level": "info", "event": "doc_record_collected", "file": "invoice_v2_01.pdf", "invoice_id": "INV-2024-00421", "grand_total": null, "seller": "Nordvista Software GmbH", "action": "human_review"}
+{"ts": "2026-06-07T18:29:23.731850+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_02.pdf"}
+{"ts": "2026-06-07T18:29:23.817224+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_02.pdf", "pages": 1, "bytes": 382604}
+{"ts": "2026-06-07T18:29:23.822282+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T18:29:30.860439+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 298, "avg_conf": 69.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T18:29:30.861438+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 69.51, "words": 298}
+{"ts": "2026-06-07T18:29:30.874440+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 69.51, "text_chars": 1603, "low_conf_words": 112}
+{"ts": "2026-06-07T18:33:01.493924+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 210.62, "chars": 3235}
+[Validator] invoice_v2_02.pdf — 1 error(s)
+{"ts": "2026-06-07T18:33:01.498117+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.584, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6951, "field_confidence": 0.0, "validation": 0.9, "completeness": 0.8, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v2_02.pdf — reasons: ['confidence_action=human_review', 'validation_errors=1']
+{"ts": "2026-06-07T18:33:01.513363+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v2_02.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-07T18:33:01.513363+00:00", "logger": "__main__", "level": "info", "event": "doc_record_collected", "file": "invoice_v2_02.pdf", "invoice_id": "INV-2024-00350", "grand_total": null, "seller": "DataStream Consulting AG", "action": "human_review"}
+{"ts": "2026-06-07T18:33:01.522626+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_03.pdf"}
+{"ts": "2026-06-07T18:33:01.563783+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_03.pdf", "pages": 1, "bytes": 396373}
+{"ts": "2026-06-07T18:33:01.567570+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_03.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T18:33:07.539207+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 305, "avg_conf": 72.8, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T18:33:07.539207+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 72.76, "words": 305}
+{"ts": "2026-06-07T18:33:07.539207+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 72.76, "text_chars": 1635, "low_conf_words": 101}
+{"ts": "2026-06-07T18:35:23.161430+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 135.61, "chars": 1926}
+[Validator] invoice_v2_03.pdf — 1 error(s)
+{"ts": "2026-06-07T18:35:23.168889+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.591, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.7276, "field_confidence": 0.0, "validation": 0.9, "completeness": 0.8, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v2_03.pdf — reasons: ['confidence_action=human_review', 'validation_errors=1']
+{"ts": "2026-06-07T18:35:23.177782+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v2_03.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-07T18:35:23.178775+00:00", "logger": "__main__", "level": "info", "event": "doc_record_collected", "file": "invoice_v2_03.pdf", "invoice_id": "INV-CLOUD-2024-1103", "grand_total": null, "seller": "Stratosphere Cloud GmbH", "action": "human_review"}
+{"ts": "2026-06-07T18:35:23.188530+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "total_pdfs": 3, "records_collected": 3, "failed": []}
+[JSON Writer] Written 3 record(s) → output\processed\file.json
+[SQLite Writer] Inserted 3 record(s) → output/extractions.db
+[SQLite Writer] SQL dump → output\processed\file.sql
+{"ts": "2026-06-07T18:35:23.262005+00:00", "logger": "__main__", "level": "info", "event": "outputs_written", "json": "output\\processed\\file.json", "csv": "output\\processed\\file.csv", "summary": "output\\run_summary.json", "records": 3}
+{"ts": "2026-06-07T18:50:54.541196+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "llama3.2:3b", "threshold": 80, "input_dir": "sample_pdf/scan", "timeout": 1800}
+{"ts": "2026-06-07T18:50:54.556908+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_01.pdf"}
+{"ts": "2026-06-07T18:50:54.559916+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_01.pdf", "pages": 1, "bytes": 359365}
+{"ts": "2026-06-07T18:50:54.563778+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T18:51:00.395182+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 250, "avg_conf": 66.6, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T18:51:00.395182+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 66.56, "words": 250}
+{"ts": "2026-06-07T18:51:00.956084+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 66.56, "text_chars": 1444, "low_conf_words": 100}
+{"ts": "2026-06-07T18:52:33.465437+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "llama3.2:3b", "threshold": 80, "input_dir": "sample_pdf/scan", "timeout": 1800}
+{"ts": "2026-06-07T18:52:33.475350+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_01.pdf"}
+{"ts": "2026-06-07T18:52:33.476382+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_01.pdf", "pages": 1, "bytes": 359365}
+{"ts": "2026-06-07T18:52:33.479440+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T18:52:39.374509+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 250, "avg_conf": 66.6, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T18:52:39.375509+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 66.56, "words": 250}
+{"ts": "2026-06-07T18:52:39.698402+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 66.56, "text_chars": 1444, "low_conf_words": 100}
+{"ts": "2026-06-07T18:55:05.107120+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 145.41, "chars": 2242}
+{"ts": "2026-06-07T18:55:05.113317+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": "INV-2024-00421", "rows": 2}
+[Validator] invoice_v2_01.pdf — 1 error(s)
+{"ts": "2026-06-07T18:55:05.113317+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.578, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6656, "field_confidence": 0.0, "validation": 0.9, "completeness": 0.8, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v2_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=1']
+{"ts": "2026-06-07T18:55:05.132808+00:00", "logger": "src.pipeline", "level": "error", "event": "pipeline_error", "traceback": "Traceback (most recent call last):\n  File \"c:\\Users\\SohamChoudhary\\OneDrive - Encory\\Documents\\DataEngineerKnowledgeBase\\Hitachi\\ai_invoice_extraction_pipeline\\src\\pipeline.py\", line 169, in run_pipeline\n    valid=flat_record[\"_is_valid\"],\n          ^^^^^^^^^^^\nNameError: name 'flat_record' is not defined\n", "file": "invoice_v2_01.pdf", "error": "name 'flat_record' is not defined"}
+{"ts": "2026-06-07T18:55:05.134824+00:00", "logger": "__main__", "level": "error", "event": "doc_failed", "file": "invoice_v2_01.pdf", "error": "name 'flat_record' is not defined"}
+{"ts": "2026-06-07T18:55:05.140325+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_02.pdf"}
+{"ts": "2026-06-07T18:55:05.143781+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_02.pdf", "pages": 1, "bytes": 382604}
+{"ts": "2026-06-07T18:55:05.143781+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T18:55:12.205821+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 298, "avg_conf": 69.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T18:55:12.205821+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 69.51, "words": 298}
+{"ts": "2026-06-07T18:55:12.224590+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 69.51, "text_chars": 1603, "low_conf_words": 112}
+{"ts": "2026-06-07T18:58:43.822601+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 211.6, "chars": 2798}
+{"ts": "2026-06-07T18:58:43.830979+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 3}
+[Validator] invoice_v2_02.pdf — 2 error(s)
+{"ts": "2026-06-07T18:58:43.834979+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.529, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6951, "field_confidence": 0.0, "validation": 0.8, "completeness": 0.6, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v2_02.pdf — reasons: ['confidence_action=human_review', 'validation_errors=2']
+{"ts": "2026-06-07T18:58:43.845242+00:00", "logger": "src.pipeline", "level": "error", "event": "pipeline_error", "traceback": "Traceback (most recent call last):\n  File \"c:\\Users\\SohamChoudhary\\OneDrive - Encory\\Documents\\DataEngineerKnowledgeBase\\Hitachi\\ai_invoice_extraction_pipeline\\src\\pipeline.py\", line 169, in run_pipeline\n    valid=flat_record[\"_is_valid\"],\n          ^^^^^^^^^^^\nNameError: name 'flat_record' is not defined\n", "file": "invoice_v2_02.pdf", "error": "name 'flat_record' is not defined"}
+{"ts": "2026-06-07T18:58:43.848242+00:00", "logger": "__main__", "level": "error", "event": "doc_failed", "file": "invoice_v2_02.pdf", "error": "name 'flat_record' is not defined"}
+{"ts": "2026-06-07T18:58:43.851242+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_03.pdf"}
+{"ts": "2026-06-07T18:58:43.855250+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_03.pdf", "pages": 1, "bytes": 396373}
+{"ts": "2026-06-07T18:58:43.860778+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_03.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T18:58:49.705660+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 305, "avg_conf": 72.8, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T18:58:49.705660+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 72.76, "words": 305}
+{"ts": "2026-06-07T18:58:49.731891+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 72.76, "text_chars": 1635, "low_conf_words": 101}
+{"ts": "2026-06-07T19:02:01.077093+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 191.34, "chars": 2476}
+{"ts": "2026-06-07T19:02:01.083351+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": "INV-CLOUD-2024-1103", "rows": 3}
+[Validator] invoice_v2_03.pdf — 1 error(s)
+{"ts": "2026-06-07T19:02:01.087224+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.591, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.7276, "field_confidence": 0.0, "validation": 0.9, "completeness": 0.8, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v2_03.pdf — reasons: ['confidence_action=human_review', 'validation_errors=1']
+{"ts": "2026-06-07T19:02:01.096773+00:00", "logger": "src.pipeline", "level": "error", "event": "pipeline_error", "traceback": "Traceback (most recent call last):\n  File \"c:\\Users\\SohamChoudhary\\OneDrive - Encory\\Documents\\DataEngineerKnowledgeBase\\Hitachi\\ai_invoice_extraction_pipeline\\src\\pipeline.py\", line 169, in run_pipeline\n    valid=flat_record[\"_is_valid\"],\n          ^^^^^^^^^^^\nNameError: name 'flat_record' is not defined\n", "file": "invoice_v2_03.pdf", "error": "name 'flat_record' is not defined"}
+{"ts": "2026-06-07T19:02:01.098767+00:00", "logger": "__main__", "level": "error", "event": "doc_failed", "file": "invoice_v2_03.pdf", "error": "name 'flat_record' is not defined"}
+{"ts": "2026-06-07T19:02:01.106767+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "total_pdfs": 3, "records_collected": 0, "failed": ["invoice_v2_01.pdf", "invoice_v2_02.pdf", "invoice_v2_03.pdf"]}
+[JSON Writer] Written 0 record(s) → output\processed\file.json
+{"ts": "2026-06-07T19:02:01.137840+00:00", "logger": "__main__", "level": "warning", "event": "no_records_extracted", "hint": "All documents failed or returned empty records. Check logs for doc_failed / doc_no_record entries."}
+{"ts": "2026-06-07T19:02:01.150404+00:00", "logger": "__main__", "level": "info", "event": "outputs_written", "json": "output\\processed\\file.json", "csv": "output\\processed\\file.csv", "summary": "output\\run_summary.json", "records": 0}
+{"ts": "2026-06-07T19:15:46.997825+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "llama3.2:3b", "threshold": 80, "input_dir": "sample_pdf/scan", "timeout": 1800}
+{"ts": "2026-06-07T19:15:47.024604+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_01.pdf"}
+{"ts": "2026-06-07T19:15:47.033467+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_01.pdf", "pages": 1, "bytes": 359365}
+{"ts": "2026-06-07T19:15:47.040854+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T19:15:52.689885+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 250, "avg_conf": 66.6, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T19:15:52.691945+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 66.56, "words": 250}
+{"ts": "2026-06-07T19:15:53.224258+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 66.56, "text_chars": 1444, "low_conf_words": 100}
+{"ts": "2026-06-07T19:18:21.383788+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 148.16, "chars": 2244}
+{"ts": "2026-06-07T19:18:21.395252+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 2}
+[Validator] invoice_v2_01.pdf — 3 error(s)
+{"ts": "2026-06-07T19:18:21.400256+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.498, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6656, "field_confidence": 0.0, "validation": 0.7, "completeness": 0.6, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v2_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=3']
+{"ts": "2026-06-07T19:18:21.409813+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v2_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-07T19:18:21.411806+00:00", "logger": "__main__", "level": "info", "event": "doc_record_collected", "file": "invoice_v2_01.pdf", "invoice_id": null, "grand_total": null, "seller": "Nordvista Software GmbH", "line_item_rows": 2, "action": "human_review"}
+{"ts": "2026-06-07T19:18:21.417180+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_02.pdf"}
+{"ts": "2026-06-07T19:18:21.425896+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_02.pdf", "pages": 1, "bytes": 382604}
+{"ts": "2026-06-07T19:18:21.441090+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T19:18:28.055401+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 298, "avg_conf": 69.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T19:18:28.056402+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 69.51, "words": 298}
+{"ts": "2026-06-07T19:18:28.069860+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 69.51, "text_chars": 1603, "low_conf_words": 112}
+{"ts": "2026-06-07T19:20:55.890162+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "llama3.2:3b", "threshold": 80, "input_dir": "sample_pdf/scan", "timeout": 1800}
+{"ts": "2026-06-07T19:20:55.904168+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_01.pdf"}
+{"ts": "2026-06-07T19:20:55.907216+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_01.pdf", "pages": 1, "bytes": 359365}
+{"ts": "2026-06-07T19:20:55.912159+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T19:21:01.982703+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 250, "avg_conf": 66.6, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T19:21:01.983709+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 66.56, "words": 250}
+{"ts": "2026-06-07T19:21:02.422749+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 66.56, "text_chars": 1444, "low_conf_words": 100}
+{"ts": "2026-06-07T19:23:01.937787+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 119.55, "chars": 2228}
+{"ts": "2026-06-07T19:23:01.953334+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 2}
+[Validator] invoice_v2_01.pdf — 3 error(s)
+{"ts": "2026-06-07T19:23:01.964980+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.498, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6656, "field_confidence": 0.0, "validation": 0.7, "completeness": 0.6, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v2_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=3']
+{"ts": "2026-06-07T19:23:01.981465+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v2_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-07T19:23:01.984093+00:00", "logger": "__main__", "level": "info", "event": "doc_record_collected", "file": "invoice_v2_01.pdf", "invoice_id": null, "grand_total": null, "seller": "Nordvista Software GmbH", "line_item_rows": 2, "action": "human_review"}
+{"ts": "2026-06-07T19:23:01.991550+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_02.pdf"}
+{"ts": "2026-06-07T19:23:01.999673+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_02.pdf", "pages": 1, "bytes": 382604}
+{"ts": "2026-06-07T19:23:02.019032+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T19:23:08.962120+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 298, "avg_conf": 69.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T19:23:08.962120+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 69.51, "words": 298}
+{"ts": "2026-06-07T19:23:08.962120+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 69.51, "text_chars": 1603, "low_conf_words": 112}
+{"ts": "2026-06-07T19:26:45.621547+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "llama3.2:3b", "threshold": 80, "input_dir": "sample_pdf/scan", "timeout": 1800}
+{"ts": "2026-06-07T19:26:45.621547+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_01.pdf"}
+{"ts": "2026-06-07T19:26:45.621547+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_01.pdf", "pages": 1, "bytes": 359365}
+{"ts": "2026-06-07T19:26:45.621547+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T19:26:52.113485+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 250, "avg_conf": 66.6, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T19:26:52.114495+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 66.56, "words": 250}
+{"ts": "2026-06-07T19:26:52.669699+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 66.56, "text_chars": 1444, "low_conf_words": 100}
+{"ts": "2026-06-07T19:28:24.704666+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 92.06, "chars": 1073}
+{"ts": "2026-06-07T19:28:24.711012+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 2}
+[Validator] invoice_v2_01.pdf — 1 error(s)
+{"ts": "2026-06-07T19:28:24.724176+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.578, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6656, "field_confidence": 0.0, "validation": 0.9, "completeness": 0.8, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v2_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=1']
+{"ts": "2026-06-07T19:28:24.740678+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v2_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-07T19:28:24.744884+00:00", "logger": "__main__", "level": "info", "event": "doc_record_collected", "file": "invoice_v2_01.pdf", "invoice_id": null, "grand_total": 32490.0, "seller": "DE accounts.payable@lakebridge.de", "line_item_rows": 2, "action": "human_review"}
+{"ts": "2026-06-07T19:28:24.752379+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_02.pdf"}
+{"ts": "2026-06-07T19:28:24.763407+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_02.pdf", "pages": 1, "bytes": 382604}
+{"ts": "2026-06-07T19:28:24.773600+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T19:28:32.264029+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 298, "avg_conf": 69.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T19:28:32.265334+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 69.51, "words": 298}
+{"ts": "2026-06-07T19:28:32.282401+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 69.51, "text_chars": 1603, "low_conf_words": 112}
+{"ts": "2026-06-07T19:32:51.991707+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "llama3.2:3b", "threshold": 80, "input_dir": "sample_pdf/scan", "timeout": 1800}
+{"ts": "2026-06-07T19:32:52.016711+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_01.pdf"}
+{"ts": "2026-06-07T19:32:52.021625+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_01.pdf", "pages": 1, "bytes": 359365}
+{"ts": "2026-06-07T19:32:52.028181+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T19:32:57.941294+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 250, "avg_conf": 66.6, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T19:32:57.942702+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 66.56, "words": 250}
+{"ts": "2026-06-07T19:32:58.397693+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 66.56, "text_chars": 1444, "low_conf_words": 100}
+{"ts": "2026-06-07T19:35:34.151734+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 155.79, "chars": 2186}
+{"ts": "2026-06-07T19:35:34.155919+00:00", "logger": "src.guardrails.output_filter", "level": "warning", "event": "llm_json_parse_failed", "error": "Expecting property name enclosed in double quotes: line 41 column 22 (char 1269)"}
+{"ts": "2026-06-07T19:35:34.157720+00:00", "logger": "src.extraction.extractor", "level": "error", "event": "extraction_empty", "method": "scanned_ocr", "page": 1, "llm_error": null, "response_chars": 2186, "ocr_conf": 66.56, "hint": "Check OCR quality and overlay suppression"}
+{"ts": "2026-06-07T19:35:34.163494+00:00", "logger": "src.extraction.merger", "level": "warning", "event": "no_line_items_extracted", "invoice": null}
+[Validator] invoice_v2_01.pdf — 5 error(s)
+{"ts": "2026-06-07T19:35:34.170051+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.338, "tier": "invalid", "action": "reject", "breakdown": {"ocr": 0.6656, "field_confidence": 0.0, "validation": 0.5, "completeness": 0.0, "guardrails": 0.8}}
+[ReviewQueue] Queued: invoice_v2_01.pdf — reasons: ['confidence_action=reject', 'validation_errors=5', 'guardrail_issues=1']
+{"ts": "2026-06-07T19:35:34.183444+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v2_01.pdf", "action": "reject", "valid": false, "review": true}
+{"ts": "2026-06-07T19:35:34.186283+00:00", "logger": "__main__", "level": "info", "event": "doc_record_collected", "file": "invoice_v2_01.pdf", "invoice_id": null, "grand_total": null, "seller": null, "line_item_rows": 1, "action": "reject"}
+{"ts": "2026-06-07T19:35:34.188723+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_02.pdf"}
+{"ts": "2026-06-07T19:35:34.197849+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_02.pdf", "pages": 1, "bytes": 382604}
+{"ts": "2026-06-07T19:35:34.205085+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T19:35:41.089058+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 298, "avg_conf": 69.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T19:35:41.097917+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 69.51, "words": 298}
+{"ts": "2026-06-07T19:35:41.102019+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 69.51, "text_chars": 1603, "low_conf_words": 112}
+{"ts": "2026-06-07T19:37:48.606671+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "llama3.2:3b", "threshold": 80, "input_dir": "sample_pdf/scan", "timeout": 1800}
+{"ts": "2026-06-07T19:37:48.616015+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_01.pdf"}
+{"ts": "2026-06-07T19:37:48.623763+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_01.pdf", "pages": 1, "bytes": 359365}
+{"ts": "2026-06-07T19:37:48.626657+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T19:37:54.756635+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 250, "avg_conf": 66.6, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T19:37:54.756635+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 66.56, "words": 250}
+{"ts": "2026-06-07T19:37:55.194941+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 66.56, "text_chars": 1444, "low_conf_words": 100}
+{"ts": "2026-06-07T19:38:45.718001+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 50.53, "chars": 1073}
+{"ts": "2026-06-07T19:38:45.728499+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 2}
+[Validator] invoice_v2_01.pdf — 1 error(s)
+{"ts": "2026-06-07T19:38:45.735073+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.578, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6656, "field_confidence": 0.0, "validation": 0.9, "completeness": 0.8, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v2_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=1']
+{"ts": "2026-06-07T19:38:45.771390+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v2_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-07T19:38:45.779946+00:00", "logger": "__main__", "level": "info", "event": "doc_record_collected", "file": "invoice_v2_01.pdf", "invoice_id": null, "grand_total": 32490.0, "seller": "DE accounts.payable@lakebridge.de", "line_item_rows": 2, "action": "human_review"}
+{"ts": "2026-06-07T19:38:45.791995+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_02.pdf"}
+{"ts": "2026-06-07T19:38:45.807397+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_02.pdf", "pages": 1, "bytes": 382604}
+{"ts": "2026-06-07T19:38:45.828452+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T19:38:59.041335+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 298, "avg_conf": 69.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T19:38:59.044943+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 69.51, "words": 298}
+{"ts": "2026-06-07T19:38:59.090579+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 69.51, "text_chars": 1603, "low_conf_words": 112}
+{"ts": "2026-06-07T19:39:54.841891+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 55.75, "chars": 1249}
+{"ts": "2026-06-07T19:39:54.850329+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 1}
+[Validator] invoice_v2_02.pdf — 2 error(s)
+{"ts": "2026-06-07T19:39:54.855526+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.529, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6951, "field_confidence": 0.0, "validation": 0.8, "completeness": 0.6, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v2_02.pdf — reasons: ['confidence_action=human_review', 'validation_errors=2']
+{"ts": "2026-06-07T19:39:54.871712+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v2_02.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-07T19:39:54.871712+00:00", "logger": "__main__", "level": "info", "event": "doc_record_collected", "file": "invoice_v2_02.pdf", "invoice_id": null, "grand_total": null, "seller": "Delta Lake Migrati FR SITE he Unity Catalog setup, Delta Live Tables, legacy wareh VAT 19% | S ation \u2014 Phase 2 P BI Dashboard Suit I PO ODE Executive KPI dashboards with DirectLake and RLS con VAT 19% | S te", "line_item_rows": 1, "action": "human_review"}
+{"ts": "2026-06-07T19:39:54.878936+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v2_03.pdf"}
+{"ts": "2026-06-07T19:39:54.883223+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v2_03.pdf", "pages": 1, "bytes": 396373}
+{"ts": "2026-06-07T19:39:54.894272+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v2_03.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T19:40:07.479939+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 305, "avg_conf": 72.8, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T19:40:07.481228+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 72.76, "words": 305}
+{"ts": "2026-06-07T19:40:07.505223+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 72.76, "text_chars": 1635, "low_conf_words": 101}
+{"ts": "2026-06-07T19:41:51.889869+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 104.4, "chars": 2041}
+{"ts": "2026-06-07T19:41:51.894848+00:00", "logger": "src.guardrails.output_filter", "level": "warning", "event": "llm_json_parse_failed", "error": "Expecting ',' delimiter: line 74 column 4 (char 2041)"}
+{"ts": "2026-06-07T19:41:51.898215+00:00", "logger": "src.extraction.extractor", "level": "error", "event": "extraction_empty", "method": "scanned_ocr", "page": 1, "llm_error": null, "response_chars": 2041, "ocr_conf": 72.76, "hint": "Check OCR quality and overlay suppression"}
+{"ts": "2026-06-07T19:41:51.908647+00:00", "logger": "src.extraction.merger", "level": "warning", "event": "no_line_items_extracted", "invoice": null}
+[Validator] invoice_v2_03.pdf — 5 error(s)
+{"ts": "2026-06-07T19:41:51.921243+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.351, "tier": "invalid", "action": "reject", "breakdown": {"ocr": 0.7276, "field_confidence": 0.0, "validation": 0.5, "completeness": 0.0, "guardrails": 0.8}}
+[ReviewQueue] Queued: invoice_v2_03.pdf — reasons: ['confidence_action=reject', 'validation_errors=5', 'guardrail_issues=1']
+{"ts": "2026-06-07T19:41:51.944770+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v2_03.pdf", "action": "reject", "valid": false, "review": true}
+{"ts": "2026-06-07T19:41:51.949818+00:00", "logger": "__main__", "level": "info", "event": "doc_record_collected", "file": "invoice_v2_03.pdf", "invoice_id": null, "grand_total": null, "seller": null, "line_item_rows": 1, "action": "reject"}
+{"ts": "2026-06-07T19:41:51.962696+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "total_pdfs": 3, "records_collected": 4, "failed": []}
+[JSON Writer] Written 4 record(s) → output\processed\file.json
+[SQLite Writer] Inserted 4 record(s) → output/extractions.db
+[SQLite Writer] SQL dump → output\processed\file.sql
+{"ts": "2026-06-07T19:41:52.155477+00:00", "logger": "__main__", "level": "info", "event": "outputs_written", "json": "output\\processed\\file.json", "csv": "output\\processed\\file.csv", "summary": "output\\run_summary.json", "records": 4}
+{"ts": "2026-06-07T19:48:59.925437+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "llama3.2:3b", "threshold": 80, "input_dir": "sample_pdf/scan", "timeout": 1800}
+{"ts": "2026-06-07T19:48:59.937444+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-07T19:48:59.940167+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-07T19:48:59.943401+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T19:49:05.753349+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T19:49:05.753349+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-07T19:49:06.166962+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-07T19:50:35.987378+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 89.83, "chars": 2178}
+{"ts": "2026-06-07T19:50:35.990501+00:00", "logger": "src.guardrails.output_filter", "level": "warning", "event": "llm_json_parse_failed", "error": "Expecting ',' delimiter: line 76 column 4 (char 2178)"}
+{"ts": "2026-06-07T19:50:35.990501+00:00", "logger": "src.extraction.extractor", "level": "error", "event": "extraction_empty", "method": "scanned_ocr", "page": 1, "llm_error": null, "response_chars": 2178, "ocr_conf": 67.51, "hint": "Check OCR quality and overlay suppression"}
+{"ts": "2026-06-07T19:50:35.995360+00:00", "logger": "src.extraction.merger", "level": "warning", "event": "no_line_items_extracted", "invoice": null}
+[Validator] invoice_v3_01.pdf — 5 error(s)
+{"ts": "2026-06-07T19:50:35.995360+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.34, "tier": "invalid", "action": "reject", "breakdown": {"ocr": 0.6751, "field_confidence": 0.0, "validation": 0.5, "completeness": 0.0, "guardrails": 0.8}}
+[ReviewQueue] Queued: invoice_v3_01.pdf — reasons: ['confidence_action=reject', 'validation_errors=5', 'guardrail_issues=1']
+{"ts": "2026-06-07T19:50:36.001914+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_01.pdf", "action": "reject", "valid": false, "review": true}
+{"ts": "2026-06-07T19:50:36.005388+00:00", "logger": "__main__", "level": "info", "event": "doc_record_collected", "file": "invoice_v3_01.pdf", "invoice_id": null, "grand_total": null, "seller": null, "line_item_rows": 1, "action": "reject"}
+{"ts": "2026-06-07T19:50:36.005388+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_02.pdf"}
+{"ts": "2026-06-07T19:50:36.010177+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-07T19:50:36.014685+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T19:50:42.744632+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 349, "avg_conf": 68.7, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T19:50:42.744632+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 68.7, "words": 349}
+{"ts": "2026-06-07T19:50:42.754242+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 68.7, "text_chars": 1919, "low_conf_words": 138}
+{"ts": "2026-06-07T19:53:04.650948+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 141.92, "chars": 2933}
+{"ts": "2026-06-07T19:53:04.659881+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 3}
+[Validator] invoice_v3_02.pdf — 4 error(s)
+{"ts": "2026-06-07T19:53:04.667906+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.477, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.687, "field_confidence": 0.0, "validation": 0.6, "completeness": 0.6, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_02.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-07T19:53:04.686720+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_02.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-07T19:53:04.687629+00:00", "logger": "__main__", "level": "info", "event": "doc_record_collected", "file": "invoice_v3_02.pdf", "invoice_id": null, "grand_total": 29249.19, "seller": "DataStream Consulting LLC", "line_item_rows": 3, "action": "human_review"}
+{"ts": "2026-06-07T19:53:04.694337+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_03.pdf"}
+{"ts": "2026-06-07T19:53:04.700909+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-07T19:53:04.711357+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_03.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T19:53:17.161071+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 350, "avg_conf": 72.3, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T19:53:17.161071+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 72.31, "words": 350}
+{"ts": "2026-06-07T19:53:17.179796+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 72.31, "text_chars": 1889, "low_conf_words": 125}
+{"ts": "2026-06-07T19:55:36.618326+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "llama3.2:3b", "attempt": 1, "latency_s": 139.46, "chars": 2774}
+{"ts": "2026-06-07T19:55:36.621957+00:00", "logger": "src.guardrails.output_filter", "level": "warning", "event": "llm_json_parse_failed", "error": "Invalid \\escape: line 76 column 57 (char 2213)"}
+{"ts": "2026-06-07T19:55:36.624557+00:00", "logger": "src.extraction.extractor", "level": "error", "event": "extraction_empty", "method": "scanned_ocr", "page": 1, "llm_error": null, "response_chars": 2774, "ocr_conf": 72.31, "hint": "Check OCR quality and overlay suppression"}
+{"ts": "2026-06-07T19:55:36.631396+00:00", "logger": "src.extraction.merger", "level": "warning", "event": "no_line_items_extracted", "invoice": null}
+[Validator] invoice_v3_03.pdf — 5 error(s)
+{"ts": "2026-06-07T19:55:36.636709+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.35, "tier": "invalid", "action": "reject", "breakdown": {"ocr": 0.7231000000000001, "field_confidence": 0.0, "validation": 0.5, "completeness": 0.0, "guardrails": 0.8}}
+[ReviewQueue] Queued: invoice_v3_03.pdf — reasons: ['confidence_action=reject', 'validation_errors=5', 'guardrail_issues=1']
+{"ts": "2026-06-07T19:55:36.652548+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_03.pdf", "action": "reject", "valid": false, "review": true}
+{"ts": "2026-06-07T19:55:36.654659+00:00", "logger": "__main__", "level": "info", "event": "doc_record_collected", "file": "invoice_v3_03.pdf", "invoice_id": null, "grand_total": null, "seller": null, "line_item_rows": 1, "action": "reject"}
+{"ts": "2026-06-07T19:55:36.660760+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "total_pdfs": 3, "records_collected": 5, "failed": []}
+[JSON Writer] Written 5 record(s) → output\processed\file.json
+[SQLite Writer] Inserted 5 record(s) → output/extractions.db
+[SQLite Writer] SQL dump → output\processed\file.sql
+{"ts": "2026-06-07T19:55:36.746848+00:00", "logger": "__main__", "level": "info", "event": "outputs_written", "json": "output\\processed\\file.json", "csv": "output\\processed\\file.csv", "summary": "output\\run_summary.json", "records": 5}
+{"ts": "2026-06-07T20:39:02.144163+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "qwen2.5vl:7b", "threshold": 80, "input_dir": "sample_pdf/scan", "timeout": 1800}
+{"ts": "2026-06-07T20:39:02.166427+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-07T20:39:02.177515+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-07T20:39:02.183606+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T20:39:07.944279+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T20:39:07.944279+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-07T20:39:08.383629+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-07T20:43:20.045881+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "qwen2.5vl:7b", "attempt": 1, "latency_s": 251.66, "chars": 2777}
+{"ts": "2026-06-07T20:43:20.053971+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 2}
+[Validator] invoice_v3_01.pdf — 3 error(s)
+{"ts": "2026-06-07T20:43:20.058501+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.47, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6751, "field_confidence": 0.0, "validation": 0.7, "completeness": 0.4, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=3']
+{"ts": "2026-06-07T20:43:20.067847+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-07T20:43:20.071186+00:00", "logger": "__main__", "level": "info", "event": "doc_record_collected", "file": "invoice_v3_01.pdf", "invoice_id": null, "grand_total": null, "seller": "Data Engineering Consulting", "line_item_rows": 2, "action": "human_review"}
+{"ts": "2026-06-07T20:43:20.075377+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_02.pdf"}
+{"ts": "2026-06-07T20:43:20.076786+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-07T20:43:20.085639+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T20:43:27.556043+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 349, "avg_conf": 68.7, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T20:43:27.556043+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 68.7, "words": 349}
+{"ts": "2026-06-07T20:43:27.561515+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 68.7, "text_chars": 1919, "low_conf_words": 138}
+{"ts": "2026-06-07T20:48:34.803868+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "qwen2.5vl:7b", "attempt": 1, "latency_s": 307.23, "chars": 3324}
+{"ts": "2026-06-07T20:48:34.811694+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 3}
+[Validator] invoice_v3_02.pdf — 5 error(s)
+{"ts": "2026-06-07T20:48:34.815706+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.392, "tier": "invalid", "action": "reject", "breakdown": {"ocr": 0.687, "field_confidence": 0.0, "validation": 0.5, "completeness": 0.2, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_02.pdf — reasons: ['confidence_action=reject', 'validation_errors=5']
+{"ts": "2026-06-07T20:48:34.826117+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_02.pdf", "action": "reject", "valid": false, "review": true}
+{"ts": "2026-06-07T20:48:34.828125+00:00", "logger": "__main__", "level": "info", "event": "doc_record_collected", "file": "invoice_v3_02.pdf", "invoice_id": null, "grand_total": null, "seller": "DataStream Consulting LLC", "line_item_rows": 3, "action": "reject"}
+{"ts": "2026-06-07T20:48:34.830967+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_03.pdf"}
+{"ts": "2026-06-07T20:48:34.837438+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-07T20:48:34.841017+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_03.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-07T20:48:42.090787+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 350, "avg_conf": 72.3, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-07T20:48:42.090787+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 72.31, "words": 350}
+{"ts": "2026-06-07T20:48:42.090787+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 72.31, "text_chars": 1889, "low_conf_words": 125}
+{"ts": "2026-06-07T20:54:59.263228+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "qwen2.5vl:7b", "attempt": 1, "latency_s": 377.16, "chars": 3991}
+{"ts": "2026-06-07T20:54:59.273813+00:00", "logger": "src.guardrails.output_filter", "level": "warning", "event": "llm_json_parse_failed", "error": "Invalid \\escape: line 105 column 40 (char 3382)"}
+{"ts": "2026-06-07T20:54:59.278337+00:00", "logger": "src.extraction.extractor", "level": "error", "event": "extraction_empty", "method": "scanned_ocr", "page": 1, "llm_error": null, "response_chars": 3991, "ocr_conf": 72.31, "hint": "Check OCR quality and overlay suppression"}
+{"ts": "2026-06-07T20:54:59.302766+00:00", "logger": "src.extraction.merger", "level": "warning", "event": "no_line_items_extracted", "invoice": null}
+[Validator] invoice_v3_03.pdf — 5 error(s)
+{"ts": "2026-06-07T20:54:59.310536+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.35, "tier": "invalid", "action": "reject", "breakdown": {"ocr": 0.7231000000000001, "field_confidence": 0.0, "validation": 0.5, "completeness": 0.0, "guardrails": 0.8}}
+[ReviewQueue] Queued: invoice_v3_03.pdf — reasons: ['confidence_action=reject', 'validation_errors=5', 'guardrail_issues=1']
+{"ts": "2026-06-07T20:54:59.328104+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_03.pdf", "action": "reject", "valid": false, "review": true}
+{"ts": "2026-06-07T20:54:59.332985+00:00", "logger": "__main__", "level": "info", "event": "doc_record_collected", "file": "invoice_v3_03.pdf", "invoice_id": null, "grand_total": null, "seller": null, "line_item_rows": 1, "action": "reject"}
+{"ts": "2026-06-07T20:54:59.347957+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "total_pdfs": 3, "records_collected": 6, "failed": []}
+[JSON Writer] Written 6 record(s) → output\processed\file.json
+[SQLite Writer] Inserted 6 record(s) → output/extractions.db
+[SQLite Writer] SQL dump → output\processed\file.sql
+{"ts": "2026-06-07T20:54:59.458691+00:00", "logger": "__main__", "level": "info", "event": "outputs_written", "json": "output\\processed\\file.json", "csv": "output\\processed\\file.csv", "summary": "output\\run_summary.json", "records": 6}
+{"ts": "2026-06-08T09:31:51.461224+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "qwen2.5vl:7b", "threshold": 80, "input_dir": "sample_pdf/scan", "run_timestamp": "20260608T093151Z"}
+{"ts": "2026-06-08T09:31:51.639292+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-08T09:31:51.641256+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-08T09:31:51.645296+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-08T09:31:51.692246+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-08T09:32:01.503911+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-08T09:32:01.505924+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-08T09:32:02.182289+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-08T09:33:29.118520+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "qwen2.5vl:7b", "threshold": 80, "input_dir": "sample_pdf/scan", "run_timestamp": "20260608T093329Z"}
+{"ts": "2026-06-08T09:33:29.138520+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-08T09:33:29.140526+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-08T09:33:29.141526+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-08T09:33:29.145520+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-08T09:33:34.864178+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-08T09:33:34.864178+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-08T09:33:35.196723+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-08T09:39:01.901337+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "qwen2.5vl:7b", "attempt": 1, "latency_s": 326.7, "chars": 2777}
+{"ts": "2026-06-08T09:39:01.908673+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 2}
+[Validator] invoice_v3_01.pdf — 3 error(s)
+{"ts": "2026-06-08T09:39:01.914197+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.47, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6751, "field_confidence": 0.0, "validation": 0.7, "completeness": 0.4, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=3']
+{"ts": "2026-06-08T09:39:01.925254+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-08T09:39:01.944514+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_01.pdf", "invoice_id": null, "grand_total": null, "rows": 2, "action": "human_review"}
+{"ts": "2026-06-08T09:39:02.047099+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-08T09:39:02.051101+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_02.pdf"}
+{"ts": "2026-06-08T09:39:02.054100+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-08T09:39:02.059098+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-08T09:39:08.998716+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 349, "avg_conf": 68.7, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-08T09:39:08.998716+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 68.7, "words": 349}
+{"ts": "2026-06-08T09:39:09.021002+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 68.7, "text_chars": 1919, "low_conf_words": 138}
+{"ts": "2026-06-08T09:46:28.039288+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "qwen2.5vl:7b", "attempt": 1, "latency_s": 439.02, "chars": 3324}
+{"ts": "2026-06-08T09:46:28.047720+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 3}
+[Validator] invoice_v3_02.pdf — 5 error(s)
+{"ts": "2026-06-08T09:46:28.053718+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.392, "tier": "invalid", "action": "reject", "breakdown": {"ocr": 0.687, "field_confidence": 0.0, "validation": 0.5, "completeness": 0.2, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_02.pdf — reasons: ['confidence_action=reject', 'validation_errors=5']
+{"ts": "2026-06-08T09:46:28.062634+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_02.pdf", "action": "reject", "valid": false, "review": true}
+{"ts": "2026-06-08T09:46:28.082799+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_02.pdf", "invoice_id": null, "grand_total": null, "rows": 3, "action": "reject"}
+{"ts": "2026-06-08T09:46:28.153016+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-08T09:46:28.154017+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_03.pdf"}
+{"ts": "2026-06-08T09:46:28.159017+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-08T09:46:28.170085+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_03.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-08T09:46:35.437577+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 350, "avg_conf": 72.3, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-08T09:46:35.448833+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 72.31, "words": 350}
+{"ts": "2026-06-08T09:46:35.460696+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 72.31, "text_chars": 1889, "low_conf_words": 125}
+{"ts": "2026-06-08T09:55:36.383404+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "qwen2.5vl:7b", "attempt": 1, "latency_s": 540.92, "chars": 3991}
+{"ts": "2026-06-08T09:55:36.392443+00:00", "logger": "src.guardrails.output_filter", "level": "warning", "event": "llm_json_parse_failed", "error": "Invalid \\escape: line 105 column 40 (char 3382)"}
+{"ts": "2026-06-08T09:55:36.398551+00:00", "logger": "src.extraction.extractor", "level": "error", "event": "extraction_empty", "method": "scanned_ocr", "page": 1, "llm_error": null, "response_chars": 3991, "ocr_conf": 72.31, "hint": "Check OCR quality and overlay suppression"}
+{"ts": "2026-06-08T09:55:36.410450+00:00", "logger": "src.extraction.merger", "level": "warning", "event": "no_line_items_extracted", "invoice": null}
+[Validator] invoice_v3_03.pdf — 5 error(s)
+{"ts": "2026-06-08T09:55:36.423449+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.35, "tier": "invalid", "action": "reject", "breakdown": {"ocr": 0.7231000000000001, "field_confidence": 0.0, "validation": 0.5, "completeness": 0.0, "guardrails": 0.8}}
+[ReviewQueue] Queued: invoice_v3_03.pdf — reasons: ['confidence_action=reject', 'validation_errors=5', 'guardrail_issues=1']
+{"ts": "2026-06-08T09:55:36.442108+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_03.pdf", "action": "reject", "valid": false, "review": true}
+{"ts": "2026-06-08T09:55:36.469463+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_03.pdf", "invoice_id": null, "grand_total": null, "rows": 1, "action": "reject"}
+{"ts": "2026-06-08T09:55:36.476380+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "run_timestamp": "20260608T093329Z", "stats": {"processed": 3, "skipped": 0, "quarantined": 0, "failed": 0}, "total_flat_records": 6}
+{"ts": "2026-06-08T09:55:36.480395+00:00", "logger": "src.storage.record_splitter", "level": "info", "event": "records_split", "flat_in": 6, "invoices_out": 3, "line_items_out": 5}
+[JSON] 3 invoice(s) → output\processed\20260608T093329Z\invoices.json
+[JSON] 5 line item(s) → output\processed\20260608T093329Z\line_items.json
+[SQLite] 3 invoice(s) → output/extractions.db
+[SQLite] 5 line item(s) → output/extractions.db
+[SQLite] SQL dump → output\processed\20260608T093329Z\dump.sql
+{"ts": "2026-06-08T20:25:32.540225+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "qwen2.5vl:7b", "threshold": 80, "input_dir": "sample_pdf/scan", "run_timestamp": "20260608T202532Z"}
+{"ts": "2026-06-08T20:25:32.626420+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-08T20:25:32.627419+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-08T20:25:32.628424+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-08T20:25:32.641418+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-08T20:25:39.503273+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-08T20:25:39.503273+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-08T20:25:39.811111+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-08T20:29:59.023558+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "qwen2.5vl:7b", "threshold": 80, "input_dir": "sample_pdf/scan", "run_timestamp": "20260608T202959Z"}
+{"ts": "2026-06-08T20:29:59.040231+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-08T20:29:59.040231+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-08T20:29:59.040231+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-08T20:29:59.048346+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-08T20:30:04.692585+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-08T20:30:04.692585+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-08T20:30:05.100371+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-08T20:33:34.744484+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "qwen2.5vl:7b", "threshold": 80, "input_dir": "sample_pdf/scan", "run_timestamp": "20260608T203334Z"}
+{"ts": "2026-06-08T20:33:34.788708+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-08T20:33:34.789716+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-08T20:33:34.793804+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-08T20:33:34.797950+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-08T20:33:40.256495+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-08T20:33:40.257496+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-08T20:33:40.776353+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-08T20:38:10.499668+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "qwen2.5vl:7b", "threshold": 80, "input_dir": "sample_pdf/scan", "run_timestamp": "20260608T203810Z"}
+{"ts": "2026-06-08T20:38:10.515173+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-08T20:38:10.515173+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-08T20:38:10.521221+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-08T20:38:10.527287+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-08T20:46:53.220707+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "qwen2.5vl:7b", "threshold": 80, "input_dir": "sample_pdf/scan", "run_timestamp": "20260608T204653Z"}
+{"ts": "2026-06-08T20:46:53.233086+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-08T20:46:53.233086+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-08T20:46:53.234981+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-08T20:46:53.237013+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-08T20:46:59.386261+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-08T20:46:59.387246+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-08T20:46:59.687103+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-08T21:47:50.461205+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "qwen2.5:7b", "threshold": 80, "input_dir": "sample_pdf/scan", "run_timestamp": "20260608T214750Z"}
+{"ts": "2026-06-08T21:47:50.509222+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-08T21:47:50.510284+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-08T21:47:50.512281+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-08T21:47:50.527361+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-08T21:47:55.382567+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-08T21:47:55.383568+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-08T21:47:55.738671+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-08T21:47:57.807397+00:00", "logger": "src.extraction.model_client_ollama", "level": "warning", "event": "llm_retry", "model": "qwen2.5:7b", "attempt": 1, "error": "404 Client Error: Not Found for url: http://localhost:11434/api/chat", "next_in": 5}
+{"ts": "2026-06-08T21:48:04.884410+00:00", "logger": "src.extraction.model_client_ollama", "level": "warning", "event": "llm_retry", "model": "qwen2.5:7b", "attempt": 2, "error": "404 Client Error: Not Found for url: http://localhost:11434/api/chat", "next_in": 5}
+{"ts": "2026-06-08T21:48:11.935555+00:00", "logger": "src.extraction.model_client_ollama", "level": "warning", "event": "llm_retry", "model": "qwen2.5:7b", "attempt": 3, "error": "404 Client Error: Not Found for url: http://localhost:11434/api/chat", "next_in": 5}
+{"ts": "2026-06-08T21:48:11.936646+00:00", "logger": "src.extraction.model_client_ollama", "level": "error", "event": "llm_failed", "model": "qwen2.5:7b", "attempts": 3, "error": "404 Client Error: Not Found for url: http://localhost:11434/api/chat"}
+{"ts": "2026-06-08T21:48:11.939162+00:00", "logger": "src.guardrails.output_filter", "level": "warning", "event": "llm_empty_response"}
+{"ts": "2026-06-08T21:48:11.939680+00:00", "logger": "src.extraction.extractor", "level": "error", "event": "extraction_empty", "method": "scanned_ocr", "page": 1, "llm_error": "404 Client Error: Not Found for url: http://localhost:11434/api/chat", "response_chars": 0, "ocr_conf": 67.51, "hint": "Check OCR quality and overlay suppression"}
+{"ts": "2026-06-08T21:48:11.942699+00:00", "logger": "src.extraction.merger", "level": "warning", "event": "no_line_items_extracted", "invoice": null}
+[Validator] invoice_v3_01.pdf — 5 error(s)
+{"ts": "2026-06-08T21:48:11.942699+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.34, "tier": "invalid", "action": "reject", "breakdown": {"ocr": 0.6751, "field_confidence": 0.0, "validation": 0.5, "completeness": 0.0, "guardrails": 0.8}}
+[ReviewQueue] Queued: invoice_v3_01.pdf — reasons: ['confidence_action=reject', 'validation_errors=5', 'guardrail_issues=1']
+{"ts": "2026-06-08T21:48:11.959682+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_01.pdf", "action": "reject", "valid": false, "review": true}
+{"ts": "2026-06-08T21:48:11.971010+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_01.pdf", "invoice_id": null, "grand_total": null, "rows": 1, "action": "reject"}
+{"ts": "2026-06-08T21:48:11.977965+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-08T21:48:11.978966+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_02.pdf"}
+{"ts": "2026-06-08T21:48:11.981188+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-08T21:48:11.983724+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-08T21:48:17.180520+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 349, "avg_conf": 68.7, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-08T21:48:17.180520+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 68.7, "words": 349}
+{"ts": "2026-06-08T21:48:17.180520+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 68.7, "text_chars": 1919, "low_conf_words": 138}
+{"ts": "2026-06-08T21:48:19.235770+00:00", "logger": "src.extraction.model_client_ollama", "level": "warning", "event": "llm_retry", "model": "qwen2.5:7b", "attempt": 1, "error": "404 Client Error: Not Found for url: http://localhost:11434/api/chat", "next_in": 5}
+{"ts": "2026-06-08T21:48:26.308479+00:00", "logger": "src.extraction.model_client_ollama", "level": "warning", "event": "llm_retry", "model": "qwen2.5:7b", "attempt": 2, "error": "404 Client Error: Not Found for url: http://localhost:11434/api/chat", "next_in": 5}
+{"ts": "2026-06-08T21:48:33.397648+00:00", "logger": "src.extraction.model_client_ollama", "level": "warning", "event": "llm_retry", "model": "qwen2.5:7b", "attempt": 3, "error": "404 Client Error: Not Found for url: http://localhost:11434/api/chat", "next_in": 5}
+{"ts": "2026-06-08T21:48:33.399638+00:00", "logger": "src.extraction.model_client_ollama", "level": "error", "event": "llm_failed", "model": "qwen2.5:7b", "attempts": 3, "error": "404 Client Error: Not Found for url: http://localhost:11434/api/chat"}
+{"ts": "2026-06-08T21:48:33.400638+00:00", "logger": "src.guardrails.output_filter", "level": "warning", "event": "llm_empty_response"}
+{"ts": "2026-06-08T21:48:33.402025+00:00", "logger": "src.extraction.extractor", "level": "error", "event": "extraction_empty", "method": "scanned_ocr", "page": 1, "llm_error": "404 Client Error: Not Found for url: http://localhost:11434/api/chat", "response_chars": 0, "ocr_conf": 68.7, "hint": "Check OCR quality and overlay suppression"}
+{"ts": "2026-06-08T21:48:33.407049+00:00", "logger": "src.extraction.merger", "level": "warning", "event": "no_line_items_extracted", "invoice": null}
+[Validator] invoice_v3_02.pdf — 5 error(s)
+{"ts": "2026-06-08T21:48:33.410672+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.342, "tier": "invalid", "action": "reject", "breakdown": {"ocr": 0.687, "field_confidence": 0.0, "validation": 0.5, "completeness": 0.0, "guardrails": 0.8}}
+[ReviewQueue] Queued: invoice_v3_02.pdf — reasons: ['confidence_action=reject', 'validation_errors=5', 'guardrail_issues=1']
+{"ts": "2026-06-08T21:48:33.423138+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_02.pdf", "action": "reject", "valid": false, "review": true}
+{"ts": "2026-06-08T21:48:33.433698+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_02.pdf", "invoice_id": null, "grand_total": null, "rows": 1, "action": "reject"}
+{"ts": "2026-06-08T21:48:33.444564+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-08T21:48:33.446568+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_03.pdf"}
+{"ts": "2026-06-08T21:48:33.448557+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-08T21:48:33.451556+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_03.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-08T21:48:38.910721+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 350, "avg_conf": 72.3, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-08T21:48:38.911593+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 72.31, "words": 350}
+{"ts": "2026-06-08T21:48:38.923758+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 72.31, "text_chars": 1889, "low_conf_words": 125}
+{"ts": "2026-06-08T21:48:41.004557+00:00", "logger": "src.extraction.model_client_ollama", "level": "warning", "event": "llm_retry", "model": "qwen2.5:7b", "attempt": 1, "error": "404 Client Error: Not Found for url: http://localhost:11434/api/chat", "next_in": 5}
+{"ts": "2026-06-08T21:49:51.878873+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "qwen2.5vl:7b", "threshold": 80, "input_dir": "sample_pdf/scan", "run_timestamp": "20260608T214951Z"}
+{"ts": "2026-06-08T21:49:51.912876+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-08T21:49:51.913878+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-08T21:49:51.916909+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-08T21:49:51.921877+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-08T21:49:57.974821+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-08T21:49:57.974821+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-08T21:49:58.295003+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-08T21:56:27.549177+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "qwen2.5vl:7b", "attempt": 1, "latency_s": 389.25, "chars": 2777}
+{"ts": "2026-06-08T21:56:27.573493+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 2}
+[Validator] invoice_v3_01.pdf — 3 error(s)
+{"ts": "2026-06-08T21:56:27.587494+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.47, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6751, "field_confidence": 0.0, "validation": 0.7, "completeness": 0.4, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=3']
+{"ts": "2026-06-08T21:56:27.616846+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-08T21:56:27.649482+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_01.pdf", "invoice_id": null, "grand_total": null, "rows": 2, "action": "human_review"}
+{"ts": "2026-06-08T21:56:27.741221+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-08T21:56:27.745897+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_02.pdf"}
+{"ts": "2026-06-08T21:56:27.756915+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-08T21:56:27.767805+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-08T21:56:35.026808+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 349, "avg_conf": 68.7, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-08T21:56:35.028931+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 68.7, "words": 349}
+{"ts": "2026-06-08T21:56:35.037928+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 68.7, "text_chars": 1919, "low_conf_words": 138}
+{"ts": "2026-06-08T22:03:53.140203+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "qwen2.5vl:7b", "attempt": 1, "latency_s": 438.1, "chars": 3324}
+{"ts": "2026-06-08T22:03:53.150704+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 3}
+[Validator] invoice_v3_02.pdf — 5 error(s)
+{"ts": "2026-06-08T22:03:53.173199+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.392, "tier": "invalid", "action": "reject", "breakdown": {"ocr": 0.687, "field_confidence": 0.0, "validation": 0.5, "completeness": 0.2, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_02.pdf — reasons: ['confidence_action=reject', 'validation_errors=5']
+{"ts": "2026-06-08T22:03:53.189632+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_02.pdf", "action": "reject", "valid": false, "review": true}
+{"ts": "2026-06-08T22:03:53.214229+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_02.pdf", "invoice_id": null, "grand_total": null, "rows": 3, "action": "reject"}
+{"ts": "2026-06-08T22:03:53.238129+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-08T22:03:53.240129+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_03.pdf"}
+{"ts": "2026-06-08T22:03:53.258409+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-08T22:03:53.270020+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_03.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-08T22:04:00.510410+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 350, "avg_conf": 72.3, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-08T22:04:00.526249+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 72.31, "words": 350}
+{"ts": "2026-06-08T22:04:00.538608+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 72.31, "text_chars": 1889, "low_conf_words": 125}
+{"ts": "2026-06-08T22:12:56.991491+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "qwen2.5vl:7b", "attempt": 1, "latency_s": 536.45, "chars": 3991}
+{"ts": "2026-06-08T22:12:56.994791+00:00", "logger": "src.guardrails.output_filter", "level": "warning", "event": "llm_json_parse_failed", "error": "Invalid \\escape: line 105 column 40 (char 3382)"}
+{"ts": "2026-06-08T22:12:56.995416+00:00", "logger": "src.extraction.extractor", "level": "error", "event": "extraction_empty", "method": "scanned_ocr", "page": 1, "llm_error": null, "response_chars": 3991, "ocr_conf": 72.31, "hint": "Check OCR quality and overlay suppression"}
+{"ts": "2026-06-08T22:12:57.000222+00:00", "logger": "src.extraction.merger", "level": "warning", "event": "no_line_items_extracted", "invoice": null}
+[Validator] invoice_v3_03.pdf — 5 error(s)
+{"ts": "2026-06-08T22:12:57.001982+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.35, "tier": "invalid", "action": "reject", "breakdown": {"ocr": 0.7231000000000001, "field_confidence": 0.0, "validation": 0.5, "completeness": 0.0, "guardrails": 0.8}}
+[ReviewQueue] Queued: invoice_v3_03.pdf — reasons: ['confidence_action=reject', 'validation_errors=5', 'guardrail_issues=1']
+{"ts": "2026-06-08T22:12:57.011634+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_03.pdf", "action": "reject", "valid": false, "review": true}
+{"ts": "2026-06-08T22:12:57.062039+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_03.pdf", "invoice_id": null, "grand_total": null, "rows": 1, "action": "reject"}
+{"ts": "2026-06-08T22:12:57.062039+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "run_timestamp": "20260608T214951Z", "stats": {"processed": 3, "skipped": 0, "quarantined": 0, "failed": 0}, "total_flat_records": 6}
+{"ts": "2026-06-08T22:12:57.062039+00:00", "logger": "src.storage.record_splitter", "level": "info", "event": "records_split", "flat_in": 6, "invoices_out": 3, "line_items_out": 5}
+[JSON] 3 invoice(s) → output\processed\20260608T214951Z\invoices.json
+[JSON] 5 line item(s) → output\processed\20260608T214951Z\line_items.json
+[SQLite] 3 invoice(s) → output/extractions.db
+[SQLite] 5 line item(s) → output/extractions.db
+[SQLite] SQL dump → output\processed\20260608T214951Z\dump.sql

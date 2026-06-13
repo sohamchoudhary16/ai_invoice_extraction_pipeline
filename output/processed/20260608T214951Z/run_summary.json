@@ -1,0 +1,14 @@
+{
+  "run_timestamp": "20260608T214951Z",
+  "stats": {
+    "processed": 3,
+    "skipped": 0,
+    "quarantined": 0,
+    "failed": 0
+  },
+  "invoices": 3,
+  "line_items": 5,
+  "tracker_totals": {
+    "success": 3
+  }
+}
