@@ -1,0 +1,29 @@
+# configs/config.yaml
+
+ocr:
+  confidence_threshold: 80
+  dpi: 300
+  tesseract_psm: 6        # 6=uniform block, 3=auto, 11=sparse
+  lang: "deu+eng"         # German + English (install deu tessdata)
+
+ollama:
+  model: "qwen2.5vl:7b"  # DO NOT use 72b on 16GB RAM CPU
+  # model: "llama3.2:3b"
+  base_url: "http://localhost:11434"
+  temperature: 0
+  timeout: 1800
+
+pipeline:
+  skip_digital_pdf_ocr: true
+  max_pages_per_doc: 50
+
+output:
+  formats: [json, csv, sql]
+  json_indent: 2
+  sqlite_db: "output/extractions.db"
+
+logging:
+  level: "INFO"
+  log_file: "logs/logs.txt"
+
+input_dir: "sample_pdf/scan"

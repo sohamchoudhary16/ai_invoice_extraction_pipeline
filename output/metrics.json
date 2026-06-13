@@ -1,0 +1,36 @@
+{
+  "counters": {
+    "docs_attempted": 3,
+    "docs_scanned": 3,
+    "ocr_pages_total": 3,
+    "llm_calls_success": 3,
+    "docs_queued_review": 3,
+    "docs_processed_ok": 3
+  },
+  "distributions": {
+    "ocr_avg_confidence": {
+      "count": 3,
+      "min": 67.51,
+      "max": 72.31,
+      "mean": 69.50666666666667
+    },
+    "llm_latency_s": {
+      "count": 3,
+      "min": 233.04,
+      "max": 406.2,
+      "mean": 305.49
+    },
+    "page_1_seconds": {
+      "count": 3,
+      "min": 245.68955279999955,
+      "max": 427.32624989999977,
+      "mean": 319.85795556666636
+    },
+    "doc_total_seconds": {
+      "count": 3,
+      "min": 247.5959883000005,
+      "max": 428.68102039999985,
+      "mean": 320.98605793333337
+    }
+  }
+}

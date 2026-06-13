@@ -1,0 +1,36 @@
+2026-06-05 23:09:16,761  INFO      pipeline  Processing  ZUGFeRD_1p0_COMFORT_Rabatte.pdf
+2026-06-05 23:09:16,801  INFO      document_router    → ZUGFeRD  (embedded: ZUGFeRD-invoice.xml)
+2026-06-05 23:09:16,805  INFO      pipeline    ✓  4 line(s) extracted
+2026-06-05 23:09:16,806  INFO      pipeline  Processing  ZUGFeRD_1p0_COMFORT_SEPA_Prenotification.pdf
+2026-06-05 23:09:16,850  INFO      document_router    → ZUGFeRD  (embedded: ZUGFeRD-invoice.xml)
+2026-06-05 23:09:16,850  INFO      pipeline    ✓  2 line(s) extracted
+2026-06-05 23:09:16,850  INFO      pipeline  Processing  ZUGFeRD_1p0_EXTENDED_Kostenrechnung.pdf
+2026-06-05 23:09:16,883  INFO      document_router    → ZUGFeRD  (embedded: ZUGFeRD-invoice.xml)
+2026-06-05 23:09:16,893  INFO      pipeline    ✓  5 line(s) extracted
+2026-06-05 23:09:16,896  INFO      pipeline  Done — total rows: 11
+2026-06-05 23:09:16,933  INFO      pipeline  Saved  →  output\zugferd\invoices.json
+2026-06-05 23:09:16,933  INFO      pipeline  Saved  →  output\zugferd\invoices.db
+2026-06-05 23:11:07,465  INFO      pipeline  Processing  ZUGFeRD_1p0_COMFORT_Rabatte.pdf
+2026-06-05 23:11:07,465  INFO      document_router    → ZUGFeRD  (embedded: ZUGFeRD-invoice.xml)
+2026-06-05 23:11:07,465  INFO      pipeline    ✓  4 line(s) extracted
+2026-06-05 23:11:07,465  INFO      pipeline  Processing  ZUGFeRD_1p0_COMFORT_SEPA_Prenotification.pdf
+2026-06-05 23:11:07,477  INFO      document_router    → ZUGFeRD  (embedded: ZUGFeRD-invoice.xml)
+2026-06-05 23:11:07,477  INFO      pipeline    ✓  2 line(s) extracted
+2026-06-05 23:11:07,477  INFO      pipeline  Processing  ZUGFeRD_1p0_EXTENDED_Kostenrechnung.pdf
+2026-06-05 23:11:07,477  INFO      document_router    → ZUGFeRD  (embedded: ZUGFeRD-invoice.xml)
+2026-06-05 23:11:07,491  INFO      pipeline    ✓  5 line(s) extracted
+2026-06-05 23:11:07,504  INFO      pipeline  Done — total rows: 11
+2026-06-05 23:11:07,532  INFO      pipeline  Saved  →  output\zugferd\invoices.json
+2026-06-05 23:11:07,533  INFO      pipeline  Saved  →  output\zugferd\invoices.db
+2026-06-06 23:58:47,783  INFO      pipeline  Processing  ZUGFeRD_1p0_COMFORT_Rabatte.pdf
+2026-06-06 23:58:47,853  INFO      document_router    → ZUGFeRD  (embedded: ZUGFeRD-invoice.xml)
+2026-06-06 23:58:47,866  INFO      pipeline    ✓  4 line(s) extracted
+2026-06-06 23:58:47,867  INFO      pipeline  Processing  ZUGFeRD_1p0_COMFORT_SEPA_Prenotification.pdf
+2026-06-06 23:58:47,919  INFO      document_router    → ZUGFeRD  (embedded: ZUGFeRD-invoice.xml)
+2026-06-06 23:58:47,934  INFO      pipeline    ✓  2 line(s) extracted
+2026-06-06 23:58:47,936  INFO      pipeline  Processing  ZUGFeRD_1p0_EXTENDED_Kostenrechnung.pdf
+2026-06-06 23:58:48,006  INFO      document_router    → ZUGFeRD  (embedded: ZUGFeRD-invoice.xml)
+2026-06-06 23:58:48,015  INFO      pipeline    ✓  5 line(s) extracted
+2026-06-06 23:58:48,095  INFO      pipeline  Done — total rows: 11
+2026-06-06 23:58:48,132  INFO      pipeline  Saved  →  output\zugferd\invoices.json
+2026-06-06 23:58:48,132  INFO      pipeline  Saved  →  output\zugferd\invoices.db
