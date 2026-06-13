@@ -1,17 +1,20 @@
 # configs/config.yaml
 
 ocr:
-  confidence_threshold: 80
+  confidence_threshold: 60
   dpi: 300
-  tesseract_psm: 6        # 6=uniform block, 3=auto, 11=sparse
-  lang: "deu+eng"         # German + English (install deu tessdata)
+  tesseract_psm: 6
+  lang: "deu+eng"
+
+vision:
+  VISION_THRESHOLD: 0.80
 
 ollama:
-  model: "qwen2.5vl:7b"  # DO NOT use 72b on 16GB RAM CPU
-  # model: "llama3.2:3b"
+  model: "gemma3:4b"
   base_url: "http://localhost:11434"
   temperature: 0
   timeout: 1800
+  vision_model: "gemma3:4b"   # vision-capable model for low-confidence fallback
 
 pipeline:
   skip_digital_pdf_ocr: true

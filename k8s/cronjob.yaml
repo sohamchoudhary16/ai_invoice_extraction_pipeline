@@ -25,7 +25,7 @@ spec:
                 - name: OLLAMA_BASE_URL
                   value: "http://ollama.invoice-pipeline.svc.cluster.local:11434"
                 - name: OLLAMA_MODEL
-                  value: "qwen2.5vl:7b"
+                  value: "gemma3:4b"
                 - name: OLLAMA_TIMEOUT
                   value: "1800"
                 - name: CONFIDENCE_THRESHOLD

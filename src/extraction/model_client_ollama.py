@@ -40,6 +40,7 @@ def call_ollama(
     payload = {
         "model": model,
         "stream": False,
+        "format": "json",          # ← add this line
         "options": {"temperature": temperature, "seed": 42},
         "messages": [
             {"role": "system",    "content": system_prompt},

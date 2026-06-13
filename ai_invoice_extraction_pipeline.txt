@@ -206,3 +206,213 @@ kubectl -n invoice-pipeline get pods -w
 
 # Follow logs live once pod is Running
 kubectl -n invoice-pipeline logs -l job-name=test-run-01 -f
+
+
+
+Step 1 — Copy the fixed files into your project
+invoice.py        →  src/models/invoice.py          (fixes the pydantic crash)
+run_api.bat       →  project root
+watch_logs.bat    →  project root
+submit_invoice.bat→  project root
+poll_job.py       →  project root
+
+Step 2 — Start the API (Terminal 1, keep it open)
+cmdcd v3_ai_invoice_extraction_pipeline
+conda activate inv_ext
+uvicorn app.api:app --reload --port 8000
+You should see:
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process
+
+Step 3 — Watch the logs live (Terminal 2, keep it open)
+cmdwatch_logs.bat
+This replaces tail -f on Windows using PowerShell. You will see structured JSON log lines appear in real time as the pipeline runs — this is what you show during the presentation.
+
+Step 4 — Open the demo screen in your browser
+Go to: http://localhost:8000/docs
+This is the Swagger UI — auto-generated from your code. It looks like a proper API documentation page. Every endpoint has a live "Try it out" button. This is your presentation screen.
+
+Step 5 — Upload an invoice (two ways)
+Option A — Swagger UI (best for presentation, visual)
+
+Open http://localhost:8000/docs
+Click POST /extract
+Click Try it out
+Click Choose File, select your invoice PDF
+Click Execute
+You get back:
+
+json{
+  "job_id": "3f2a1b4c-8d9e-...",
+  "status": "queued",
+  "poll_url": "/result/3f2a1b4c-..."
+}
+Option B — command line
+cmdsubmit_invoice.bat sample_pdf\scan\invoice_v3_01.pdf
+
+Step 6 — Poll for the result
+Copy the job_id from Step 5, then:
+cmdpython poll_job.py 3f2a1b4c-8d9e-4f2a-b1c3-2d4e5f6a7b8c
+This prints a live status line every 10 seconds:
+[  0s]  status=queued    file=invoice_v3_01.pdf
+[ 10s]  status=processing  file=invoice_v3_01.pdf
+[ 20s]  status=processing  file=invoice_v3_01.pdf
+...
+[210s]  status=done      file=invoice_v3_01.pdf
+
+=======================================================
+  EXTRACTION COMPLETE
+=======================================================
+  InvoiceId    : INV-2024-00421
+  SellerName   : XYZcompany
+  GrandTotal   : 10290.0 USD
+  Score        : 0.535  (low)
+  Action       : human_review
+  Val. errors  : ['TAX_MATH: ...', 'INVALID_IBAN: ...']
+=======================================================
+Or poll from Swagger UI: scroll to GET /result/{job_id}, click Try it out, paste the job_id, Execute.
+
+Step 7 — Check all jobs
+cmdcurl http://localhost:8000/jobs
+Or in Swagger: GET /jobs → Try it out → Execute. Shows every job submitted in this server session with status, filename, and timestamps.
+
+Step 8 — Health check (always useful to show at presentation start)
+cmdcurl http://localhost:8000/health
+Returns:
+json{
+  "status": "ok",
+  "tesseract": "ok (v5.3.x)",
+  "ollama": "ok",
+  "model": "gemma3:4b",
+  "models_loaded": ["gemma3:4b", "llama3.2:3b", "qwen2.5vl:7b"],
+  "model_ready": true
+}
+
+
+
+(inv_ext) C:\Users\SohamChoudhary\Downloads\Documents\v3_ai_invoice_extraction_pipeline>pytest tests/ -v
+=============================================== test session starts ===============================================
+platform win32 -- Python 3.11.8, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\SohamChoudhary\anaconda3\envs\inv_ext\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\SohamChoudhary\Downloads\Documents\v3_ai_invoice_extraction_pipeline
+plugins: anyio-4.13.0
+collected 61 items
+
+tests/test_business_rules.py::TestRequiredFields::test_all_required_present_no_errors PASSED                 [  1%]
+tests/test_business_rules.py::TestRequiredFields::test_missing_invoice_id PASSED                             [  3%]
+tests/test_business_rules.py::TestRequiredFields::test_missing_issue_date PASSED                             [  4%]
+tests/test_business_rules.py::TestRequiredFields::test_missing_seller_name PASSED                            [  6%]
+tests/test_business_rules.py::TestRequiredFields::test_missing_grand_total PASSED                            [  8%]
+tests/test_business_rules.py::TestRequiredFields::test_empty_record_catches_all PASSED                       [  9%]
+tests/test_business_rules.py::TestTaxMath::test_correct_tax_math_no_error PASSED                             [ 11%]
+tests/test_business_rules.py::TestTaxMath::test_tax_math_mismatch_caught PASSED                              [ 13%]
+tests/test_business_rules.py::TestTaxMath::test_tax_math_within_tolerance_passes PASSED                      [ 14%]
+tests/test_business_rules.py::TestLineMath::test_correct_line_math PASSED                                    [ 16%]
+tests/test_business_rules.py::TestLineMath::test_line_math_mismatch PASSED                                   [ 18%]
+tests/test_business_rules.py::TestLineMath::test_with_discount_line_math PASSED                              [ 19%]
+tests/test_business_rules.py::TestDateOrdering::test_due_after_issue_passes PASSED                           [ 21%]
+tests/test_business_rules.py::TestDateOrdering::test_due_before_issue_caught PASSED                          [ 22%]
+tests/test_business_rules.py::TestIbanVatBic::test_invalid_iban_caught PASSED                                [ 24%]
+tests/test_business_rules.py::TestIbanVatBic::test_invalid_vat_caught PASSED                                 [ 26%]
+tests/test_business_rules.py::TestIbanVatBic::test_invalid_bic_caught PASSED                                 [ 27%]
+tests/test_business_rules.py::TestIbanVatBic::test_valid_bic_passes PASSED                                   [ 29%]
+tests/test_business_rules.py::TestIbanVatBic::test_unknown_currency PASSED                                   [ 31%]
+tests/test_business_rules.py::TestIbanVatBic::test_valid_currency_passes PASSED                              [ 32%]
+tests/test_business_rules.py::TestNegativeValues::test_negative_grand_total_caught PASSED                    [ 34%]
+tests/test_business_rules.py::TestNegativeValues::test_positive_grand_total_passes PASSED                    [ 36%]
+tests/test_confidence_scorer.py::TestCompositeScore::test_perfect_inputs_give_high_score PASSED              [ 37%]
+tests/test_confidence_scorer.py::TestCompositeScore::test_low_ocr_reduces_score PASSED                       [ 39%]
+tests/test_confidence_scorer.py::TestCompositeScore::test_validation_errors_reduce_score PASSED              [ 40%]
+tests/test_confidence_scorer.py::TestCompositeScore::test_missing_required_fields_reduce_score PASSED        [ 42%]
+tests/test_confidence_scorer.py::TestCompositeScore::test_guardrail_issues_reduce_score PASSED               [ 44%]
+tests/test_confidence_scorer.py::TestCompositeScore::test_tiers_are_assigned_correctly PASSED                [ 45%]
+tests/test_confidence_scorer.py::TestCompositeScore::test_result_has_required_keys PASSED                    [ 47%]
+tests/test_confidence_scorer.py::TestCompositeScore::test_composite_score_in_range PASSED                    [ 49%]
+tests/test_field_normalizer.py::TestParseDate::test_iso_passthrough PASSED                                   [ 50%]
+tests/test_field_normalizer.py::TestParseDate::test_german_format PASSED                                     [ 52%]
+tests/test_field_normalizer.py::TestParseDate::test_slash_format PASSED                                      [ 54%]
+tests/test_field_normalizer.py::TestParseDate::test_compact_format PASSED                                    [ 55%]
+tests/test_field_normalizer.py::TestParseDate::test_dash_dmy PASSED                                          [ 57%]
+tests/test_field_normalizer.py::TestParseDate::test_none_returns_none PASSED                                 [ 59%]
+tests/test_field_normalizer.py::TestParseDate::test_empty_string_returns_none PASSED                         [ 60%]
+tests/test_field_normalizer.py::TestParseDate::test_unparseable_returns_as_is PASSED                         [ 62%]
+tests/test_field_normalizer.py::TestParseFloat::test_plain_float PASSED                                      [ 63%]
+tests/test_field_normalizer.py::TestParseFloat::test_european_comma_decimal PASSED                           [ 65%]
+tests/test_field_normalizer.py::TestParseFloat::test_european_thousand_separator PASSED                      [ 67%]
+tests/test_field_normalizer.py::TestParseFloat::test_us_thousand_separator FAILED                            [ 68%]
+tests/test_field_normalizer.py::TestParseFloat::test_euro_symbol_stripped PASSED                             [ 70%]
+tests/test_field_normalizer.py::TestParseFloat::test_dollar_symbol_stripped FAILED                           [ 72%]
+tests/test_field_normalizer.py::TestParseFloat::test_percent_stripped PASSED                                 [ 73%]
+tests/test_field_normalizer.py::TestParseFloat::test_tax_rate_decimal FAILED                                 [ 75%]
+tests/test_field_normalizer.py::TestParseFloat::test_none_returns_none PASSED                                [ 77%]
+tests/test_field_normalizer.py::TestParseFloat::test_zero PASSED                                             [ 78%]
+tests/test_field_normalizer.py::TestParseFloat::test_integer_string PASSED                                   [ 80%]
+tests/test_field_normalizer.py::TestParseFloat::test_large_european_number PASSED                            [ 81%]
+tests/test_field_normalizer.py::TestParseFloat::test_negative_value PASSED                                   [ 83%]
+tests/test_field_normalizer.py::TestNormaliseIban::test_spaces_stripped PASSED                               [ 85%]
+tests/test_field_normalizer.py::TestNormaliseIban::test_uppercased PASSED                                    [ 86%]
+tests/test_field_normalizer.py::TestNormaliseIban::test_none_returns_none PASSED                             [ 88%]
+tests/test_field_normalizer.py::TestNormaliseIban::test_empty_returns_none PASSED                            [ 90%]
+tests/test_field_normalizer.py::TestNormalizeRecord::test_date_fields_coerced PASSED                         [ 91%]
+tests/test_field_normalizer.py::TestNormalizeRecord::test_float_fields_coerced PASSED                        [ 93%]
+tests/test_field_normalizer.py::TestNormalizeRecord::test_iban_normalised PASSED                             [ 95%]
+tests/test_field_normalizer.py::TestNormalizeRecord::test_null_values_pass_through PASSED                    [ 96%]
+tests/test_field_normalizer.py::TestNormalizeRecord::test_unknown_fields_preserved PASSED                    [ 98%]
+tests/test_field_normalizer.py::TestNormalizeRecord::test_does_not_raise_on_garbage PASSED                   [100%]
+
+==================================================== FAILURES =====================================================
+____________________________________ TestParseFloat.test_us_thousand_separator ____________________________________
+
+self = <tests.test_field_normalizer.TestParseFloat object at 0x000002A23D983110>
+
+    def test_us_thousand_separator(self):
+        # "1,234.56" — comma as thousand sep
+>       assert parse_float("1,234.56") == 1234.56
+E       AssertionError: assert None == 1234.56
+E        +  where None = parse_float('1,234.56')
+
+tests\test_field_normalizer.py:59: AssertionError
+___________________________________ TestParseFloat.test_dollar_symbol_stripped ____________________________________
+
+self = <tests.test_field_normalizer.TestParseFloat object at 0x000002A23D980F10>
+
+    def test_dollar_symbol_stripped(self):
+>       assert parse_float("$35,144.85") == 35144.85
+E       AssertionError: assert None == 35144.85
+E        +  where None = parse_float('$35,144.85')
+
+tests\test_field_normalizer.py:65: AssertionError
+______________________________________ TestParseFloat.test_tax_rate_decimal _______________________________________
+
+self = <tests.test_field_normalizer.TestParseFloat object at 0x000002A23D981250>
+
+    def test_tax_rate_decimal(self):
+>       assert parse_float("8.875") == 8.875
+E       AssertionError: assert 8875.0 == 8.875
+E        +  where 8875.0 = parse_float('8.875')
+
+tests\test_field_normalizer.py:71: AssertionError
+============================================= short test summary info =============================================
+FAILED tests/test_field_normalizer.py::TestParseFloat::test_us_thousand_separator - AssertionError: assert None == 1234.56
+FAILED tests/test_field_normalizer.py::TestParseFloat::test_dollar_symbol_stripped - AssertionError: assert None == 35144.85
+FAILED tests/test_field_normalizer.py::TestParseFloat::test_tax_rate_decimal - AssertionError: assert 8875.0 == 8.875
+========================================== 3 failed, 58 passed in 0.90s ===========================================
+
+
+First, the failing tests — they reveal two real bugs:
+
+"8.875" → 8875.0 — the regex ^\d{1,3}(\.\d{3})+ matches 8.875 as a European thousand-separator pattern (8 + 875), stripping the dot and giving 8875. This is wrong for US decimal notation.
+"1,234.56" and "$35,144.85" → None — the US format with comma-as-thousand-separator and a dot decimal isn't handled.
+
+Second — yes, the evaluation is incomplete. Right now it only compares the OCR+LLM primary extraction against ground truth. It should also compare the vision fallback results, so you can show in the presentation which approach is more accurate per field.
+
+The three failing tests were real bugs, not wrong tests
+This is actually the most important thing in your output to explain in the presentation. The tests did their job — they caught a real defect. test_tax_rate_decimal failing means the pipeline was converting 8.875 (a valid US decimal tax rate) into 8875.0, which would make every tax calculation wrong for US-format invoices. The failing tests found this before you put the invoices in front of a director.
+The root cause: the regex ^\d{1,3}(\.\d{3})+ was designed to detect European thousand separators like 1.234 but it also matches 8.875 because 8 is 1 digit and .875 looks like a 3-digit group. The fix adds one crucial constraint — European format requires a comma decimal separator to also be present, so 8.875 falls through to plain decimal parsing and stays 8.875.
+
+Why the evaluation results are not misleading — they are diagnostic
+The 45.5% invoice accuracy and 22.2% line item accuracy tell you exactly where the problems are:
+Financial fields (InvLineTotal, InvTaxBasisTotal, InvTaxTotal) — all 100% correct. The pipeline extracts numbers reliably.
+Identity and address fields (SellerName, BuyerName, SellerStreet) — 0% correct. The model confused seller and buyer, which is a prompt engineering problem, not a data problem. The fix is tightening the zone-based prompt so the seller block and buyer block are more clearly separated.
+InvGrandTotal wrong at 10290.0 instead of 35144.85 — the model extracted the line 2 total instead of the grand total. Again a prompt disambiguation issue — the InvGrandTotal instruction in prompt_builder.py needs to be more explicit.
+After running evaluation on all three invoices you will have a clear picture of which fields the LLM consistently gets right and which it gets wrong. That drives the next prompt iteration. And after adding invoices 02 and 03 to sample_pdf/scan/ and re-running, you will have the side-by-side OCR+LLM vs Vision accuracy comparison — which is the concrete data that justifies the vision fallback architecture to your director.

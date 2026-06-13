@@ -1,0 +1,17 @@
+# Environment
+.env
+*.pyc
+__pycache__/
+.pytest_cache/
+
+# Large outputs — don't commit run results or models
+output/
+logs/
+sample_pdf/
+
+# Conda
+envs/
+*.egg-info/
+
+evaluation/results
+ai_invoice_extraction_pipeline.txt

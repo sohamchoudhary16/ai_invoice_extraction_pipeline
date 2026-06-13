@@ -1,0 +1,38 @@
+[
+  {
+    "SourceFile": "invoice_v3_01.pdf",
+    "InvoiceId": "INV-2024-00421",
+    "LineId": "1",
+    "ProductName": "Data Engineering Consulting",
+    "ProductDescription": "Fabric pipeline implementation and MLOps configuration",
+    "BilledQuantity": 12,
+    "BilledUnit": "DAY",
+    "NetPrice": 1850.0,
+    "DiscountAmount": 0.0,
+    "LineTotalAmount": 22200.0,
+    "TaxRatePercent": 8.875,
+    "TaxCategory": "S",
+    "TaxType": "Sales Tax",
+    "BillingStartDate": "2024-03-01",
+    "DiscountIndicator": false,
+    "DiscountReason": null
+  },
+  {
+    "SourceFile": "invoice_v3_01.pdf",
+    "InvoiceId": "INV-2024-00421",
+    "LineId": "2",
+    "ProductName": "AI Pipeline Development",
+    "ProductDescription": "GPT-4o document extraction pipeline – Bronze/Silver/Gold layers",
+    "BilledQuantity": 5,
+    "BilledUnit": "DAY",
+    "NetPrice": 2100.0,
+    "DiscountAmount": 210.0,
+    "LineTotalAmount": 10290.0,
+    "TaxRatePercent": 8.875,
+    "TaxCategory": "S",
+    "TaxType": "Sales Tax",
+    "BillingStartDate": "2024-03-01",
+    "DiscountIndicator": true,
+    "DiscountReason": "Early project completion bonus discount"
+  }
+]

@@ -876,3 +876,675 @@ Found 3 PDF(s) in 'sample_pdf/scan'
 [SQLite] 3 invoice(s) → output/extractions.db
 [SQLite] 5 line item(s) → output/extractions.db
 [SQLite] SQL dump → output\processed\20260608T214951Z\dump.sql
+{"ts": "2026-06-09T07:37:34.272077+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "qwen2.5vl:7b", "threshold": 80, "input_dir": "sample_pdf/scan", "run_timestamp": "20260609T073734Z"}
+{"ts": "2026-06-09T07:37:34.393258+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T07:37:34.397260+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T07:37:34.401258+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T07:37:34.446744+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T07:37:40.650777+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T07:37:40.651773+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-09T07:37:41.267909+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-09T07:45:22.028819+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "qwen2.5vl:7b", "attempt": 1, "latency_s": 460.76, "chars": 2777}
+{"ts": "2026-06-09T07:45:22.041072+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 2}
+[Validator] invoice_v3_01.pdf — 3 error(s)
+{"ts": "2026-06-09T07:45:22.056988+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.47, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6751, "field_confidence": 0.0, "validation": 0.7, "completeness": 0.4, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=3']
+{"ts": "2026-06-09T07:45:22.075397+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T07:45:22.095041+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_01.pdf", "invoice_id": null, "grand_total": null, "rows": 2, "action": "human_review"}
+{"ts": "2026-06-09T07:45:22.323540+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-09T07:45:22.327045+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_02.pdf"}
+{"ts": "2026-06-09T07:45:22.327045+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-09T07:45:22.335941+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T07:45:34.853639+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 349, "avg_conf": 68.7, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T07:45:34.853639+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 68.7, "words": 349}
+{"ts": "2026-06-09T07:45:34.869530+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 68.7, "text_chars": 1919, "low_conf_words": 138}
+{"ts": "2026-06-09T07:51:13.925985+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "gemma3:4b", "threshold": 80, "input_dir": "sample_pdf/scan", "run_timestamp": "20260609T075113Z"}
+{"ts": "2026-06-09T07:51:13.949886+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T07:51:13.950867+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T07:51:13.952818+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T07:51:13.955350+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T07:51:18.464125+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T07:51:18.464125+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-09T07:51:18.887195+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-09T07:54:38.010304+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 199.12, "chars": 1944}
+{"ts": "2026-06-09T07:54:38.034889+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": "INV-2024-00421", "rows": 1}
+[Validator] invoice_v3_01.pdf — 4 error(s)
+{"ts": "2026-06-09T07:54:38.052278+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.535, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6751, "field_confidence": 0.0, "validation": 0.6, "completeness": 1.0, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-09T07:54:38.087543+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T07:54:38.115832+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_01.pdf", "invoice_id": "INV-2024-00421", "grand_total": 10290.0, "rows": 1, "action": "human_review"}
+{"ts": "2026-06-09T07:54:38.153674+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-09T07:54:38.155678+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_02.pdf"}
+{"ts": "2026-06-09T07:54:38.162675+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-09T07:54:38.179675+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T07:54:45.158755+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 349, "avg_conf": 68.7, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T07:54:45.159792+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 68.7, "words": 349}
+{"ts": "2026-06-09T07:54:45.172284+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 68.7, "text_chars": 1919, "low_conf_words": 138}
+{"ts": "2026-06-09T07:59:26.586707+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 281.41, "chars": 2975}
+{"ts": "2026-06-09T07:59:26.593386+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 3}
+[Validator] invoice_v3_02.pdf — 3 error(s)
+{"ts": "2026-06-09T07:59:26.599914+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.532, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.687, "field_confidence": 0.0, "validation": 0.7, "completeness": 0.8, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_02.pdf — reasons: ['confidence_action=human_review', 'validation_errors=3']
+{"ts": "2026-06-09T07:59:26.612730+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_02.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T07:59:26.627730+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_02.pdf", "invoice_id": null, "grand_total": 29845.0, "rows": 3, "action": "human_review"}
+{"ts": "2026-06-09T07:59:26.716885+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-09T07:59:26.716885+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_03.pdf"}
+{"ts": "2026-06-09T07:59:26.716885+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-09T07:59:26.729457+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_03.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T07:59:34.977105+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 350, "avg_conf": 72.3, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T07:59:34.977105+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 72.31, "words": 350}
+{"ts": "2026-06-09T07:59:34.995290+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 72.31, "text_chars": 1889, "low_conf_words": 125}
+{"ts": "2026-06-09T08:04:43.371456+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 308.37, "chars": 2958}
+{"ts": "2026-06-09T08:04:43.389338+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 3}
+[Validator] invoice_v3_03.pdf — 4 error(s)
+{"ts": "2026-06-09T08:04:43.409882+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.515, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.7231000000000001, "field_confidence": 0.0, "validation": 0.6, "completeness": 0.8, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_03.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-09T08:04:43.439570+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_03.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T08:04:43.467155+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_03.pdf", "invoice_id": null, "grand_total": 13239.74, "rows": 3, "action": "human_review"}
+{"ts": "2026-06-09T08:04:43.485136+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "run_timestamp": "20260609T075113Z", "stats": {"processed": 3, "skipped": 0, "quarantined": 0, "failed": 0}, "total_flat_records": 7}
+{"ts": "2026-06-09T08:04:43.489146+00:00", "logger": "src.storage.record_splitter", "level": "info", "event": "records_split", "flat_in": 7, "invoices_out": 3, "line_items_out": 7}
+[JSON] 3 invoice(s) → output\processed\20260609T075113Z\invoices.json
+[JSON] 7 line item(s) → output\processed\20260609T075113Z\line_items.json
+[SQLite] 3 invoice(s) → output/extractions.db
+[SQLite] 7 line item(s) → output/extractions.db
+[SQLite] SQL dump → output\processed\20260609T075113Z\dump.sql
+{"ts": "2026-06-09T08:25:18.550945+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "gemma3:4b", "vision_model": "gemma3:4b", "threshold": 80, "vision_threshold": 0.6, "input_dir": "sample_pdf/scan", "run_timestamp": "20260609T082518Z"}
+{"ts": "2026-06-09T08:25:18.663872+00:00", "logger": "__main__", "level": "info", "event": "skipped_already_processed", "file": "invoice_v3_01.pdf", "hash": "530f1b038b3a"}
+{"ts": "2026-06-09T08:25:18.711244+00:00", "logger": "__main__", "level": "info", "event": "skipped_already_processed", "file": "invoice_v3_02.pdf", "hash": "990035c7578d"}
+{"ts": "2026-06-09T08:25:18.781368+00:00", "logger": "__main__", "level": "info", "event": "skipped_already_processed", "file": "invoice_v3_03.pdf", "hash": "036ab57ac27e"}
+{"ts": "2026-06-09T08:25:18.783369+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "run_timestamp": "20260609T082518Z", "stats": {"processed": 0, "skipped": 3, "quarantined": 0, "failed": 0}, "total_flat_records": 0}
+{"ts": "2026-06-09T08:25:18.783369+00:00", "logger": "src.storage.record_splitter", "level": "info", "event": "records_split", "flat_in": 0, "invoices_out": 0, "line_items_out": 0}
+[JSON] 0 invoice(s) → output\processed\20260609T082518Z\invoices.json
+[JSON] 0 line item(s) → output\processed\20260609T082518Z\line_items.json
+{"ts": "2026-06-09T08:29:40.661981+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "gemma3:4b", "vision_model": "gemma3:4b", "threshold": 80, "vision_threshold": 0.6, "input_dir": "sample_pdf/scan", "run_timestamp": "20260609T082940Z"}
+{"ts": "2026-06-09T08:29:40.748625+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T08:29:40.748625+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T08:29:40.748625+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T08:29:40.748625+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T08:29:46.800764+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T08:29:46.800764+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-09T08:29:47.273633+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-09T08:33:34.094869+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "gemma3:4b", "vision_model": "gemma3:4b", "threshold": 80, "vision_threshold": 0.6, "input_dir": "sample_pdf/scan", "run_timestamp": "20260609T083334Z"}
+{"ts": "2026-06-09T08:33:34.122326+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T08:33:34.122326+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T08:33:34.122326+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T08:33:34.127445+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T08:33:40.194164+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T08:33:40.195254+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-09T08:33:40.561666+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-09T08:36:08.612543+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 148.04, "chars": 1934}
+{"ts": "2026-06-09T08:36:08.638718+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": "INV-2024-00421", "rows": 1}
+[Validator] invoice_v3_01.pdf — 4 error(s)
+{"ts": "2026-06-09T08:36:08.652481+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.535, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6751, "field_confidence": 0.0, "validation": 0.6, "completeness": 1.0, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-09T08:36:08.686809+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T08:36:08.688811+00:00", "logger": "__main__", "level": "info", "event": "low_confidence_flagged_for_vision", "file": "invoice_v3_01.pdf", "composite_score": 0.535, "vision_model": "gemma3:4b"}
+{"ts": "2026-06-09T08:36:08.714327+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_01.pdf", "invoice_id": "INV-2024-00421", "grand_total": 10290.0, "rows": 1, "model": "gemma3:4b", "action": "human_review", "composite_score": 0.535}
+{"ts": "2026-06-09T08:36:08.970339+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-09T08:36:08.973368+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_02.pdf"}
+{"ts": "2026-06-09T08:36:08.986784+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-09T08:36:08.995221+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T08:36:16.396453+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 349, "avg_conf": 68.7, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T08:36:16.396453+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 68.7, "words": 349}
+{"ts": "2026-06-09T08:36:16.410893+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 68.7, "text_chars": 1919, "low_conf_words": 138}
+{"ts": "2026-06-09T08:41:07.506074+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 291.09, "chars": 2975}
+{"ts": "2026-06-09T08:41:07.512789+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 3}
+[Validator] invoice_v3_02.pdf — 3 error(s)
+{"ts": "2026-06-09T08:41:07.519949+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.532, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.687, "field_confidence": 0.0, "validation": 0.7, "completeness": 0.8, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_02.pdf — reasons: ['confidence_action=human_review', 'validation_errors=3']
+{"ts": "2026-06-09T08:41:07.534107+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_02.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T08:41:07.538246+00:00", "logger": "__main__", "level": "info", "event": "low_confidence_flagged_for_vision", "file": "invoice_v3_02.pdf", "composite_score": 0.5324, "vision_model": "gemma3:4b"}
+{"ts": "2026-06-09T08:41:07.554609+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_02.pdf", "invoice_id": null, "grand_total": 29845.0, "rows": 3, "model": "gemma3:4b", "action": "human_review", "composite_score": 0.5324}
+{"ts": "2026-06-09T08:41:07.620556+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-09T08:41:07.627760+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_03.pdf"}
+{"ts": "2026-06-09T08:41:07.629837+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-09T08:41:07.637233+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_03.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T08:41:16.078027+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 350, "avg_conf": 72.3, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T08:41:16.078027+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 72.31, "words": 350}
+{"ts": "2026-06-09T08:41:16.102054+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 72.31, "text_chars": 1889, "low_conf_words": 125}
+{"ts": "2026-06-09T08:46:08.972726+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 292.87, "chars": 2958}
+{"ts": "2026-06-09T08:46:08.983162+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 3}
+[Validator] invoice_v3_03.pdf — 4 error(s)
+{"ts": "2026-06-09T08:46:08.991158+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.515, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.7231000000000001, "field_confidence": 0.0, "validation": 0.6, "completeness": 0.8, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_03.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-09T08:46:09.003763+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_03.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T08:46:09.005827+00:00", "logger": "__main__", "level": "info", "event": "low_confidence_flagged_for_vision", "file": "invoice_v3_03.pdf", "composite_score": 0.5146, "vision_model": "gemma3:4b"}
+{"ts": "2026-06-09T08:46:09.022479+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_03.pdf", "invoice_id": null, "grand_total": 13239.74, "rows": 3, "model": "gemma3:4b", "action": "human_review", "composite_score": 0.5146}
+{"ts": "2026-06-09T08:46:09.033680+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "run_timestamp": "20260609T083334Z", "stats": {"processed": 3, "skipped": 0, "quarantined": 0, "failed": 0}, "total_flat_records": 7}
+{"ts": "2026-06-09T08:46:09.036808+00:00", "logger": "src.storage.record_splitter", "level": "info", "event": "records_split", "flat_in": 7, "invoices_out": 3, "line_items_out": 7}
+[JSON] 3 invoice(s) → output\processed\20260609T083334Z\invoices.json
+[JSON] 7 line item(s) → output\processed\20260609T083334Z\line_items.json
+[SQLite] 3 invoice(s) → output/extractions.db
+[SQLite] 7 line item(s) → output/extractions.db
+[SQLite] SQL dump → output\processed\20260609T083334Z\dump.sql
+{"ts": "2026-06-09T09:08:48.382983+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "gemma3:4b", "vision_model": "gemma3:4b", "threshold": 80, "vision_threshold": 0.6, "input_dir": "sample_pdf/scan", "run_timestamp": "20260609T090848Z"}
+{"ts": "2026-06-09T09:08:48.463110+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T09:08:48.463110+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T09:08:48.463110+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T09:08:48.463110+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T09:08:53.084902+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T09:08:53.084902+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-09T09:08:53.479667+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-09T09:12:35.127967+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 221.65, "chars": 1944}
+{"ts": "2026-06-09T09:12:35.146390+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": "INV-2024-00421", "rows": 1}
+[Validator] invoice_v3_01.pdf — 4 error(s)
+{"ts": "2026-06-09T09:12:35.155568+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.535, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6751, "field_confidence": 0.0, "validation": 0.6, "completeness": 1.0, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-09T09:12:35.181225+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T09:12:35.182224+00:00", "logger": "__main__", "level": "info", "event": "low_confidence_flagged_for_vision", "file": "invoice_v3_01.pdf", "composite_score": 0.535, "vision_model": "gemma3:4b"}
+{"ts": "2026-06-09T09:12:35.201717+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_01.pdf", "invoice_id": "INV-2024-00421", "grand_total": 10290.0, "rows": 1, "model": "gemma3:4b", "action": "human_review", "composite_score": 0.535}
+{"ts": "2026-06-09T09:12:35.205715+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "run_timestamp": "20260609T090848Z", "stats": {"processed": 1, "skipped": 0, "quarantined": 0, "failed": 0}, "total_flat_records": 1}
+{"ts": "2026-06-09T09:12:35.207715+00:00", "logger": "src.storage.record_splitter", "level": "info", "event": "records_split", "flat_in": 1, "invoices_out": 1, "line_items_out": 1}
+[JSON] 1 invoice(s) → output\processed\20260609T090848Z\invoices.json
+[JSON] 1 line item(s) → output\processed\20260609T090848Z\line_items.json
+[SQLite] 1 invoice(s) → output/extractions.db
+[SQLite] 1 line item(s) → output/extractions.db
+[SQLite] SQL dump → output\processed\20260609T090848Z\dump.sql
+{"ts": "2026-06-09T09:27:38.781009+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "gemma3:4b", "vision_model": "gemma3:4b", "threshold": 80, "vision_threshold": 0.8, "input_dir": "sample_pdf/scan", "run_timestamp": "20260609T092738Z"}
+{"ts": "2026-06-09T09:27:38.813640+00:00", "logger": "__main__", "level": "info", "event": "skipped_already_processed", "file": "invoice_v3_01.pdf", "hash": "530f1b038b3a"}
+{"ts": "2026-06-09T09:27:38.815622+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "run_timestamp": "20260609T092738Z", "stats": {"processed": 0, "skipped": 1, "quarantined": 0, "failed": 0}, "total_flat_records": 0}
+{"ts": "2026-06-09T09:27:38.817140+00:00", "logger": "src.storage.record_splitter", "level": "info", "event": "records_split", "flat_in": 0, "invoices_out": 0, "line_items_out": 0}
+[JSON] 0 invoice(s) → output\processed\20260609T092738Z\invoices.json
+[JSON] 0 line item(s) → output\processed\20260609T092738Z\line_items.json
+{"ts": "2026-06-09T09:28:09.227853+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "gemma3:4b", "vision_model": "gemma3:4b", "threshold": 80, "vision_threshold": 0.8, "input_dir": "sample_pdf/scan", "run_timestamp": "20260609T092809Z"}
+{"ts": "2026-06-09T09:28:09.246935+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T09:28:09.247938+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T09:28:09.249936+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T09:28:09.253042+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T09:31:40.765334+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "gemma3:4b", "vision_model": "gemma3:4b", "threshold": 80, "vision_threshold": 0.8, "input_dir": "sample_pdf/scan", "run_timestamp": "20260609T093140Z"}
+{"ts": "2026-06-09T09:31:40.808090+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T09:31:40.809090+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T09:31:40.811093+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T09:31:40.815863+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T09:31:48.704106+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T09:31:48.705106+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-09T09:31:49.276260+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-09T09:35:21.953204+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 212.67, "chars": 1944}
+{"ts": "2026-06-09T09:35:21.977650+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": "INV-2024-00421", "rows": 1}
+[Validator] invoice_v3_01.pdf — 4 error(s)
+{"ts": "2026-06-09T09:35:21.999862+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.535, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6751, "field_confidence": 0.0, "validation": 0.6, "completeness": 1.0, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-09T09:35:22.028499+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T09:35:22.032766+00:00", "logger": "__main__", "level": "info", "event": "low_confidence_flagged_for_vision", "file": "invoice_v3_01.pdf", "composite_score": 0.535, "vision_model": "gemma3:4b"}
+{"ts": "2026-06-09T09:35:22.052412+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_01.pdf", "invoice_id": "INV-2024-00421", "grand_total": 10290.0, "rows": 1, "model": "gemma3:4b", "action": "human_review", "composite_score": 0.535}
+{"ts": "2026-06-09T09:35:22.061153+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "run_timestamp": "20260609T093140Z", "stats": {"processed": 1, "skipped": 0, "quarantined": 0, "failed": 0}, "total_flat_records": 1}
+{"ts": "2026-06-09T09:35:22.064200+00:00", "logger": "src.storage.record_splitter", "level": "info", "event": "records_split", "flat_in": 1, "invoices_out": 1, "line_items_out": 1}
+[JSON] 1 invoice(s) → output\processed\20260609T093140Z\invoices.json
+[JSON] 1 line item(s) → output\processed\20260609T093140Z\line_items.json
+[SQLite] 1 invoice(s) → output/extractions.db
+[SQLite] 1 line item(s) → output/extractions.db
+[SQLite] SQL dump → output\processed\20260609T093140Z\dump.sql
+{"ts": "2026-06-09T10:21:44.399105+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "gemma3:4b", "vision_model": "gemma3:4b", "threshold": 80, "vision_threshold": 0.8, "input_dir": "sample_pdf/scan", "run_timestamp": "20260609T102144Z"}
+{"ts": "2026-06-09T10:21:44.519559+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T10:21:44.520664+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T10:21:44.523907+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T10:21:44.532385+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T10:21:51.698901+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T10:21:51.698901+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-09T10:21:52.305522+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-09T10:25:42.219174+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 229.91, "chars": 1944}
+{"ts": "2026-06-09T10:25:42.230092+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": "INV-2024-00421", "rows": 1}
+[Validator] invoice_v3_01.pdf — 4 error(s)
+{"ts": "2026-06-09T10:25:42.242616+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.535, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6751, "field_confidence": 0.0, "validation": 0.6, "completeness": 1.0, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-09T10:25:42.261953+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T10:25:42.265954+00:00", "logger": "__main__", "level": "info", "event": "low_confidence_flagged_for_vision", "file": "invoice_v3_01.pdf", "composite_score": 0.535, "vision_model": "gemma3:4b"}
+{"ts": "2026-06-09T10:25:42.299489+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_01.pdf", "invoice_id": "INV-2024-00421", "grand_total": 10290.0, "rows": 1, "model": "gemma3:4b", "action": "human_review", "composite_score": 0.535}
+{"ts": "2026-06-09T10:25:42.312377+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "run_timestamp": "20260609T102144Z", "stats": {"processed": 1, "skipped": 0, "quarantined": 0, "failed": 0}, "total_flat_records": 1}
+{"ts": "2026-06-09T10:25:42.317097+00:00", "logger": "src.storage.record_splitter", "level": "info", "event": "records_split", "flat_in": 1, "invoices_out": 1, "line_items_out": 1}
+[JSON] 1 invoice(s) → output\processed\20260609T102144Z\invoices.json
+[JSON] 1 line item(s) → output\processed\20260609T102144Z\line_items.json
+[SQLite] 1 invoice(s) → output/extractions.db
+[SQLite] 1 line item(s) → output/extractions.db
+[SQLite] SQL dump → output\processed\20260609T102144Z\dump.sql
+{"ts": "2026-06-09T10:25:42.734254+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_fallback_start", "documents": 1, "model": "gemma3:4b", "threshold": 0.8}
+{"ts": "2026-06-09T10:25:42.756462+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_pdf_resolved", "file": "invoice_v3_01.pdf", "path": "c:\\Users\\SohamChoudhary\\Downloads\\Documents\\v3_ai_invoice_extraction_pipeline\\sample_pdf\\scan\\invoice_v3_01.pdf"}
+{"ts": "2026-06-09T10:25:42.760609+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_processing", "file": "invoice_v3_01.pdf", "ocr_confidence": 0.535, "model": "gemma3:4b"}
+{"ts": "2026-06-09T10:25:43.677114+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_page_call", "file": "invoice_v3_01.pdf", "page": 1, "model": "gemma3:4b"}
+{"ts": "2026-06-09T10:29:54.480365+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_complete", "file": "invoice_v3_01.pdf", "vision_fields_extracted": 33, "vision_line_items": 2, "agreed": 6, "disagreed": 17, "model": "gemma3:4b"}
+{"ts": "2026-06-09T10:29:54.500218+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_fallback_done", "vision_invoices": 1, "vision_line_items": 2, "comparisons": 1, "output_dir": "output\\processed\\20260609T102144Z\\vision"}
+{"ts": "2026-06-09T10:42:24.868912+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "gemma3:4b", "vision_model": "gemma3:4b", "threshold": 80, "vision_threshold": 0.8, "input_dir": "sample_pdf/scan", "run_timestamp": "20260609T104224Z"}
+{"ts": "2026-06-09T10:42:24.898782+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T10:42:24.898782+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T10:42:24.905557+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T10:42:24.907574+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T10:42:29.220003+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T10:42:29.220003+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-09T10:42:29.801729+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-09T10:45:40.783237+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 190.98, "chars": 1944}
+{"ts": "2026-06-09T10:45:40.791139+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": "INV-2024-00421", "rows": 1}
+[Validator] invoice_v3_01.pdf — 4 error(s)
+{"ts": "2026-06-09T10:45:40.799844+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.535, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6751, "field_confidence": 0.0, "validation": 0.6, "completeness": 1.0, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-09T10:45:40.810834+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T10:45:40.813834+00:00", "logger": "__main__", "level": "info", "event": "low_confidence_flagged_for_vision", "file": "invoice_v3_01.pdf", "composite_score": 0.535, "vision_model": "gemma3:4b"}
+{"ts": "2026-06-09T10:45:40.831292+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_01.pdf", "invoice_id": "INV-2024-00421", "grand_total": 10290.0, "rows": 1, "model": "gemma3:4b", "action": "human_review", "composite_score": 0.535}
+{"ts": "2026-06-09T10:45:40.909580+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-09T10:45:40.912580+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_02.pdf"}
+{"ts": "2026-06-09T10:45:40.924610+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-09T10:45:40.936375+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T10:45:48.199379+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 349, "avg_conf": 68.7, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T10:45:48.199379+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 68.7, "words": 349}
+{"ts": "2026-06-09T10:45:48.221317+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 68.7, "text_chars": 1919, "low_conf_words": 138}
+{"ts": "2026-06-09T10:50:39.561229+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 291.34, "chars": 2975}
+{"ts": "2026-06-09T10:50:39.572877+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 3}
+[Validator] invoice_v3_02.pdf — 3 error(s)
+{"ts": "2026-06-09T10:50:39.593998+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.532, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.687, "field_confidence": 0.0, "validation": 0.7, "completeness": 0.8, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_02.pdf — reasons: ['confidence_action=human_review', 'validation_errors=3']
+{"ts": "2026-06-09T10:50:39.613346+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_02.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T10:50:39.617914+00:00", "logger": "__main__", "level": "info", "event": "low_confidence_flagged_for_vision", "file": "invoice_v3_02.pdf", "composite_score": 0.5324, "vision_model": "gemma3:4b"}
+{"ts": "2026-06-09T10:50:39.649740+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_02.pdf", "invoice_id": null, "grand_total": 29845.0, "rows": 3, "model": "gemma3:4b", "action": "human_review", "composite_score": 0.5324}
+{"ts": "2026-06-09T10:50:39.871827+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-09T10:50:39.876829+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_03.pdf"}
+{"ts": "2026-06-09T10:50:39.883255+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-09T10:50:39.892239+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_03.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T10:50:47.919429+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 350, "avg_conf": 72.3, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T10:50:47.922967+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 72.31, "words": 350}
+{"ts": "2026-06-09T10:50:47.936409+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 72.31, "text_chars": 1889, "low_conf_words": 125}
+{"ts": "2026-06-09T10:55:38.090943+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 290.15, "chars": 2958}
+{"ts": "2026-06-09T10:55:38.096841+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 3}
+[Validator] invoice_v3_03.pdf — 4 error(s)
+{"ts": "2026-06-09T10:55:38.102065+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.515, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.7231000000000001, "field_confidence": 0.0, "validation": 0.6, "completeness": 0.8, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_03.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-09T10:55:38.116060+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_03.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T10:55:38.119056+00:00", "logger": "__main__", "level": "info", "event": "low_confidence_flagged_for_vision", "file": "invoice_v3_03.pdf", "composite_score": 0.5146, "vision_model": "gemma3:4b"}
+{"ts": "2026-06-09T10:55:38.136057+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_03.pdf", "invoice_id": null, "grand_total": 13239.74, "rows": 3, "model": "gemma3:4b", "action": "human_review", "composite_score": 0.5146}
+{"ts": "2026-06-09T10:55:38.145054+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "run_timestamp": "20260609T104224Z", "stats": {"processed": 3, "skipped": 0, "quarantined": 0, "failed": 0}, "total_flat_records": 7}
+{"ts": "2026-06-09T10:55:38.148054+00:00", "logger": "src.storage.record_splitter", "level": "info", "event": "records_split", "flat_in": 7, "invoices_out": 3, "line_items_out": 7}
+[JSON] 3 invoice(s) → output\processed\20260609T104224Z\invoices.json
+[JSON] 7 line item(s) → output\processed\20260609T104224Z\line_items.json
+[SQLite] 3 invoice(s) → output/extractions.db
+[SQLite] 7 line item(s) → output/extractions.db
+[SQLite] SQL dump → output\processed\20260609T104224Z\dump.sql
+{"ts": "2026-06-09T10:55:38.339044+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_fallback_start", "documents": 3, "model": "gemma3:4b", "threshold": 0.8}
+{"ts": "2026-06-09T10:55:38.342067+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_pdf_resolved", "file": "invoice_v3_01.pdf", "path": "c:\\Users\\SohamChoudhary\\Downloads\\Documents\\v3_ai_invoice_extraction_pipeline\\sample_pdf\\scan\\invoice_v3_01.pdf"}
+{"ts": "2026-06-09T10:55:38.343063+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_processing", "file": "invoice_v3_01.pdf", "ocr_confidence": 0.535, "model": "gemma3:4b"}
+{"ts": "2026-06-09T10:55:38.730750+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_page_call", "file": "invoice_v3_01.pdf", "page": 1, "model": "gemma3:4b"}
+{"ts": "2026-06-09T10:59:30.081514+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_complete", "file": "invoice_v3_01.pdf", "vision_fields_extracted": 33, "vision_line_items": 2, "agreed": 6, "disagreed": 17, "model": "gemma3:4b"}
+{"ts": "2026-06-09T10:59:30.087107+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_pdf_resolved", "file": "invoice_v3_02.pdf", "path": "c:\\Users\\SohamChoudhary\\Downloads\\Documents\\v3_ai_invoice_extraction_pipeline\\sample_pdf\\scan\\invoice_v3_02.pdf"}
+{"ts": "2026-06-09T10:59:30.089841+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_processing", "file": "invoice_v3_02.pdf", "ocr_confidence": 0.5324, "model": "gemma3:4b"}
+{"ts": "2026-06-09T10:59:30.517159+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_page_call", "file": "invoice_v3_02.pdf", "page": 1, "model": "gemma3:4b"}
+{"ts": "2026-06-09T11:03:50.699316+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_complete", "file": "invoice_v3_02.pdf", "vision_fields_extracted": 29, "vision_line_items": 3, "agreed": 8, "disagreed": 12, "model": "gemma3:4b"}
+{"ts": "2026-06-09T11:03:50.704216+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_pdf_resolved", "file": "invoice_v3_03.pdf", "path": "c:\\Users\\SohamChoudhary\\Downloads\\Documents\\v3_ai_invoice_extraction_pipeline\\sample_pdf\\scan\\invoice_v3_03.pdf"}
+{"ts": "2026-06-09T11:03:50.704216+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_processing", "file": "invoice_v3_03.pdf", "ocr_confidence": 0.5146, "model": "gemma3:4b"}
+{"ts": "2026-06-09T11:03:51.336977+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_page_call", "file": "invoice_v3_03.pdf", "page": 1, "model": "gemma3:4b"}
+{"ts": "2026-06-09T11:08:18.707210+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_complete", "file": "invoice_v3_03.pdf", "vision_fields_extracted": 25, "vision_line_items": 3, "agreed": 7, "disagreed": 10, "model": "gemma3:4b"}
+{"ts": "2026-06-09T11:08:18.732974+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_fallback_done", "vision_invoices": 3, "vision_line_items": 8, "comparisons": 3, "output_dir": "output\\processed\\20260609T104224Z\\vision"}
+{"ts": "2026-06-09T15:11:44.645644+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "gemma3:4b", "vision_model": "gemma3:4b", "threshold": 80, "vision_threshold": 0.8, "input_dir": "sample_pdf/scan", "run_timestamp": "20260609T151144Z"}
+{"ts": "2026-06-09T15:11:44.699072+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T15:11:44.700111+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T15:11:44.701968+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T15:11:44.706030+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T15:11:52.649986+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T15:11:52.649986+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-09T15:11:53.250121+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-09T15:15:49.448210+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 236.19, "chars": 1944}
+{"ts": "2026-06-09T15:15:49.472821+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": "INV-2024-00421", "rows": 1}
+pydantic_validation_failed file=invoice_v3_01.pdf error=1 validation error for InvoiceRecord
+format_warnings_list
+  Input should be a valid list [type=list_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.7/v/list_type
+[Validator] invoice_v3_01.pdf — 4 error(s)
+{"ts": "2026-06-09T15:15:49.497790+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.535, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6751, "field_confidence": 0.0, "validation": 0.6, "completeness": 1.0, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-09T15:15:49.531695+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T15:15:49.537696+00:00", "logger": "__main__", "level": "info", "event": "low_confidence_flagged_for_vision", "file": "invoice_v3_01.pdf", "composite_score": 0.535, "vision_model": "gemma3:4b"}
+{"ts": "2026-06-09T15:15:49.559702+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_01.pdf", "invoice_id": "INV-2024-00421", "grand_total": 10290.0, "rows": 1, "model": "gemma3:4b", "action": "human_review", "composite_score": 0.535}
+{"ts": "2026-06-09T15:15:49.579874+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-09T15:15:49.594630+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_02.pdf"}
+{"ts": "2026-06-09T15:15:49.601421+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-09T15:15:49.617649+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T15:15:58.448096+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 349, "avg_conf": 68.7, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T15:15:58.450159+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 68.7, "words": 349}
+{"ts": "2026-06-09T15:15:58.462286+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 68.7, "text_chars": 1919, "low_conf_words": 138}
+{"ts": "2026-06-09T15:20:37.315631+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 278.85, "chars": 2975}
+{"ts": "2026-06-09T15:20:37.346825+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 3}
+pydantic_validation_failed file=invoice_v3_02.pdf error=1 validation error for InvoiceRecord
+format_warnings_list
+  Input should be a valid list [type=list_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.7/v/list_type
+pydantic_validation_failed file=invoice_v3_02.pdf error=1 validation error for InvoiceRecord
+format_warnings_list
+  Input should be a valid list [type=list_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.7/v/list_type
+pydantic_validation_failed file=invoice_v3_02.pdf error=1 validation error for InvoiceRecord
+format_warnings_list
+  Input should be a valid list [type=list_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.7/v/list_type
+[Validator] invoice_v3_02.pdf — 3 error(s)
+{"ts": "2026-06-09T15:20:37.379714+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.532, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.687, "field_confidence": 0.0, "validation": 0.7, "completeness": 0.8, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_02.pdf — reasons: ['confidence_action=human_review', 'validation_errors=3']
+{"ts": "2026-06-09T15:20:37.412174+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_02.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T15:20:37.418019+00:00", "logger": "__main__", "level": "info", "event": "low_confidence_flagged_for_vision", "file": "invoice_v3_02.pdf", "composite_score": 0.5324, "vision_model": "gemma3:4b"}
+{"ts": "2026-06-09T15:20:37.446024+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_02.pdf", "invoice_id": null, "grand_total": 29845.0, "rows": 3, "model": "gemma3:4b", "action": "human_review", "composite_score": 0.5324}
+{"ts": "2026-06-09T15:20:37.481810+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-09T15:20:37.485811+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_03.pdf"}
+{"ts": "2026-06-09T15:20:37.497200+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-09T15:20:37.517073+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_03.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T15:20:47.768884+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 350, "avg_conf": 72.3, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T15:20:47.779347+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 72.31, "words": 350}
+{"ts": "2026-06-09T15:20:47.784846+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 72.31, "text_chars": 1889, "low_conf_words": 125}
+{"ts": "2026-06-09T15:32:18.547798+00:00", "logger": "app.api", "level": "info", "event": "api_job_queued", "job_id": "2835c2d8-500f-4824-8213-680a3bb7cb63", "filename": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T15:32:18.564991+00:00", "logger": "app.api", "level": "info", "event": "api_job_start", "job_id": "2835c2d8-500f-4824-8213-680a3bb7cb63", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T15:32:18.564991+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "tmp61xqjuy6_invoice_v3_01.pdf"}
+{"ts": "2026-06-09T15:32:18.617485+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "tmp61xqjuy6_invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T15:32:18.630722+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "C:\\Users\\SOHAMC~1\\AppData\\Local\\Temp\\tmp61xqjuy6_invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T15:32:23.682757+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T15:32:23.682757+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-09T15:32:24.216835+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-09T15:35:51.377506+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 207.16, "chars": 1944}
+{"ts": "2026-06-09T15:35:51.393975+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": "INV-2024-00421", "rows": 1}
+pydantic_validation_failed file=tmp61xqjuy6_invoice_v3_01.pdf error=1 validation error for InvoiceRecord
+format_warnings_list
+  Input should be a valid list [type=list_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.7/v/list_type
+[Validator] tmp61xqjuy6_invoice_v3_01.pdf — 4 error(s)
+{"ts": "2026-06-09T15:35:51.414460+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.535, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6751, "field_confidence": 0.0, "validation": 0.6, "completeness": 1.0, "guardrails": 1.0}}
+[ReviewQueue] Queued: tmp61xqjuy6_invoice_v3_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-09T15:35:51.432125+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "tmp61xqjuy6_invoice_v3_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T15:35:51.438118+00:00", "logger": "app.api", "level": "info", "event": "api_job_done", "job_id": "2835c2d8-500f-4824-8213-680a3bb7cb63", "score": 0.535, "action": "human_review"}
+{"ts": "2026-06-09T15:50:33.769702+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "gemma3:4b", "vision_model": "gemma3:4b", "threshold": 80, "vision_threshold": 0.8, "input_dir": "sample_pdf/scan", "run_timestamp": "20260609T155033Z"}
+{"ts": "2026-06-09T15:50:33.796651+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T15:50:33.796651+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T15:50:33.798629+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T15:50:33.801628+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T15:50:38.354319+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T15:50:38.355251+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-09T15:50:38.832355+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-09T15:54:09.123121+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 210.29, "chars": 1944}
+{"ts": "2026-06-09T15:54:09.131000+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": "INV-2024-00421", "rows": 1}
+pydantic_validation_failed file=invoice_v3_01.pdf error=1 validation error for InvoiceRecord
+format_warnings_list
+  Input should be a valid list [type=list_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.7/v/list_type
+[Validator] invoice_v3_01.pdf — 4 error(s)
+{"ts": "2026-06-09T15:54:09.133711+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.535, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6751, "field_confidence": 0.0, "validation": 0.6, "completeness": 1.0, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-09T15:54:09.152928+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T15:54:09.156730+00:00", "logger": "__main__", "level": "info", "event": "low_confidence_flagged_for_vision", "file": "invoice_v3_01.pdf", "composite_score": 0.535, "vision_model": "gemma3:4b"}
+{"ts": "2026-06-09T15:54:09.176253+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_01.pdf", "invoice_id": "INV-2024-00421", "grand_total": 10290.0, "rows": 1, "model": "gemma3:4b", "action": "human_review", "composite_score": 0.535}
+{"ts": "2026-06-09T15:54:09.185417+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "run_timestamp": "20260609T155033Z", "stats": {"processed": 1, "skipped": 0, "quarantined": 0, "failed": 0}, "total_flat_records": 1}
+{"ts": "2026-06-09T15:54:09.186417+00:00", "logger": "src.storage.record_splitter", "level": "info", "event": "records_split", "flat_in": 1, "invoices_out": 1, "line_items_out": 1}
+[JSON] 1 invoice(s) → output\processed\20260609T155033Z\invoices.json
+[JSON] 1 line item(s) → output\processed\20260609T155033Z\line_items.json
+[SQLite] 1 invoice(s) → output/extractions.db
+[SQLite] 1 line item(s) → output/extractions.db
+[SQLite] SQL dump → output\processed\20260609T155033Z\dump.sql
+{"ts": "2026-06-09T15:54:09.351255+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_fallback_start", "documents": 1, "model": "gemma3:4b", "threshold": 0.8}
+{"ts": "2026-06-09T15:54:09.356804+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_pdf_resolved", "file": "invoice_v3_01.pdf", "path": "c:\\Users\\SohamChoudhary\\Downloads\\Documents\\v3_ai_invoice_extraction_pipeline\\sample_pdf\\scan\\invoice_v3_01.pdf"}
+{"ts": "2026-06-09T15:54:09.356804+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_processing", "file": "invoice_v3_01.pdf", "ocr_confidence": 0.535, "model": "gemma3:4b"}
+{"ts": "2026-06-09T15:54:09.820877+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_page_call", "file": "invoice_v3_01.pdf", "page": 1, "model": "gemma3:4b"}
+{"ts": "2026-06-09T15:58:29.023724+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_complete", "file": "invoice_v3_01.pdf", "vision_fields_extracted": 33, "vision_line_items": 2, "agreed": 6, "disagreed": 17, "model": "gemma3:4b"}
+{"ts": "2026-06-09T15:58:29.051522+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_fallback_done", "vision_invoices": 1, "vision_line_items": 2, "comparisons": 1, "output_dir": "output\\processed\\20260609T155033Z\\vision"}
+{"ts": "2026-06-09T16:05:22.148275+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "gemma3:4b", "vision_model": "gemma3:4b", "threshold": 80, "vision_threshold": 0.8, "input_dir": "sample_pdf/scan", "run_timestamp": "20260609T160522Z"}
+{"ts": "2026-06-09T16:05:22.156898+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-09T16:05:22.157884+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_02.pdf"}
+{"ts": "2026-06-09T16:05:22.159884+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-09T16:05:22.164636+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T16:05:30.074013+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 349, "avg_conf": 68.7, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T16:05:30.076008+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 68.7, "words": 349}
+{"ts": "2026-06-09T16:05:30.090484+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 68.7, "text_chars": 1919, "low_conf_words": 138}
+{"ts": "2026-06-09T16:10:35.516270+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 305.42, "chars": 3102}
+{"ts": "2026-06-09T16:10:35.538797+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 3}
+pydantic_validation_failed file=invoice_v3_02.pdf error=1 validation error for InvoiceRecord
+format_warnings_list
+  Input should be a valid list [type=list_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.7/v/list_type
+pydantic_validation_failed file=invoice_v3_02.pdf error=1 validation error for InvoiceRecord
+format_warnings_list
+  Input should be a valid list [type=list_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.7/v/list_type
+pydantic_validation_failed file=invoice_v3_02.pdf error=1 validation error for InvoiceRecord
+format_warnings_list
+  Input should be a valid list [type=list_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.7/v/list_type
+[Validator] invoice_v3_02.pdf — 4 error(s)
+{"ts": "2026-06-09T16:10:35.575537+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.507, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.687, "field_confidence": 0.0, "validation": 0.6, "completeness": 0.8, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_02.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-09T16:10:35.593593+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_02.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T16:10:35.599426+00:00", "logger": "__main__", "level": "info", "event": "low_confidence_flagged_for_vision", "file": "invoice_v3_02.pdf", "composite_score": 0.5074, "vision_model": "gemma3:4b"}
+{"ts": "2026-06-09T16:10:35.622075+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_02.pdf", "invoice_id": null, "grand_total": 32408.81, "rows": 3, "model": "gemma3:4b", "action": "human_review", "composite_score": 0.5074}
+{"ts": "2026-06-09T16:10:35.635681+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "run_timestamp": "20260609T160522Z", "stats": {"processed": 1, "skipped": 0, "quarantined": 0, "failed": 0}, "total_flat_records": 3}
+{"ts": "2026-06-09T16:10:35.637681+00:00", "logger": "src.storage.record_splitter", "level": "info", "event": "records_split", "flat_in": 3, "invoices_out": 1, "line_items_out": 3}
+[JSON] 1 invoice(s) → output\processed\20260609T160522Z\invoices.json
+[JSON] 3 line item(s) → output\processed\20260609T160522Z\line_items.json
+[SQLite] 1 invoice(s) → output/extractions.db
+[SQLite] 3 line item(s) → output/extractions.db
+[SQLite] SQL dump → output\processed\20260609T160522Z\dump.sql
+{"ts": "2026-06-09T16:10:35.952199+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_fallback_start", "documents": 1, "model": "gemma3:4b", "threshold": 0.8}
+{"ts": "2026-06-09T16:10:35.956214+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_pdf_resolved", "file": "invoice_v3_02.pdf", "path": "c:\\Users\\SohamChoudhary\\Downloads\\Documents\\v3_ai_invoice_extraction_pipeline\\sample_pdf\\scan\\invoice_v3_02.pdf"}
+{"ts": "2026-06-09T16:10:35.960297+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_processing", "file": "invoice_v3_02.pdf", "ocr_confidence": 0.5074, "model": "gemma3:4b"}
+{"ts": "2026-06-09T16:10:36.603136+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_page_call", "file": "invoice_v3_02.pdf", "page": 1, "model": "gemma3:4b"}
+{"ts": "2026-06-09T16:13:58.208678+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_complete", "file": "invoice_v3_02.pdf", "vision_fields_extracted": 30, "vision_line_items": 1, "agreed": 7, "disagreed": 12, "model": "gemma3:4b"}
+{"ts": "2026-06-09T16:13:58.231170+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_fallback_done", "vision_invoices": 1, "vision_line_items": 1, "comparisons": 1, "output_dir": "output\\processed\\20260609T160522Z\\vision"}
+{"ts": "2026-06-09T16:27:13.717183+00:00", "logger": "app.api", "level": "info", "event": "api_job_queued", "job_id": "5442af27-60f8-456b-b665-6ff65b79a76f", "filename": "invoice_v3_03.pdf"}
+{"ts": "2026-06-09T16:27:13.730876+00:00", "logger": "app.api", "level": "info", "event": "api_job_start", "job_id": "5442af27-60f8-456b-b665-6ff65b79a76f", "file": "invoice_v3_03.pdf"}
+{"ts": "2026-06-09T16:27:13.731495+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "tmp0k_7y3si_invoice_v3_03.pdf"}
+{"ts": "2026-06-09T16:27:13.784693+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "tmp0k_7y3si_invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-09T16:27:13.787297+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "C:\\Users\\SOHAMC~1\\AppData\\Local\\Temp\\tmp0k_7y3si_invoice_v3_03.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T16:27:20.915740+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 350, "avg_conf": 72.3, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T16:27:20.915740+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 72.31, "words": 350}
+{"ts": "2026-06-09T16:27:21.497808+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 72.31, "text_chars": 1889, "low_conf_words": 125}
+{"ts": "2026-06-09T16:31:37.591016+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 256.09, "chars": 2958}
+{"ts": "2026-06-09T16:31:37.606238+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 3}
+pydantic_validation_failed file=tmp0k_7y3si_invoice_v3_03.pdf error='InvoiceRecord' object has no attribute 'format_warnings'
+pydantic_validation_failed file=tmp0k_7y3si_invoice_v3_03.pdf error='InvoiceRecord' object has no attribute 'format_warnings'
+pydantic_validation_failed file=tmp0k_7y3si_invoice_v3_03.pdf error='InvoiceRecord' object has no attribute 'format_warnings'
+[Validator] tmp0k_7y3si_invoice_v3_03.pdf — 4 error(s)
+{"ts": "2026-06-09T16:31:37.640544+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.515, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.7231000000000001, "field_confidence": 0.0, "validation": 0.6, "completeness": 0.8, "guardrails": 1.0}}
+[ReviewQueue] Queued: tmp0k_7y3si_invoice_v3_03.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-09T16:31:37.666982+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "tmp0k_7y3si_invoice_v3_03.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T16:31:37.668574+00:00", "logger": "app.api", "level": "info", "event": "api_job_done", "job_id": "5442af27-60f8-456b-b665-6ff65b79a76f", "score": 0.5146, "action": "human_review"}
+{"ts": "2026-06-09T16:41:05.566090+00:00", "logger": "app.api", "level": "info", "event": "api_job_queued", "job_id": "9039235a-1c05-4518-8aeb-d90588acc5d1", "filename": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T16:41:05.566090+00:00", "logger": "app.api", "level": "info", "event": "api_job_start", "job_id": "9039235a-1c05-4518-8aeb-d90588acc5d1", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T16:41:05.566090+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "tmpf_f0_67l_invoice_v3_01.pdf"}
+{"ts": "2026-06-09T16:41:05.637173+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "tmpf_f0_67l_invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T16:41:05.646698+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "C:\\Users\\SOHAMC~1\\AppData\\Local\\Temp\\tmpf_f0_67l_invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T16:41:11.784807+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T16:41:11.784807+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-09T16:41:12.215330+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-09T16:44:23.823804+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 191.61, "chars": 1944}
+{"ts": "2026-06-09T16:44:23.839421+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": "INV-2024-00421", "rows": 1}
+pydantic_validation_warnings file=tmpf_f0_67l_invoice_v3_01.pdf warnings=['TAX_MATH: 32280.0 + 2864.85 = 35144.85 ≠ 10290.0', "INVALID_IBAN: '021000021'", "INVALID_VAT_ID: '8875'"]
+[Validator] tmpf_f0_67l_invoice_v3_01.pdf — 4 error(s)
+{"ts": "2026-06-09T16:44:23.854409+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.535, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6751, "field_confidence": 0.0, "validation": 0.6, "completeness": 1.0, "guardrails": 1.0}}
+[ReviewQueue] Queued: tmpf_f0_67l_invoice_v3_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-09T16:44:23.877812+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "tmpf_f0_67l_invoice_v3_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T16:44:23.881880+00:00", "logger": "app.api", "level": "info", "event": "api_vision_fallback_triggered", "job_id": "9039235a-1c05-4518-8aeb-d90588acc5d1", "score": 0.535, "model": "gemma3:4b"}
+{"ts": "2026-06-09T16:44:23.881880+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_fallback_start", "documents": 1, "model": "gemma3:4b", "threshold": 0.8}
+{"ts": "2026-06-09T16:44:23.894818+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_pdf_resolved", "file": "tmpf_f0_67l_invoice_v3_01.pdf", "path": "C:\\Users\\SOHAMC~1\\AppData\\Local\\Temp\\tmpf_f0_67l_invoice_v3_01.pdf"}
+{"ts": "2026-06-09T16:44:23.894818+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_processing", "file": "tmpf_f0_67l_invoice_v3_01.pdf", "ocr_confidence": 0.535, "model": "gemma3:4b"}
+{"ts": "2026-06-09T16:44:24.821790+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_page_call", "file": "tmpf_f0_67l_invoice_v3_01.pdf", "page": 1, "model": "gemma3:4b"}
+{"ts": "2026-06-09T16:48:03.506109+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_complete", "file": "tmpf_f0_67l_invoice_v3_01.pdf", "vision_fields_extracted": 33, "vision_line_items": 2, "agreed": 6, "disagreed": 17, "model": "gemma3:4b"}
+{"ts": "2026-06-09T16:48:03.598825+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_fallback_done", "vision_invoices": 1, "vision_line_items": 2, "comparisons": 1, "output_dir": "output\\processed\\20260609T164423Z\\vision"}
+{"ts": "2026-06-09T16:48:03.605769+00:00", "logger": "app.api", "level": "info", "event": "api_job_done", "job_id": "9039235a-1c05-4518-8aeb-d90588acc5d1", "score": 0.535, "action": "human_review", "vision_ran": true}
+{"ts": "2026-06-09T16:55:19.176476+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "gemma3:4b", "vision_model": "gemma3:4b", "threshold": 80, "vision_threshold": 0.8, "input_dir": "sample_pdf/scan", "run_timestamp": "20260609T165519Z"}
+{"ts": "2026-06-09T16:55:19.211221+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T16:55:19.212221+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T16:55:19.215241+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T16:55:19.218246+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T16:55:26.721450+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T16:55:26.722456+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-09T16:55:27.313973+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-09T16:58:42.463828+00:00", "logger": "app.api", "level": "info", "event": "api_job_queued", "job_id": "6b593c91-9e57-4d6e-9ecc-9d5b8221b897", "filename": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T16:58:42.471404+00:00", "logger": "app.api", "level": "info", "event": "api_job_start", "job_id": "6b593c91-9e57-4d6e-9ecc-9d5b8221b897", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T16:58:42.533489+00:00", "logger": "app.api", "level": "info", "event": "api_copied_to_scan", "job_id": "6b593c91-9e57-4d6e-9ecc-9d5b8221b897", "dest": "C:\\Users\\SohamChoudhary\\Downloads\\Documents\\v3_ai_invoice_extraction_pipeline\\sample_pdf\\scan\\invoice_v3_01.pdf"}
+{"ts": "2026-06-09T16:58:42.541277+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T16:58:42.596506+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T16:58:42.596506+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "C:\\Users\\SohamChoudhary\\Downloads\\Documents\\v3_ai_invoice_extraction_pipeline\\sample_pdf\\scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T16:58:50.604340+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T16:58:50.604340+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-09T16:58:51.016674+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-09T17:01:08.644965+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 137.62, "chars": 1934}
+{"ts": "2026-06-09T17:01:08.666928+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": "INV-2024-00421", "rows": 1}
+pydantic_validation_warnings file=invoice_v3_01.pdf warnings=['TAX_MATH: 32280.0 + 2864.85 = 35144.85 ≠ 10290.0', "INVALID_IBAN: '021000021'", "INVALID_VAT_ID: '8875'"]
+[Validator] invoice_v3_01.pdf — 4 error(s)
+{"ts": "2026-06-09T17:01:08.682519+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.535, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6751, "field_confidence": 0.0, "validation": 0.6, "completeness": 1.0, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-09T17:01:08.700219+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T17:01:08.706240+00:00", "logger": "src.storage.record_splitter", "level": "info", "event": "records_split", "flat_in": 1, "invoices_out": 1, "line_items_out": 1}
+[JSON] 1 invoice(s) → output\processed\20260609T165842Z\invoices.json
+[JSON] 1 line item(s) → output\processed\20260609T165842Z\line_items.json
+{"ts": "2026-06-09T17:01:08.874739+00:00", "logger": "app.api", "level": "info", "event": "api_csv_written", "path": "output\\processed\\20260609T165842Z\\invoices.csv", "rows": 1}
+{"ts": "2026-06-09T17:01:08.887142+00:00", "logger": "app.api", "level": "info", "event": "api_csv_written", "path": "output\\processed\\20260609T165842Z\\line_items.csv", "rows": 1}
+[SQLite] 1 invoice(s) → output/extractions.db
+[SQLite] 1 line item(s) → output/extractions.db
+[SQLite] SQL dump → output\processed\20260609T165842Z\dump.sql
+{"ts": "2026-06-09T17:01:08.934807+00:00", "logger": "app.api", "level": "info", "event": "api_primary_outputs_written", "job_id": "6b593c91-9e57-4d6e-9ecc-9d5b8221b897", "run_dir": "output\\processed\\20260609T165842Z", "invoices": 1, "line_items": 1}
+{"ts": "2026-06-09T17:01:08.934807+00:00", "logger": "app.api", "level": "info", "event": "api_vision_fallback_triggered", "job_id": "6b593c91-9e57-4d6e-9ecc-9d5b8221b897", "score": 0.535, "model": "gemma3:4b"}
+{"ts": "2026-06-09T17:01:08.934807+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_fallback_start", "documents": 1, "model": "gemma3:4b", "threshold": 0.8}
+{"ts": "2026-06-09T17:01:08.934807+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_pdf_resolved", "file": "invoice_v3_01.pdf", "path": "C:\\Users\\SohamChoudhary\\Downloads\\Documents\\v3_ai_invoice_extraction_pipeline\\sample_pdf\\scan\\invoice_v3_01.pdf"}
+{"ts": "2026-06-09T17:01:08.934807+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_processing", "file": "invoice_v3_01.pdf", "ocr_confidence": 0.535, "model": "gemma3:4b"}
+{"ts": "2026-06-09T17:01:09.582649+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_page_call", "file": "invoice_v3_01.pdf", "page": 1, "model": "gemma3:4b"}
+{"ts": "2026-06-09T17:04:44.986231+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_complete", "file": "invoice_v3_01.pdf", "vision_fields_extracted": 33, "vision_line_items": 2, "agreed": 6, "disagreed": 20, "model": "gemma3:4b"}
+{"ts": "2026-06-09T17:04:45.052344+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_fallback_done", "vision_invoices": 1, "vision_line_items": 2, "comparisons": 1, "output_dir": "output\\processed\\20260609T165842Z\\vision"}
+{"ts": "2026-06-09T17:04:45.060370+00:00", "logger": "app.api", "level": "info", "event": "api_job_done", "job_id": "6b593c91-9e57-4d6e-9ecc-9d5b8221b897", "score": 0.535, "action": "human_review", "vision_ran": true, "run_dir": "output\\processed\\20260609T165842Z"}
+{"ts": "2026-06-09T22:28:25.486383+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "gemma3:4b", "vision_model": "gemma3:4b", "threshold": 80, "vision_threshold": 0.8, "input_dir": "sample_pdf/scan", "run_timestamp": "20260609T222825Z"}
+{"ts": "2026-06-09T22:28:25.546613+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T22:28:25.551207+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T22:28:25.556060+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T22:28:25.560883+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T22:28:31.506475+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T22:28:31.510744+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-09T22:28:31.948631+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-09T22:30:39.190415+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 127.23, "chars": 1944}
+{"ts": "2026-06-09T22:30:39.197429+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": "INV-2024-00421", "rows": 1}
+pydantic_validation_warnings file=invoice_v3_01.pdf warnings=['TAX_MATH: 32280.0 + 2864.85 = 35144.85 ≠ 10290.0', "INVALID_IBAN: '021000021'", "INVALID_VAT_ID: '8875'"]
+[Validator] invoice_v3_01.pdf — 4 error(s)
+{"ts": "2026-06-09T22:30:39.204474+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.535, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6751, "field_confidence": 0.0, "validation": 0.6, "completeness": 1.0, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-09T22:30:39.211674+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T22:30:39.216156+00:00", "logger": "__main__", "level": "info", "event": "low_confidence_flagged_for_vision", "file": "invoice_v3_01.pdf", "composite_score": 0.535, "vision_model": "gemma3:4b"}
+{"ts": "2026-06-09T22:30:39.252501+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_01.pdf", "invoice_id": "INV-2024-00421", "grand_total": 10290.0, "rows": 1, "model": "gemma3:4b", "action": "human_review", "composite_score": 0.535}
+{"ts": "2026-06-09T22:30:39.301858+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-09T22:30:39.303876+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_02.pdf"}
+{"ts": "2026-06-09T22:30:39.305892+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-09T22:30:39.313734+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T22:30:46.327865+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 349, "avg_conf": 68.7, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T22:30:46.327865+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 68.7, "words": 349}
+{"ts": "2026-06-09T22:30:46.334490+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 68.7, "text_chars": 1919, "low_conf_words": 138}
+{"ts": "2026-06-09T22:33:57.709867+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 191.37, "chars": 2975}
+{"ts": "2026-06-09T22:33:57.717233+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 3}
+pydantic_validation_warnings file=invoice_v3_02.pdf warnings=['TAX_MATH: 29350.0 + 2603.81 = 31953.81 ≠ 29845.0', "INVALID_BIC: 'GENLADE'"]
+pydantic_validation_warnings file=invoice_v3_02.pdf warnings=['TAX_MATH: 29350.0 + 2603.81 = 31953.81 ≠ 29845.0', "INVALID_BIC: 'GENLADE'"]
+pydantic_validation_warnings file=invoice_v3_02.pdf warnings=['TAX_MATH: 29350.0 + 2603.81 = 31953.81 ≠ 29845.0', "INVALID_BIC: 'GENLADE'"]
+[Validator] invoice_v3_02.pdf — 3 error(s)
+{"ts": "2026-06-09T22:33:57.728385+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.532, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.687, "field_confidence": 0.0, "validation": 0.7, "completeness": 0.8, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_02.pdf — reasons: ['confidence_action=human_review', 'validation_errors=3']
+{"ts": "2026-06-09T22:33:57.738365+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_02.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T22:33:57.738365+00:00", "logger": "__main__", "level": "info", "event": "low_confidence_flagged_for_vision", "file": "invoice_v3_02.pdf", "composite_score": 0.5324, "vision_model": "gemma3:4b"}
+{"ts": "2026-06-09T22:33:57.777895+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_02.pdf", "invoice_id": null, "grand_total": 29845.0, "rows": 3, "model": "gemma3:4b", "action": "human_review", "composite_score": 0.5324}
+{"ts": "2026-06-09T22:33:57.831884+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-09T22:33:57.834498+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_03.pdf"}
+{"ts": "2026-06-09T22:33:57.834498+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-09T22:33:57.841898+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_03.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T22:34:05.702344+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 350, "avg_conf": 72.3, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T22:34:05.702344+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 72.31, "words": 350}
+{"ts": "2026-06-09T22:34:05.717298+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 72.31, "text_chars": 1889, "low_conf_words": 125}
+{"ts": "2026-06-09T22:37:30.959090+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 205.24, "chars": 2958}
+{"ts": "2026-06-09T22:37:30.965536+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 3}
+pydantic_validation_warnings file=invoice_v3_03.pdf warnings=['TAX_MATH: 9410.48 + 964.57 = 10375.05 ≠ 13239.74', "INVALID_IBAN: '125000105'"]
+pydantic_validation_warnings file=invoice_v3_03.pdf warnings=['TAX_MATH: 9410.48 + 964.57 = 10375.05 ≠ 13239.74', "INVALID_IBAN: '125000105'"]
+pydantic_validation_warnings file=invoice_v3_03.pdf warnings=['TAX_MATH: 9410.48 + 964.57 = 10375.05 ≠ 13239.74', "INVALID_IBAN: '125000105'"]
+[Validator] invoice_v3_03.pdf — 4 error(s)
+{"ts": "2026-06-09T22:37:30.976158+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.515, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.7231000000000001, "field_confidence": 0.0, "validation": 0.6, "completeness": 0.8, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_03.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-09T22:37:30.986857+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_03.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T22:37:30.986857+00:00", "logger": "__main__", "level": "info", "event": "low_confidence_flagged_for_vision", "file": "invoice_v3_03.pdf", "composite_score": 0.5146, "vision_model": "gemma3:4b"}
+{"ts": "2026-06-09T22:37:31.021622+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_03.pdf", "invoice_id": null, "grand_total": 13239.74, "rows": 3, "model": "gemma3:4b", "action": "human_review", "composite_score": 0.5146}
+{"ts": "2026-06-09T22:37:31.026901+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "run_timestamp": "20260609T222825Z", "stats": {"processed": 3, "skipped": 0, "quarantined": 0, "failed": 0}, "total_flat_records": 7}
+{"ts": "2026-06-09T22:37:31.030719+00:00", "logger": "src.storage.record_splitter", "level": "info", "event": "records_split", "flat_in": 7, "invoices_out": 3, "line_items_out": 7}
+[JSON] 3 invoice(s) → output\processed\20260609T222825Z\invoices.json
+[JSON] 7 line item(s) → output\processed\20260609T222825Z\line_items.json
+[SQLite] 3 invoice(s) → output/extractions.db
+[SQLite] 7 line item(s) → output/extractions.db
+[SQLite] SQL dump → output\processed\20260609T222825Z\dump.sql
+{"ts": "2026-06-09T22:37:31.145075+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_fallback_start", "documents": 3, "model": "gemma3:4b", "threshold": 0.8}
+{"ts": "2026-06-09T22:37:31.145075+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_pdf_resolved", "file": "invoice_v3_01.pdf", "path": "c:\\Users\\SohamChoudhary\\Downloads\\Documents\\v3_ai_invoice_extraction_pipeline\\sample_pdf\\scan\\invoice_v3_01.pdf"}
+{"ts": "2026-06-09T22:37:31.150491+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_processing", "file": "invoice_v3_01.pdf", "ocr_confidence": 0.535, "model": "gemma3:4b"}
+{"ts": "2026-06-09T22:37:31.510734+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_page_call", "file": "invoice_v3_01.pdf", "page": 1, "model": "gemma3:4b"}
+{"ts": "2026-06-09T22:40:17.171402+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_complete", "file": "invoice_v3_01.pdf", "vision_fields_extracted": 33, "vision_line_items": 2, "agreed": 6, "disagreed": 17, "model": "gemma3:4b"}
+{"ts": "2026-06-09T22:40:17.173762+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_pdf_resolved", "file": "invoice_v3_02.pdf", "path": "c:\\Users\\SohamChoudhary\\Downloads\\Documents\\v3_ai_invoice_extraction_pipeline\\sample_pdf\\scan\\invoice_v3_02.pdf"}
+{"ts": "2026-06-09T22:40:17.174954+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_processing", "file": "invoice_v3_02.pdf", "ocr_confidence": 0.5324, "model": "gemma3:4b"}
+{"ts": "2026-06-09T22:40:17.578158+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_page_call", "file": "invoice_v3_02.pdf", "page": 1, "model": "gemma3:4b"}
+{"ts": "2026-06-09T22:43:24.300225+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_complete", "file": "invoice_v3_02.pdf", "vision_fields_extracted": 29, "vision_line_items": 3, "agreed": 8, "disagreed": 12, "model": "gemma3:4b"}
+{"ts": "2026-06-09T22:43:24.300736+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_pdf_resolved", "file": "invoice_v3_03.pdf", "path": "c:\\Users\\SohamChoudhary\\Downloads\\Documents\\v3_ai_invoice_extraction_pipeline\\sample_pdf\\scan\\invoice_v3_03.pdf"}
+{"ts": "2026-06-09T22:43:24.303784+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_processing", "file": "invoice_v3_03.pdf", "ocr_confidence": 0.5146, "model": "gemma3:4b"}
+{"ts": "2026-06-09T22:43:24.734982+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_page_call", "file": "invoice_v3_03.pdf", "page": 1, "model": "gemma3:4b"}
+{"ts": "2026-06-09T22:46:20.154586+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_complete", "file": "invoice_v3_03.pdf", "vision_fields_extracted": 25, "vision_line_items": 3, "agreed": 7, "disagreed": 10, "model": "gemma3:4b"}
+{"ts": "2026-06-09T22:46:20.176663+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_fallback_done", "vision_invoices": 3, "vision_line_items": 8, "comparisons": 3, "output_dir": "output\\processed\\20260609T222825Z\\vision"}
+{"ts": "2026-06-09T23:23:01.988883+00:00", "logger": "__main__", "level": "info", "event": "pipeline_startup", "model": "gemma3:4b", "vision_model": "gemma3:4b", "threshold": 80, "vision_threshold": 0.8, "input_dir": "sample_pdf/scan", "run_timestamp": "20260609T232301Z"}
+{"ts": "2026-06-09T23:23:02.000133+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T23:23:02.000133+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_01.pdf"}
+{"ts": "2026-06-09T23:23:02.009642+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_01.pdf", "pages": 1, "bytes": 362231}
+{"ts": "2026-06-09T23:23:02.012748+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_01.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T23:23:05.665393+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 286, "avg_conf": 67.5, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T23:23:05.666398+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 67.51, "words": 286}
+{"ts": "2026-06-09T23:23:05.950509+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 67.51, "text_chars": 1570, "low_conf_words": 120}
+{"ts": "2026-06-09T23:26:08.097540+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 182.15, "chars": 1944}
+{"ts": "2026-06-09T23:26:08.104041+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": "INV-2024-00421", "rows": 1}
+pydantic_validation_warnings file=invoice_v3_01.pdf warnings=['TAX_MATH: 32280.0 + 2864.85 = 35144.85 ≠ 10290.0', "INVALID_IBAN: '021000021'", "INVALID_VAT_ID: '8875'"]
+[Validator] invoice_v3_01.pdf — 4 error(s)
+{"ts": "2026-06-09T23:26:08.112704+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.535, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.6751, "field_confidence": 0.0, "validation": 0.6, "completeness": 1.0, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_01.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-09T23:26:08.125019+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_01.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T23:26:08.126804+00:00", "logger": "__main__", "level": "info", "event": "low_confidence_flagged_for_vision", "file": "invoice_v3_01.pdf", "composite_score": 0.535, "vision_model": "gemma3:4b"}
+{"ts": "2026-06-09T23:26:08.142331+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_01.pdf", "invoice_id": "INV-2024-00421", "grand_total": 10290.0, "rows": 1, "model": "gemma3:4b", "action": "human_review", "composite_score": 0.535}
+{"ts": "2026-06-09T23:26:08.161696+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-09T23:26:08.163971+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_02.pdf"}
+{"ts": "2026-06-09T23:26:08.170782+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_02.pdf", "pages": 1, "bytes": 381306}
+{"ts": "2026-06-09T23:26:08.174813+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_02.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T23:26:14.739796+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 349, "avg_conf": 68.7, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T23:26:14.739796+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 68.7, "words": 349}
+{"ts": "2026-06-09T23:26:14.746801+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 68.7, "text_chars": 1919, "low_conf_words": 138}
+{"ts": "2026-06-09T23:30:16.742368+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 241.99, "chars": 2975}
+{"ts": "2026-06-09T23:30:16.752581+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 3}
+pydantic_validation_warnings file=invoice_v3_02.pdf warnings=['TAX_MATH: 29350.0 + 2603.81 = 31953.81 ≠ 29845.0', "INVALID_BIC: 'GENLADE'"]
+pydantic_validation_warnings file=invoice_v3_02.pdf warnings=['TAX_MATH: 29350.0 + 2603.81 = 31953.81 ≠ 29845.0', "INVALID_BIC: 'GENLADE'"]
+pydantic_validation_warnings file=invoice_v3_02.pdf warnings=['TAX_MATH: 29350.0 + 2603.81 = 31953.81 ≠ 29845.0', "INVALID_BIC: 'GENLADE'"]
+[Validator] invoice_v3_02.pdf — 3 error(s)
+{"ts": "2026-06-09T23:30:16.766332+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.532, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.687, "field_confidence": 0.0, "validation": 0.7, "completeness": 0.8, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_02.pdf — reasons: ['confidence_action=human_review', 'validation_errors=3']
+{"ts": "2026-06-09T23:30:16.778990+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_02.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T23:30:16.779991+00:00", "logger": "__main__", "level": "info", "event": "low_confidence_flagged_for_vision", "file": "invoice_v3_02.pdf", "composite_score": 0.5324, "vision_model": "gemma3:4b"}
+{"ts": "2026-06-09T23:30:16.795207+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_02.pdf", "invoice_id": null, "grand_total": 29845.0, "rows": 3, "model": "gemma3:4b", "action": "human_review", "composite_score": 0.5324}
+{"ts": "2026-06-09T23:30:16.809447+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-09T23:30:16.815184+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_start", "file": "invoice_v3_03.pdf"}
+{"ts": "2026-06-09T23:30:16.820181+00:00", "logger": "src.ingestion.loader", "level": "info", "event": "load_ok", "path": "invoice_v3_03.pdf", "pages": 1, "bytes": 410976}
+{"ts": "2026-06-09T23:30:16.824175+00:00", "logger": "src.ingestion.pdf_classifier", "level": "info", "event": "pdf_classified", "path": "sample_pdf/scan\\invoice_v3_03.pdf", "kind": "scanned", "digital": 0, "scanned": 1, "has_xml": false}
+{"ts": "2026-06-09T23:30:23.797429+00:00", "logger": "src.ocr.tesseract_runner", "level": "info", "event": "ocr_complete", "page": 1, "words": 350, "avg_conf": 72.3, "psm": 6, "lang": "deu+eng"}
+{"ts": "2026-06-09T23:30:23.797429+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "ocr_post_preprocess", "page": 1, "avg_conf": 72.31, "words": 350}
+{"ts": "2026-06-09T23:30:23.797429+00:00", "logger": "src.extraction.extractor", "level": "info", "event": "sending_to_llm", "page": 1, "ocr_conf": 72.31, "text_chars": 1889, "low_conf_words": 125}
+{"ts": "2026-06-09T23:34:24.988299+00:00", "logger": "src.extraction.model_client_ollama", "level": "info", "event": "llm_response_ok", "model": "gemma3:4b", "attempt": 1, "latency_s": 241.18, "chars": 2958}
+{"ts": "2026-06-09T23:34:24.993897+00:00", "logger": "src.extraction.merger", "level": "info", "event": "line_items_expanded", "invoice": null, "rows": 3}
+pydantic_validation_warnings file=invoice_v3_03.pdf warnings=['TAX_MATH: 9410.48 + 964.57 = 10375.05 ≠ 13239.74', "INVALID_IBAN: '125000105'"]
+pydantic_validation_warnings file=invoice_v3_03.pdf warnings=['TAX_MATH: 9410.48 + 964.57 = 10375.05 ≠ 13239.74', "INVALID_IBAN: '125000105'"]
+pydantic_validation_warnings file=invoice_v3_03.pdf warnings=['TAX_MATH: 9410.48 + 964.57 = 10375.05 ≠ 13239.74', "INVALID_IBAN: '125000105'"]
+[Validator] invoice_v3_03.pdf — 4 error(s)
+{"ts": "2026-06-09T23:34:25.017180+00:00", "logger": "src.confidence.scorer", "level": "info", "event": "confidence_scored", "composite": 0.515, "tier": "low", "action": "human_review", "breakdown": {"ocr": 0.7231000000000001, "field_confidence": 0.0, "validation": 0.6, "completeness": 0.8, "guardrails": 1.0}}
+[ReviewQueue] Queued: invoice_v3_03.pdf — reasons: ['confidence_action=human_review', 'validation_errors=4']
+{"ts": "2026-06-09T23:34:25.041318+00:00", "logger": "src.pipeline", "level": "info", "event": "pipeline_done", "file": "invoice_v3_03.pdf", "action": "human_review", "valid": false, "review": true}
+{"ts": "2026-06-09T23:34:25.046137+00:00", "logger": "__main__", "level": "info", "event": "low_confidence_flagged_for_vision", "file": "invoice_v3_03.pdf", "composite_score": 0.5146, "vision_model": "gemma3:4b"}
+{"ts": "2026-06-09T23:34:25.066727+00:00", "logger": "__main__", "level": "info", "event": "doc_done", "file": "invoice_v3_03.pdf", "invoice_id": null, "grand_total": 13239.74, "rows": 3, "model": "gemma3:4b", "action": "human_review", "composite_score": 0.5146}
+{"ts": "2026-06-09T23:34:25.075428+00:00", "logger": "__main__", "level": "info", "event": "all_docs_done", "run_timestamp": "20260609T232301Z", "stats": {"processed": 3, "skipped": 0, "quarantined": 0, "failed": 0}, "total_flat_records": 7}
+{"ts": "2026-06-09T23:34:25.077663+00:00", "logger": "src.storage.record_splitter", "level": "info", "event": "records_split", "flat_in": 7, "invoices_out": 3, "line_items_out": 7}
+[JSON] 3 invoice(s) → output\processed\20260609T232301Z\invoices.json
+[JSON] 7 line item(s) → output\processed\20260609T232301Z\line_items.json
+[SQLite] 3 invoice(s) → output/extractions.db
+[SQLite] 7 line item(s) → output/extractions.db
+[SQLite] SQL dump → output\processed\20260609T232301Z\dump.sql
+{"ts": "2026-06-09T23:34:25.192891+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_fallback_start", "documents": 3, "model": "gemma3:4b", "threshold": 0.8}
+{"ts": "2026-06-09T23:34:25.194893+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_pdf_resolved", "file": "invoice_v3_01.pdf", "path": "c:\\Users\\SohamChoudhary\\Downloads\\Documents\\v3_ai_invoice_extraction_pipeline\\sample_pdf\\scan\\invoice_v3_01.pdf"}
+{"ts": "2026-06-09T23:34:25.196882+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_processing", "file": "invoice_v3_01.pdf", "ocr_confidence": 0.535, "model": "gemma3:4b"}
+{"ts": "2026-06-09T23:34:25.634207+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_page_call", "file": "invoice_v3_01.pdf", "page": 1, "model": "gemma3:4b"}
+{"ts": "2026-06-09T23:37:45.965515+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_complete", "file": "invoice_v3_01.pdf", "vision_fields_extracted": 33, "vision_line_items": 2, "agreed": 6, "disagreed": 17, "model": "gemma3:4b"}
+{"ts": "2026-06-09T23:37:45.967997+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_pdf_resolved", "file": "invoice_v3_02.pdf", "path": "c:\\Users\\SohamChoudhary\\Downloads\\Documents\\v3_ai_invoice_extraction_pipeline\\sample_pdf\\scan\\invoice_v3_02.pdf"}
+{"ts": "2026-06-09T23:37:45.968749+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_processing", "file": "invoice_v3_02.pdf", "ocr_confidence": 0.5324, "model": "gemma3:4b"}
+{"ts": "2026-06-09T23:37:46.351612+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_page_call", "file": "invoice_v3_02.pdf", "page": 1, "model": "gemma3:4b"}
+{"ts": "2026-06-09T23:41:33.772790+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_complete", "file": "invoice_v3_02.pdf", "vision_fields_extracted": 29, "vision_line_items": 3, "agreed": 8, "disagreed": 12, "model": "gemma3:4b"}
+{"ts": "2026-06-09T23:41:33.775347+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_pdf_resolved", "file": "invoice_v3_03.pdf", "path": "c:\\Users\\SohamChoudhary\\Downloads\\Documents\\v3_ai_invoice_extraction_pipeline\\sample_pdf\\scan\\invoice_v3_03.pdf"}
+{"ts": "2026-06-09T23:41:33.779724+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_processing", "file": "invoice_v3_03.pdf", "ocr_confidence": 0.5146, "model": "gemma3:4b"}
+{"ts": "2026-06-09T23:41:34.175440+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_page_call", "file": "invoice_v3_03.pdf", "page": 1, "model": "gemma3:4b"}
+{"ts": "2026-06-09T23:45:11.731731+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_complete", "file": "invoice_v3_03.pdf", "vision_fields_extracted": 25, "vision_line_items": 3, "agreed": 7, "disagreed": 10, "model": "gemma3:4b"}
+{"ts": "2026-06-09T23:45:11.748252+00:00", "logger": "src.extraction.vision_fallback", "level": "info", "event": "vision_fallback_done", "vision_invoices": 3, "vision_line_items": 8, "comparisons": 3, "output_dir": "output\\processed\\20260609T232301Z\\vision"}
+{"ts": "2026-06-09T23:45:12.079779+00:00", "logger": "__main__", "level": "info", "event": "vision_copied_to_latest", "dest": "output\\processed\\latest\\vision"}

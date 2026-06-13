@@ -9,6 +9,9 @@ Changes vs previous version:
   4. Timestamped outputs                  → runs never overwrite each other
 
 pipeline.py and all OCR/LLM modules are NOT touched.
+
+app: # Start the API
+uvicorn app.api:app --reload --port 8000
 """
 
 import os
@@ -19,6 +22,7 @@ import pytesseract
 from datetime import datetime, timezone
 from dotenv import load_dotenv
 from tqdm import tqdm
+import shutil
 
 from src.pipeline import run_pipeline
 from src.ingestion.file_tracker import FileTracker, compute_file_hash
@@ -29,6 +33,7 @@ from src.storage.json_writer import write_json
 from src.storage.sqlite_writer import write_sqlite
 from src.observability.logger import setup_logging, get_logger
 from src.observability.metrics import metrics
+from src.extraction.vision_fallback import run_vision_fallback, VISION_THRESHOLD
 
 load_dotenv()
 
@@ -61,10 +66,11 @@ def _load_config() -> dict:
         "log_level":  y["logging"]["level"],
         "tesseract_path": os.getenv(
             "TESSERACT_PATH",
-            r"C:\Users\SohamChoudhary\Downloads\Documents\tesseract\tessdata\tesseract.exe"
+            r"C:\Users\SohamChoudhary\Downloads\Documents\tesseract\tesseract.exe"
         ),
         "json_indent": y["output"]["json_indent"],
         "sqlite_db":   y["output"]["sqlite_db"],
+        "vision_model": os.getenv("VISION_MODEL", y["ollama"].get("vision_model", y["ollama"]["model"])),
     }
 
 
@@ -111,7 +117,9 @@ def main() -> None:
 
     log.info("pipeline_startup",
              model=cfg["ollama_model"],
+             vision_model=cfg["vision_model"],
              threshold=cfg["confidence_threshold"],
+             vision_threshold=VISION_THRESHOLD,
              input_dir=cfg["input_dir"],
              run_timestamp=run_ts)
 
@@ -127,6 +135,8 @@ def main() -> None:
 
     all_flat_records = []   # raw flat dicts from pipeline (one per line item)
     all_file_hashes  = {}   # source_file → file_hash
+    all_results      = []   # full result dicts — used by vision fallback
+    low_conf_results = []   # results where composite score < VISION_THRESHOLD
     stats = {"processed": 0, "skipped": 0, "quarantined": 0, "failed": 0}
 
     for pdf_path in tqdm(pdf_files, desc="Processing PDFs"):
@@ -165,6 +175,7 @@ def main() -> None:
         metrics.start_timer("doc_total")
         result = run_pipeline(pdf_path, cfg)
         metrics.stop_timer("doc_total")
+        result["_pdf_path"] = os.path.abspath(pdf_path)   # absolute path for vision fallback
 
         if result.get("error"):
             tracker.mark(file_hash, source_file, "failed", run_ts,
@@ -189,6 +200,16 @@ def main() -> None:
 
         all_flat_records.extend(records)
         all_file_hashes[source_file] = file_hash
+        all_results.append(result)
+
+        # Track low-confidence docs for vision fallback
+        comp_score = result.get("confidence", {}).get("composite_score", 1.0)
+        if comp_score < VISION_THRESHOLD:
+            low_conf_results.append(result)
+            log.info("low_confidence_flagged_for_vision",
+                     file=source_file,
+                     composite_score=comp_score,
+                     vision_model=cfg["vision_model"])
 
         tracker.mark(
             file_hash, source_file, "success", run_ts,
@@ -200,7 +221,9 @@ def main() -> None:
                  invoice_id=record.get("InvoiceId"),
                  grand_total=record.get("InvGrandTotal"),
                  rows=len(records),
-                 action=result.get("confidence", {}).get("action"))
+                 model=cfg["ollama_model"],
+                 action=result.get("confidence", {}).get("action"),
+                 composite_score=result.get("confidence", {}).get("composite_score"))
 
     log.info("all_docs_done",
              run_timestamp=run_ts,
@@ -237,6 +260,25 @@ def main() -> None:
     if invoice_records or line_item_records:
         write_sqlite(invoice_records, line_item_records, cfg["sqlite_db"], sql_path)
 
+    # ── ADD THIS ──────────────────────────────────────────────
+    if low_conf_results:
+        run_vision_fallback(
+            low_confidence_results=low_conf_results,
+            all_flat_records=all_flat_records,
+            cfg=cfg,
+            run_ts=run_ts,
+            run_dir=run_dir,
+        )
+        # Copy vision outputs to latest/vision/ for evaluation --no-run
+        vision_src = os.path.join(run_dir, "vision")
+        if os.path.isdir(vision_src):
+            latest_vision = os.path.join(out_dir, "processed", "latest", "vision")
+            if os.path.isdir(latest_vision):
+                shutil.rmtree(latest_vision)
+            shutil.copytree(vision_src, latest_vision)
+            log.info("vision_copied_to_latest", dest=latest_vision)
+    # ─────────────────────────────────────────────────────────
+
     # Run summary
     summary_path = os.path.join(run_dir, "run_summary.json")
     summary = {
@@ -261,6 +303,10 @@ def main() -> None:
     print(f"   JSON latest : {out_dir}/processed/latest/")
     print(f"   DB          : {cfg['sqlite_db']}")
     print(f"   Summary     : {summary_path}")
+    if low_conf_results:
+        print(f"   Vision docs : {len(low_conf_results)} re-processed")
+        print(f"   Vision out  : {run_dir}/vision/")
+        print(f"   Comparison  : {run_dir}/vision/comparison.json")
 
 
 if __name__ == "__main__":
