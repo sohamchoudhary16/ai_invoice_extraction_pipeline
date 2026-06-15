@@ -1,0 +1,48 @@
+# .github/workflows/deploy-local.yml
+
+name: Test, Build, Deploy (Local k3d)
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: self-hosted   # ← your machine
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run test suite
+        run: |
+          pip install -r requirements.txt --break-system-packages -q
+          pytest tests/ -v
+        # If any test fails, workflow stops here.
+        # The broken code never gets built or deployed.
+
+      - name: Build Docker image
+        run: |
+          docker build \
+            --build-arg GIT_SHA=${{ github.sha }} \
+            -t localhost:5050/invoice-pipeline:${{ github.sha }} \
+            -t localhost:5050/invoice-pipeline:latest \
+            .
+
+      - name: Push to local registry
+        run: |
+          docker push localhost:5050/invoice-pipeline:${{ github.sha }}
+          docker push localhost:5050/invoice-pipeline:latest
+
+      - name: Deploy to local k3d cluster
+        run: |
+          kubectl set image deployment/invoice-api \
+            invoice-api=localhost:5050/invoice-pipeline:${{ github.sha }}
+
+          # Wait for rollout to complete before marking success
+          kubectl rollout status deployment/invoice-api --timeout=120s
+
+      - name: Verify health
+        run: |
+          sleep 5
+          curl -f http://localhost:8000/health

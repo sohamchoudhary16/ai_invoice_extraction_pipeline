@@ -66,7 +66,7 @@ def _load_config() -> dict:
         "log_level":  y["logging"]["level"],
         "tesseract_path": os.getenv(
             "TESSERACT_PATH",
-            r"C:\Users\SohamChoudhary\Downloads\Documents\tesseract\tesseract.exe"
+            r"D:\tesseract\tesseract.exe"
         ),
         "json_indent": y["output"]["json_indent"],
         "sqlite_db":   y["output"]["sqlite_db"],

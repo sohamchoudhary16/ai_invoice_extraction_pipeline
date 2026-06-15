@@ -1,36 +1,36 @@
 {
   "counters": {
-    "docs_attempted": 3,
-    "docs_scanned": 3,
-    "ocr_pages_total": 3,
-    "llm_calls_success": 3,
-    "docs_queued_review": 3,
-    "docs_processed_ok": 3
+    "docs_attempted": 1,
+    "docs_scanned": 1,
+    "ocr_pages_total": 1,
+    "llm_calls_success": 1,
+    "docs_queued_review": 1,
+    "docs_processed_ok": 1
   },
   "distributions": {
     "ocr_avg_confidence": {
-      "count": 3,
+      "count": 1,
       "min": 67.51,
-      "max": 72.31,
-      "mean": 69.50666666666667
+      "max": 67.51,
+      "mean": 67.51
     },
     "llm_latency_s": {
-      "count": 3,
-      "min": 182.15,
-      "max": 241.99,
-      "mean": 221.7733333333333
+      "count": 1,
+      "min": 106.87,
+      "max": 106.87,
+      "mean": 106.87
     },
     "page_1_seconds": {
-      "count": 3,
-      "min": 186.08928739999828,
-      "max": 248.57547350000823,
-      "mean": 227.61150823333205
+      "count": 1,
+      "min": 114.27638290000004,
+      "max": 114.27638290000004,
+      "mean": 114.27638290000004
     },
     "doc_total_seconds": {
-      "count": 3,
-      "min": 186.11857910000253,
-      "max": 248.61622809999972,
-      "mean": 227.65544153333272
+      "count": 1,
+      "min": 114.88378210000019,
+      "max": 114.88378210000019,
+      "mean": 114.88378210000019
     }
   }
 }

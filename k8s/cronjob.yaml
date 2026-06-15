@@ -17,7 +17,7 @@ spec:
           restartPolicy: OnFailure
           containers:
             - name: pipeline
-              image: v2-ai-invoice-extraction:latest
+              image: ai-invoice-extraction:latest
               imagePullPolicy: Never
               env:
                 - name: TESSERACT_PATH
